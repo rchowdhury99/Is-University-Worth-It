@@ -1,0 +1,38 @@
+---
+title: "STAA57 W19 - Project Proposal"
+author:  "Team 10?"
+output: html_notebook
+---
+
+***
+
+#### Research Questions
+
+1. Specify which questions you will address.
+
+Write a paragraph describing the topic of your investigation and stating specific questions the questions you will investigate.
+
+2. Specify your data analysis plan 
+
+Describe (in words) how you will address these questions using data .
+
+#### Data Description
+
+2. Specify your data sources and data collection methods.
+
+Write a paragraph describing where your data comes from and and how they were collected, providing links/references to your sources. Identify any potential issues related to their appropriateness or representativeness (e.g. bias). 
+
+3. Identify the variables/observations you will use for your analysis.
+
+For each of your data sources, describe which variables and sets of observations are relevant for your analysis.
+
+#### Getting Started 
+
+5. Load data into R.
+
+Provide a copy of the data files, and the commands used to load them into R. 
+
+6. Explore data 
+
+Create three data visualisations which are relevant to your questions.
+
