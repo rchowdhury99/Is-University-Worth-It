@@ -1,0 +1,18 @@
+===Analyze amortization===
+Total degree cost
+living expenses during degree years
+Average income after graduation
+###Find: time taken to amortize degree cost
+
+===Emotional Fulfilment===
+Emotional Fulfilment indicator(EFI)
+EFI per different program
+###Find: what proportion of graduate say they have a 
+    fulfilling career
+
+===Job position growth[non-degree vs degree]===
+Average income after graduation
+Number of Entry level jobs for a degree at graduation
+the proportion of individuals who move to a higher position after
+    a year in the workforce
+###Find: quantitative measure of career growth
