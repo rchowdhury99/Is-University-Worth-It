@@ -64,11 +64,116 @@ The important observation to get from this is the average amount of yearly incom
 
 #### Getting Started 
 
+
 5. Load data into R.
 
 Provide a copy of the data files, and the commands used to load them into R. 
 
+```{r}
+library(tidyverse)
+```
+
+```{r}
+fpath = file.choose()
+MeanSalaries_uoft = read_csv(fpath)
+```
+
+
 6. Explore data 
 
-Create three data visualisations which are relevant to your questions.
+Create three data visualizations which are relevant to your questions.
 
+===Visualizing PayScale Median Uoft Alumni salaries by degree completed===
+Clean:
+```{r}
+MeanSalaries_uoft$Average = str_remove_all(MeanSalaries_uoft$Average, "\\D")
+MeanSalaries_uoft$Average = as.numeric(MeanSalaries_uoft$Average)
+```
+
+
+```{r}
+(degreesOrdered = MeanSalaries_uoft %>% arrange(desc(`Degree/Major Subject`)))
+```
+
+```{r}
+#MeanSalaries_uoft
+
+(Doctrate = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Doc")))
+(Masters = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Master")))
+(Bachelor = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Bachelor")))
+# (Certificate = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Certificate")))
+
+# head(MeanSalaries_uoft) %>% 
+#   ggplot(aes(x=`Degree/Major Subject`, y=Average))+
+#   geom_bar(stat = "identity")
+```
+===Doctrate===
+```{r}
+legend_ord = levels(with(Doctrate, reorder(Doctrate$`Degree/Major Subject`, -Average)))
+
+Doctrate %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
+                       y=Average,
+                       fill = `Degree/Major Subject`))+
+  geom_bar(stat = "identity")+
+  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank())+
+  ggtitle("Average Salary for Uoft Alumni by Doctrate Degree")+
+  ylab("Average Salary")+
+  geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
+  
+```
+
+===Masters===
+
+```{r}
+legend_ord = levels(with(Masters, reorder(Masters$`Degree/Major Subject`, -Average)))
+
+Masters %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
+                       y=Average,
+                       fill = `Degree/Major Subject`))+
+  geom_bar(stat = "identity")+
+  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank())+
+  ggtitle("Average Salary for Uoft Alumni by Masters Degree")+
+  ylab("Average Salary")+
+  geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
+  
+```
+
+===Bachelor===
+
+```{r}
+legend_ord = levels(with(Bachelor, reorder(Bachelor$`Degree/Major Subject`, -Average)))
+
+Bachelor %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
+                       y=Average,
+                       fill = `Degree/Major Subject`))+
+  geom_bar(stat = "identity")+
+  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank())+
+  ggtitle("Average Salary for Uoft Alumni by Bachelor Degree")+
+  ylab("Average Salary")+
+  geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
+  
+```
+
+===Certificate===
+
+```{r}
+# legend_ord = levels(with(Certificate, reorder(Certificate$`Degree/Major Subject`, -Average)))
+# 
+# Certificate %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
+#                        y=Average,
+#                        fill = `Degree/Major Subject`))+
+#   geom_bar(stat = "identity")+
+#   scale_fill_discrete(breaks=legend_ord, name="Certificate Subject")+
+#   theme(axis.title.x = element_blank(),
+#         axis.text.x = element_blank())+
+#   ggtitle("Average Salary for Uoft Alumni by Certificate")+
+#   ylab("Average Salary")+
+#   geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
+  
+```
