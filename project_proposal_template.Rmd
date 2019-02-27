@@ -12,9 +12,22 @@ output: html_notebook
 
 Write a paragraph describing the topic of your investigation and stating specific questions the questions you will investigate.
 
+The topic of the investigation revolves around wether university is worth it or not depending on how long it takes to amortize the money invested in getting the degree.
+
+The first question is "How long does it take for a domestic student in the Statistics BsC to amortize their tuition fee?"
+
+The second question is "How long does it take for an international student in the Statistics BsC to amortize their tuition fee?"
+
+It is important to make a contrast between domestic and international students as their tuition fees have a significant gap so we predict the results will vary greatly.
+
+
 2. Specify your data analysis plan 
 
 Describe (in words) how you will address these questions using data .
+
+We assume students get their job right after their graduation from university. We also assume the cost of living during studying in university is covered. This study will focus on tuition fees. By gathering data on tuition fees for domestic and international students doing a Bachelor of Science degree in the University of Toronto. This data will be acquired from the tuition statistics posted online. After the student graduates and goes to work, we are looking for the data of incomes online. During working period, we assume the student starts to pay or their cost of living. To determine the value for cost of living, we add the data of cost for clothing, commuting, eating, rent, and utilities. Those factors will be acquired from online data sets.
+
+We will compare international and domestic student results. The data handling will focus on first calculating total tuition at the end of an average time period of study. Then calculating the total average yearly income and subtracting the average cost of living in Toronto. Then dividing the total tuition number by the resulting income to get the predicted total time in years that will take to pay their whole tuition.
 
 #### Data Description
 
@@ -25,6 +38,29 @@ Write a paragraph describing where your data comes from and and how they were co
 3. Identify the variables/observations you will use for your analysis.
 
 For each of your data sources, describe which variables and sets of observations are relevant for your analysis.
+
+For the data set that gives us tuition the important variables are:
+* Type of student (Domestic or international)
+* Tuition fee
+* Program type
+
+The important observations to get from this are the different in tuition fees from international and domestic students and the average tuition fee for a domestic and an international student studying a specific program type.
+
+For the data set that gives us average cost of living for a person that has graduated, the important variables are:
+* Cost of clothing
+* Cost of commuting
+* Cost of eating
+* Cost of rent
+* Cost of utilities
+* Extra costs.
+
+The important observation to get from this is the average cost of living in Toronto.
+
+For the data set that gives us average income the important variables are:
+* Amount of income 
+* Program type
+
+The important observation to get from this is the average amount of yearly income from a person who has obtained a degree in a specific program type.
 
 #### Getting Started 
 
