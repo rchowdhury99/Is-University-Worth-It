@@ -1,0 +1,5577 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      CODEBOOK
+
+
+                        Student financial survey, 2001-2002
+                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      Student financial survey, 2001-2002                               Page i
+
+
+                                      CONTENTS
+
+
+      item                                                                page
+
+      CASEID             Survey ID                                           1
+      lang               Language                                            1
+      type               Typology of Students                                1
+      q13                What type of institution are you studying at?       2
+      q14                What type of program are you studying?              2
+      q14a               Degree/certificate this program will give           3
+      q15                Year of current program                             3
+      q16                Are you attending school full-time this term?       3
+      q17                Mature student status                               4
+      q41                Foreign student status                              4
+      q12                Received waiver/reduction in tuition fees for an    4
+      q18                Are you currently employed?                         5
+      q19                How many hours do you work per week on average,     5
+      q20                Intending to be employed throughout the school y    5
+      q21                How many hours per week to you intend to work du    5
+      q23                Could you complete your post-secondary education    6
+      q24                Prefer to attend school on a full-time basis?       6
+      q25                Do you own your own car?                            6
+      q26                How many credit cards do you have?                  6
+      q27                Are you responsible for a mortgage?                 7
+      q28                Do you currently have a personal line of credit     7
+      q6pre              This year, are you receiving financial support f    7
+      q7m1               Who will pay back student debt - 1st response       8
+      q7m2               Who will pay back student debt - 2nd response       8
+      q7m3               Who will pay back student debt - 3rd response       9
+      q7m4               Who will pay back student debt - 4th response       9
+      q8                 Amounts from all sources - more/less than expect   10
+      q9m1               Which one(s) will not be as much as expected - f   10
+      q9m2               Which one(s) will not be as much as expected  -    11
+      q9m3               Which one(s) will not be as much as expected - 3   11
+      q9m4               Which one(s) will not be as much as expected - 4   12
+      q9m5               Which one(s) will not be as much as expected - 5   12
+      q9m6               Which one(s) will not be as much as expected - 6   13
+      q10m1              Which one(s) will be more than expected - 1st re   13
+      q10m2              Which one(s) will be more than expected - 2nd re   14
+      q10m3              Which one(s) will be more than expected - 3rd re   14
+      q10m4              Which one(s) will be more than expected - 4th re   15
+      q10m5              Which one(s) will be more than expected - 5th re   15
+      q10m6              Which one(s) will be more than expected - 6th re   16
+      q11                Will money from all sources be adequate            16
+      q36yy              Date of birth - year                               16
+      q36mm              Date of birth - month                              17
+      q36dd              Date of birth - day                                17
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page ii
+
+
+      item                                                                page
+
+      q31                What is your marital status?                       17
+      q38                Mother tongue                                      17
+      q32                Do you have any dependents?                        18
+      q33                How many dependents do you have?                   18
+      q35                Current living situation?                          18
+      q35b               No. people R shares accommodations with            18
+      q29pr              Did R move to attend school currently studying a   19
+      q29                How far did R move to attend school?               19
+      q39                Highest level of education of FATHER?              20
+      q40                Highest level of education of MOTHER?              20
+      q6                 Percentage of support R expects to pay back        21
+      q22                Employment income over summer                      21
+      q30                Total household income for 2000?                   21
+      q1d                Balance owed on student loans                      21
+      q1e                Balance owed on personal loans/lines of credit     21
+      q1f                Balance owed on all credit cards you charge on     22
+      q1g                Balance for all other debts                        22
+      q2sav              Money saved from employment                        22
+      q2a2               Money from parents (not as a loan)                 22
+      q2b2               Money from spouse (not as a loan)                  22
+      q2c2               Money from other family members (not as a loan)    22
+      q2d2               Government loans                                   22
+      q2e2               Government bursaries/grants                        22
+      q2f2               Other scholarships/grants                          23
+      q2g2               Private student loans/lines of credit              23
+      q2h2               Loans from any family members                      23
+      q2i2               Investment, property income or pensions            23
+      q2j2               Child support or insurance settlements             23
+      q2k2               [Money received from other sources]                23
+      q3a                Accommodation                                      23
+      q3c                Household                                          24
+      q3f                Food (pre-paid meal plan fees)                     24
+      q3e                Clothing/Jewelry (indoor/outdoor, footware, etc)   24
+      q3h                Transportation (car purchase)                      24
+      q3j                Education and Books (tuition, books, etc)          24
+      q3k                Personal Investments (mutual funds, stocks, bond   24
+      q3l                Personal Debt Payment (payments on loans etc)      25
+      q3m                Other (income tax, donations, etc)                 25
+      sex                Gender                                             25
+      age                Respondents Age                                    25
+      o4a                October Personal employment income                 25
+      o4b                October Money from parents (not as a loan)         25
+      o4c                October Money from spouse (not as a loan)          26
+      o4d                October Money from other family members            26
+      ogvtl              October Government loans                           26
+      ogovb              October Government bursaries/grants                26
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                             Page iii
+
+
+      item                                                                page
+
+      oothl              October Other scholarships/grants                  26
+      opvtl              October Private student loans/lines of credit      26
+      o4e                October Loans from any family members              26
+      o4f                October Investment, property income or pensions    26
+      o4g                October Child support or insurance settlements     27
+      o4h                October Money from government assistance           27
+      o4i                October Other Income                               27
+      o5a                October Accommodation                              27
+      o5b                October Electricity                                27
+      o5c                October Heating                                    27
+      o5d                October Telephone                                  27
+      o5e                October Internet                                   28
+      o5f                October Cable                                      28
+      o5e1               October Other utilities                            28
+      o5g                October Household                                  28
+      o5j                October Education and books                        28
+      o5i                October Transportation                             28
+      o5h                October Child care                                 28
+      o5k                October Personal investments                       29
+      o5l                October Personal debt payment                      29
+      o5m                October Other Expenses                             29
+      o6a                October Food                                       29
+      o6b                October Personal/Health Care                       29
+      o6c                October Entertainment/Recreation                   29
+      o6d                October Clothing/Jewelry                           29
+      ochan              Changed e-mail address?                            30
+      n4a                November Personal employment income                30
+      n4b                November Money from parents (not as a loan)        30
+      n4c                November Money from spouse (not as a loan)         30
+      n4d                November Money from other family members           30
+      ngvtl              November Government loans                          30
+      ngovb              November Government bursaries/grants               31
+      nothl              November Other scholarships/grants                 31
+      npvtl              November Private student loans/lines of credit     31
+      n4e                November Loans from any family members             31
+      n4f                November Investment, property income or pensions   31
+      n4g                November Child support or insurance settlements    31
+      n4h                November Money from government assistance          31
+      n4i                November Other Income sources                      32
+      n5a                November Accommodation                             32
+      n5b                November Electricity                               32
+      n5c                November Heating                                   32
+      n5d                November Telephone                                 32
+      n5e                November Internet                                  32
+      n5f                November Cable                                     32
+      n5e1               November Other utilities                           32
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page iv
+
+
+      item                                                                page
+
+      n5g                November Household                                 33
+      n5j                November Education and books                       33
+      n5i                November Transportation                            33
+      n5h                November Child care                                33
+      n5k                November Personal investments                      33
+      n5l                November Personal debt payment                     33
+      n5m                November Other Expenses                            34
+      n6a                November Food                                      34
+      n6d                November Clothing/Jewelry                          34
+      n6b                November Personal/Health Care                      34
+      n6c                November Entertainment/Recreation                  34
+      nchng              Changed e-mail address?                            34
+      d4a                December Personal employment income                35
+      d4b                December Money from parents (not as a loan)        35
+      d4c                December Money from spouse (not as a loan)         35
+      d4d                December Money from other family members           35
+      dgvtl              December Government loans                          35
+      dgovb              December Government bursaries/grants               35
+      dothl              December Other scholarships/grants                 35
+      dpvtl              December Private student loans/lines of credit     36
+      d4e                December Loans from any family members             36
+      d4f                December Investment, property income or pensions   36
+      d4g                December Child support or insurance settlements    36
+      d4h                December Money from government assistance          36
+      d4i                December Other Income sources                      36
+      d5a                December Accommodation                             36
+      d5b                December Electricity                               37
+      d5c                December Heating                                   37
+      d5d                December Telephone                                 37
+      d5e                December Internet                                  37
+      d5f                December Cable                                     37
+      d5e1               December Other utilities                           37
+      d5g                December Household                                 37
+      d5j                December Education and books                       38
+      d5i                December Transportation                            38
+      d5h                December Child care                                38
+      d5k                December Personal investments                      38
+      d5l                December Personal debt payment                     38
+      d5m                December Other Expenses                            38
+      d6a                December Food                                      39
+      d6d                December Clothing/Jewelry                          39
+      d6b                December Personal/Health Care                      39
+      d6c                December Entertainment/Recreation                  39
+      dhang              Changed e-mail address?                            39
+      j4a                January Personal employment income                 39
+      j4b                January Money from parents (not as a loan)         39
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page v
+
+
+      item                                                                page
+
+      j4c                January Money from spouse (not as a loan)          40
+      j4d                January Money from other family members            40
+      jgvtl              January Government loans                           40
+      jgovb              January Government bursaries/grants                40
+      jothl              January Other scholarships/grants                  40
+      jpvtl              January Private student loans/lines of credit      40
+      j4e                January Loans from any family members              40
+      j4f                January Investment, property income or pensions    40
+      j4g                January Child support or insurance settlements     41
+      j4h                January Money from government assistance           41
+      j4i                January Other Income sources                       41
+      j5a                January Accommodation                              41
+      j5b                January Electricity                                41
+      j5c                January Heating                                    41
+      j5d                January Telephone                                  41
+      j5e                January Internet                                   42
+      j5f                January Cable                                      42
+      j5e1               January Other utilities                            42
+      j5g                January Household                                  42
+      j5j                January Education and books                        42
+      j5i                January Transportation                             42
+      j5h                January Child care                                 42
+      j5k                January Personal investments                       43
+      j5l                January Personal debt payment                      43
+      j5m                January Other Expenses                             43
+      j6a                January Food                                       43
+      j6d                January Clothing/Jewelry                           43
+      j6b                January Personal/Health Care                       43
+      j6c                January Entertainment/Recreation                   43
+      jhang              Changed e-mail address?                            44
+      jgrad              Average grade (GPA) for fall 2001 semester?        44
+      jperf              Above/below average academic performance           45
+      jabovm1            Reason(s) for above average performance - 1st re   45
+      jabovm2            Reason(s) for above average performance - 2nd re   46
+      jabovm3            Reason(s) for above average performance - 3rd re   46
+      jabovm4            Reason(s) for above average performance - 4th re   47
+      jbelom1            Reason(s) for below average performance - 1st re   47
+      jbelom2            Reason(s) for below average performance - 2nd re   48
+      jbelom3            Reason(s) for below average performance - 3rd re   48
+      jbelom4            Reason(s) for below average performance - 4th re   49
+      gasst              Government assistance flag                         49
+      f4a                February Personal employment income                49
+      f4b                February Money from parents (not as a loan)        49
+      f4c                February Money from spouse (not as a loan)         49
+      f4d                February Money from other family members           50
+      fgvtl              February Government loans                          50
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page vi
+
+
+      item                                                                page
+
+      fgovb              February Government bursaries/grants               50
+      fothl              February Other scholarships/grants                 50
+      fpvtl              February Private student loans/lines of credit     50
+      f4e                February Loans from any family members             50
+      f4f                February Investment, property income or pensions   50
+      f4g                February Child support or insurance settlements    50
+      f4h                February Money from government assistance          51
+      f4i                February Other Income Sources                      51
+      f5a                February Accommodation                             51
+      f5b                February Electricity                               51
+      f5c                February Heating                                   51
+      f5d                February Telephone                                 51
+      f5e                February Internet                                  51
+      f5f                February Cable                                     52
+      f5e1               February Other utilities                           52
+      f5g                February Household                                 52
+      f5j                February Education and books                       52
+      f5i                February Transportation                            52
+      f5h                February Child care                                52
+      f5k                February Personal investments                      52
+      f5l                February Personal debt payment                     53
+      f5m                February Other Expenses                            53
+      f6a                February Food                                      53
+      f6d                February Clothing/Jewelry                          53
+      f6b                February Personal/Health Care                      53
+      f6c                February Entertainment/Recreation                  53
+      fchn1              Changes to living situation in the past month      54
+      fchng              Living arrangements were still as q35              54
+      fchn3              New living arrangements?                           54
+      fchn4              Month living arrangements changed                  55
+      fwrk               Hours worked per week last semester?               55
+      fwrk2              Hours R intends to work per week this semester     55
+      m4a                March Personal employment income                   55
+      m4b                March Money from parents (not as a loan)           55
+      m4c                March Money from spouse (not as a loan)            56
+      m4d                March Money from other family members              56
+      mgvtl              March Government loans                             56
+      mgovb              March Government bursaries/grants                  56
+      mothl              March Other scholarships/grants                    56
+      mpvtl              March Private student loans/lines of credit        56
+      m4e                March Loans from any family members                56
+      m4f                March Investment, property income or pensions      56
+      m4g                March Child support or insurance settlements       57
+      m4h                March Money from government assistance             57
+      m4i                March Other Income                                 57
+      m5a                March Accommodation                                57
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                             Page vii
+
+
+      item                                                                page
+
+      m5b                March Electricity                                  57
+      m5c                March Heating                                      57
+      m5d                March Telephone                                    57
+      m5e                March Internet                                     58
+      m5f                March Cable                                        58
+      m5e1               March Other utilities                              58
+      m5g                March Household                                    58
+      m5j                March Education and books                          58
+      m5i                March Transportation                               58
+      m5h                March Child care                                   58
+      m5k                March Personal investments                         59
+      m5l                March Personal debt payment                        59
+      m5m                March Other Expenses                               59
+      m6a                March Food                                         59
+      m6d                March Clothing/Jewelry                             59
+      m6b                March Personal/Health Care                         59
+      m6c                March Entertainment/Recreation                     59
+      mchan              March Changed e-mail address?                      60
+      mcarv              Auto ownership                                     60
+      mcars              Why own car                                        60
+      mcarg              Did you purchase/lease/receive car as gift?        61
+      mcary              Year obtaine car                                   61
+      mcarm              Month obtained car (if 2000 or later)              61
+      mmarv              Current value of car                               61
+      mcomp              Access to computer at place of residence?          62
+      mcom3              Onwership of computer at residence                 62
+      mcom2              Frequency use computer facilities at school?       62
+      mcom4              Computer was gift/purchase?                        63
+      mcom5              Computer obtained for studies                      63
+      mcom6              Price of the computer?                             63
+      mcom7              No. years since computer obtained                  63
+      melism1            Other electronics R owns - 1st response            64
+      melism2            Other electronics R owns - 2nd response            64
+      melism3            Other electronics R owns - 3rd response            65
+      melism4            Other electronics R owns - 4th response            65
+      melism5            Other electronics R owns - 5th response            66
+      melism6            Other electronics R owns - 6th response            66
+      melism7            Other electronics R owns - 7th response            67
+      melec              Value of electronics R owns?                       67
+      masst              Total value of assets you own?                     67
+      mcage              What is the age of your car?                       67
+      a4a                April Personal (not household) employment income   68
+      a4b                April Money from parents (not as a loan)           68
+      a4c                April Money from spouse (not as a loan)            68
+      a4d                April Money from other family members              68
+      agvtl              April Government loans                             68
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                            Page viii
+
+
+      item                                                                page
+
+      agovb              April Government bursaries/grants                  68
+      aothl              April Other scholarships/grants                    68
+      apvtl              April Private student loans/lines of credit        69
+      a4e                April Loans from any family members                69
+      a4f                April Investment, property income or pensions      69
+      a4g                April Child support or insurance settlements       69
+      a4h                April Money from government assistance             69
+      a4i                April Other Income                                 69
+      a5a                April Accommodation                                69
+      a5b                April Electricity                                  70
+      a5c                April Heating                                      70
+      a5d                April Telephone                                    70
+      a5e                April Internet                                     70
+      a5f                April Cable                                        70
+      a5e1               April Other utilities                              70
+      a5g                April Household                                    70
+      a5j                April Education and books                          71
+      a5i                April Transportation                               71
+      a5h                April Child care                                   71
+      a5k                April Personal investments                         71
+      a5l                April Personal debt payment                        71
+      a5m                April Other Other Expenses                         71
+      a6a                April Food                                         72
+      a6d                April Clothing/Jewelry                             72
+      a6b                April Personal/Health Care                         72
+      a6c                April Entertainment/Recreation                     72
+      achan              April Changed e-mail address?                      72
+      aborr              Amt in government loans, current school year onl   72
+      y4a                May Personal employment income                     73
+      y4b                May Money from parents (not as a loan)             73
+      y4c                May Money from spouse (not as a loan)              73
+      y4d                May Money from other family members                73
+      ygvtl              May Government loans                               73
+      ygovb              May Government bursaries/grants                    73
+      yothl              May Other scholarships/grants                      73
+      ypvtl              May Private student loans/lines of credit          74
+      y4e                May Loans from any family members                  74
+      y4f                May Investment, property income or pensions        74
+      y4g                May Child support or insurance settlements         74
+      y4h                May Money from government assistance               74
+      y4i                May Other Income                                   74
+      y5a                May Accommodation                                  74
+      y5b                May Electricity                                    75
+      y5c                May Heating                                        75
+      y5d                May Telephone                                      75
+      y5e                May Internet                                       75
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page ix
+
+
+      item                                                                page
+
+      y5f                May Cable                                          75
+      y5e1               May Other utilities                                75
+      y5g                May Household                                      75
+      y5j                May Education and books                            76
+      y5i                May Transportation                                 76
+      y5h                May Child care                                     76
+      y5k                May Personal investments                           76
+      y5l                May Personal debt payment                          76
+      y5m                May Other Other Expenses                           76
+      y6a                May Food                                           77
+      y6d                May Clothing/Jewelry                               77
+      y6b                May Personal/Health Care                           77
+      y6c                May Entertainment/Recreation                       77
+      ychan              May Changed e-mail address?                        77
+      yamte              AMOUNTS RECEIVED more/less than expected           78
+      yspex              EXPENSES more/less than expected                   78
+      ycred              Credit card balance                                78
+      ydone              Graduating this spring?                            79
+      ynxty              Plans for next year?                               79
+      ynore              Primary reason for not returning to school next    79
+      yaend              Like to receive report of responses to this surv   80
+      ybend              Would to be notified of publication of report      80
+      wgt                Weight                                             80
+      iarea              Telephone area code                                81
+      prov               Province                                           81
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 1
+
+
+      CASEID             Survey ID
+
+           Data type: numeric
+           Record/columns: 1/1-4
+
+      ________________________________________________________________________
+
+      lang               Language
+
+           Welcome to the Canadian Student Financial Survey. Thank you for
+           agreeing to participate. On each screen, after selecting your answer,
+           click on the right arrow or left arrow at the bottom of the screen
+           to move from screen to screen in the questionnaire. The stop button
+           is only used to exit the survey, if you wish to complete it at another time.
+           The "DEFINITIONS" button will only be needed later in the survey. We will
+           draw your attention to it then.
+
+           Bienvenue au Sondage financier des etudiants canadiens. Nous vous
+           remercions pour votre participation. Sur chaque ecran, apres avoir
+           choisi votre reponse, cliquez sur la fleche de droite ou de gauche au
+           bas de l'ecran afin de passer d'un ecran a un autre du questionnaire.
+           Vous pouvez utiliser le bouton "d'arret" pour quitter le sondage si vous
+           souhaitez le completer plus tard. Le bouton "Definitions" ne servira que
+           plus tard dans le sondage. Nous vous le signalerons au monent opportun.
+
+           What language would you like to complete the survey in? Dans quelle langue
+           preferez-vous completer le sondage?
+
+           VALUE  LABEL
+               1  English
+               2  Francais
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/6
+
+      ________________________________________________________________________
+
+      type               Typology of Students
+
+           VALUE  LABEL
+               1  At Home, Working
+               2  Working Mature
+               3  Studying Mature
+               4  Traditional Non-working
+               5  Traditional Working
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/8
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 2
+
+
+      q13                What type of institution are you studying at?
+
+           VALUE  LABEL
+               1  Public university
+               2  Private university
+               3  Public academic/technical/vocational col
+               4  Private academic college/CEGEP
+               5  Other
+               9  No answer
+
+           Data type: numeric
+           Missing-data codes: 9,9
+           Record/column: 1/10
+
+      ________________________________________________________________________
+
+      q14                What type of program are you studying?
+
+           VALUE  LABEL
+               1  Fine Arts
+               2  Business, Commerce, Management and Admin
+               3  Education
+               4  Engineering and Engineering Technologies
+               5  Humanities
+               6  Medicine and Health
+               7  Natural Science and Primary Technologies
+               8  Physical Sciences
+               9  Social Sciences
+              10  Interdisciplinary Sciences
+              11  Computer Science
+              12  Law
+              98  Other
+              99  No answer
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/12-13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 3
+
+
+      q14a               Degree/certificate this program will give
+
+           What type of degree/certificate will this program give you?
+
+           VALUE  LABEL
+               1  College/CEGEP diploma/certificate
+               2  University Certificate
+               3  Bachelor's Degree
+               4  Master's Degree
+               5  Professional Degree
+               6  Doctoral Degree
+               9  Other
+
+           Data type: numeric
+           Missing-data codes: 9-*
+           Record/columns: 1/15-16
+
+      ________________________________________________________________________
+
+      q15                Year of current program
+
+           What year of your current program are you in? (I.e., if you
+           are in the second year of a Masters program, please indicate year 2).
+           (Please enter -1 if you don't know.)
+
+           Data type: numeric
+           Missing-data code: -1
+           Record/columns: 1/18-19
+
+      ________________________________________________________________________
+
+      q16                Are you attending school full-time this term?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+              99  No answer
+
+           Data type: numeric
+           Missing-data code: 99
+           Record/column: 1/21
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 4
+
+
+      q17                Mature student status
+
+           Are you considered by your school to be a mature student
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/23
+
+      ________________________________________________________________________
+
+      q41                Foreign student status
+
+           Are you considered to be a foreign student, that is, not a
+           permanent resident of Canada for at least 12 months prior to
+           starting your formal post-secondary education?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/25
+
+      ________________________________________________________________________
+
+      q12                Received waiver/reduction in tuition fees for any reason?
+
+           Have you received a waiver or a reduction in your tuition
+           fees for school this year for any reason (e.g., parent in on the
+           faculty at the school you are attending, etc.)?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/27
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 5
+
+
+      q18                Are you currently employed?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/29
+
+      ________________________________________________________________________
+
+      q19                How many hours do you work per week on average, considering all jobs that you have?
+
+           How many hours do you work per week on average, considering
+           all jobs that you have?
+
+           Data type: numeric
+           Record/columns: 1/31-32
+
+      ________________________________________________________________________
+
+      q20                Intending to be employed throughout the school year?
+
+           Are you intending to be employed throughout the school year?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/34
+
+      ________________________________________________________________________
+
+      q21                How many hours per week to you intend to work during the school year?
+
+           How many hours per week to you intend to work during the
+           school year? (Indicate average number of house per week.)
+
+           Data type: numeric
+           Record/columns: 1/36-37
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 6
+
+
+      q23                Could you complete your post-secondary education more quickly if
+
+           Could you complete your post-secondary education more quickly if you
+           didn't need to work? (In other words, have you had to compromise the
+           speed of your education because of employment?)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/39
+
+      ________________________________________________________________________
+
+      q24                Prefer to attend school on a full-time basis?
+
+           Would you prefer to attend school on a full-time basis?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/41
+
+      ________________________________________________________________________
+
+      q25                Do you own your own car?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/43
+
+      ________________________________________________________________________
+
+      q26                How many credit cards do you have?
+
+           Data type: numeric
+           Record/columns: 1/45-46
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 7
+
+
+      q27                Are you responsible for a mortgage?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/48
+
+      ________________________________________________________________________
+
+      q28                Do you currently have a personal line of credit at a financial institution?
+
+           Do you currently have a personal line of credit at a financial
+           institution?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/50
+
+      ________________________________________________________________________
+
+      q6pre              This year, are you receiving financial support from your parents or other family members toward your education?
+
+           This year, are you receiving financial support from your
+           parent(s) or other family members toward your education?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/52
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 8
+
+
+      q7m1               Who will pay back student debt - 1st response
+
+           Who will be paying back your student debt (from loans, lines
+           of credit, and credit cards) from this school year? (Select all that apply.)
+
+           VALUE  LABEL
+               1  Will pay back myself
+               2  Parents will pay back
+               4  Spouse will pay back
+               5  Others will pay back
+               6  Do not expect to have student debt
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/54
+
+      ________________________________________________________________________
+
+      q7m2               Who will pay back student debt - 2nd response
+
+           Who will be paying back your student debt (from loans, lines
+           of credit, and credit cards) from this school year? (Select all that apply.)
+
+           VALUE  LABEL
+               1  Will pay back myself
+               2  Parents will pay back
+               4  Spouse will pay back
+               5  Others will pay back
+               6  Do not expect to have student debt
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/56
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                               Page 9
+
+
+      q7m3               Who will pay back student debt - 3rd response
+
+           Who will be paying back your student debt (from loans, lines
+           of credit, and credit cards) from this school year? (Select all that apply.)
+
+           VALUE  LABEL
+               1  Will pay back myself
+               2  Parents will pay back
+               4  Spouse will pay back
+               5  Others will pay back
+               6  Do not expect to have student debt
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/58
+
+      ________________________________________________________________________
+
+      q7m4               Who will pay back student debt - 4th response
+
+           Who will be paying back your student debt (from loans, lines
+           of credit, and credit cards) from this school year? (Select all that apply.)
+
+           VALUE  LABEL
+               1  Will pay back myself
+               2  Parents will pay back
+               4  Spouse will pay back
+               5  Others will pay back
+               6  Do not expect to have student debt
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/columns: 1/60-69
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 10
+
+
+      q8                 Amounts from all sources - more/less than expected
+
+           Do you think that the amounts that you have or will receive from all sources
+           will be more than, less than or about the same as what you expected them
+           to be when you made plans for the school year?
+
+           VALUE  LABEL
+               1  More than expected
+               2  Less than expected
+               3  The same
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/71
+
+      ________________________________________________________________________
+
+      q9m1               Which one(s) will not be as much as expected - first response
+
+           Which one(s) will not be as much as you expected them to be?
+           - first response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/73
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 11
+
+
+      q9m2               Which one(s) will not be as much as expected  - 2nd response
+
+           Which one(s) will not be as much as you expected them to be?
+           - second response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/75
+
+      ________________________________________________________________________
+
+      q9m3               Which one(s) will not be as much as expected - 3rd response
+
+           Which one(s) will not be as much as you expected them to be?
+           - third response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/77
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 12
+
+
+      q9m4               Which one(s) will not be as much as expected - 4th response
+
+           Which one(s) will not be as much as you expected them to be?
+           - fourth response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/79
+
+      ________________________________________________________________________
+
+      q9m5               Which one(s) will not be as much as expected - 5th response
+
+           Which one(s) will not be as much as you expected them to be?
+           - fifth response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/81
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 13
+
+
+      q9m6               Which one(s) will not be as much as expected - 6th response
+
+           Which one(s) will not be as much as you expected them to be?
+           - sixth response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/columns: 1/83-92
+
+      ________________________________________________________________________
+
+      q10m1              Which one(s) will be more than expected - 1st response
+
+           Which one(s) will be more than you expected them to be?
+           - first response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/94
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 14
+
+
+      q10m2              Which one(s) will be more than expected - 2nd response
+
+           Which one(s) will be more than you expected them to be?
+           - second response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/96
+
+      ________________________________________________________________________
+
+      q10m3              Which one(s) will be more than expected - 3rd response
+
+           Which one(s) will be more than you expected them to be?
+           - third response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/98
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 15
+
+
+      q10m4              Which one(s) will be more than expected - 4th response
+
+           Which one(s) will be more than you expected them to be?
+           - fourth response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/columns: 1/100-109
+
+      ________________________________________________________________________
+
+      q10m5              Which one(s) will be more than expected - 5th response
+
+           Which one(s) will be more than you expected them to be?
+           - fifth response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/columns: 1/111-120
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 16
+
+
+      q10m6              Which one(s) will be more than expected - 6th response
+
+           Which one(s) will be more than you expected them to be?
+           - sixth response.
+
+           VALUE  LABEL
+               1  Employment income
+               2  Support from parents
+               3  Gov. student loans
+               4  Financial student loans
+               5  Bursaries/scholarships
+               6  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/columns: 1/122-131
+
+      ________________________________________________________________________
+
+      q11                Will money from all sources be adequate
+
+           Do you believe that the money you will draw from all sources
+           will be adequate to meet your financial needs during the school
+           year?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/133
+
+      ________________________________________________________________________
+
+      q36yy              Date of birth - year
+
+           What is your date of birth? - year
+
+           Data type: numeric
+           Record/columns: 1/135-138
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 17
+
+
+      q36mm              Date of birth - month
+
+           What is your date of birth? - year
+
+           Data type: numeric
+           Record/columns: 1/140-141
+
+      ________________________________________________________________________
+
+      q36dd              Date of birth - day
+
+           What is your date of birth? - year
+
+           Data type: numeric
+           Record/columns: 1/143-144
+
+      ________________________________________________________________________
+
+      q31                What is your marital status?
+
+           What is your marital status?
+
+           VALUE  LABEL
+               1  Single
+               2  Married or common-law
+               3  Separated
+               4  Divorced
+               5  Widowed
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/146
+
+      ________________________________________________________________________
+
+      q38                Mother tongue
+
+           What is the language that you first learned at home in
+           childhood and still understand?
+
+           VALUE  LABEL
+               1  English
+               2  French
+              98  Other
+              99  No answer
+
+           Data type: numeric
+           Missing-data codes: 98-*
+           Record/columns: 1/148-149
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 18
+
+
+      q32                Do you have any dependents?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/151
+
+      ________________________________________________________________________
+
+      q33                How many dependents do you have?
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/153
+
+      ________________________________________________________________________
+
+      q35                Current living situation?
+
+           Which of the following best describes your current living
+           situation?
+
+           VALUE  LABEL
+               1  Living with parent(s)
+               2  Living with spouse
+               3  Living alone
+               4  Living with roommates
+               5  Alone with dependents
+               6  Something else
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/155
+
+      ________________________________________________________________________
+
+      q35b               No. people R shares accommodations with
+
+           How many other people do you share your accommodations with?
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/157
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 19
+
+
+      q29pr              Did R move to attend school currently studying at?
+
+           Did you move to a new community in order to be able to
+           attend the school you are currently studying at?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+              99  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/159
+
+      ________________________________________________________________________
+
+      q29                How far did R move to attend school?
+
+           How far away did you move in order to attend school?
+
+           VALUE  LABEL
+               1  Less than 20 kms
+               2  20-70 kms
+               3  More than 70 kms
+               9  No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/161
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 20
+
+
+      q39                Highest level of education of FATHER?
+
+           What is the highest level of education completed by your FATHER?
+
+           VALUE  LABEL
+               1  Public/Elementary
+               2  Some high school
+               3  Graduated from HS
+               4  Community/Tech. college
+               5  Trade certification
+               6  Some college/university
+               7  Bachelor's degree
+               8  Profess. certification
+               9  Graduate degree
+              97  Something else
+              99  Don't know/No answer
+
+           Data type: numeric
+           Missing-data codes: 97-*
+           Record/columns: 1/163-164
+
+      ________________________________________________________________________
+
+      q40                Highest level of education of MOTHER?
+
+           What is the highest level of education completed by your MOTHER?
+
+           VALUE  LABEL
+               1  Public/Elementary
+               2  Some high school
+               3  Graduated from HS
+               4  Community/Tech. college
+               5  Trade certification
+               6  Some college/university
+               7  Bachelor's degree
+               8  Profess. certification
+               9  Graduate degree
+              97  Something else
+              99  Don't know/No answer
+
+           Data type: numeric
+           Missing-data codes: 97-*
+           Record/columns: 1/166-167
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 21
+
+
+      q6                 Percentage of support R expects to pay back
+
+           What percentage of the financial support that you will receive from your parent(s)
+           or other family members this year, to finance your education, do you expect to
+           have to pay back? (Please enter a percentage between 0 and 100.)
+
+           Data type: numeric
+           Record/columns: 1/169-171
+
+      ________________________________________________________________________
+
+      q22                Employment income over summer
+
+           Approximately how much did you earn in employment income (in take home pay,
+           after all deductions) from all sources over the course of the summer
+           (from May to August)?
+
+           Data type: numeric
+           Record/columns: 1/173-177
+
+      ________________________________________________________________________
+
+      q30                Total household income for 2000?
+
+           What was your approximate total household income for 2000?
+           For this question, consider only the income within the family unit.
+           This would include you and your spouse/partner and children, if any.
+           It would include you and your parents if you live with them. IT WOULD
+           NOT INCLUDE THE INCOME OF ROOMMATES, if you have any.
+
+           Data type: numeric
+           Missing-data code: -1
+           Record/columns: 1/179-184
+
+      ________________________________________________________________________
+
+      q1d                Balance owed on student loans
+
+           Data type: numeric
+           Record/columns: 1/186-190
+
+      ________________________________________________________________________
+
+      q1e                Balance owed on personal loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/192-196
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 22
+
+
+      q1f                Balance owed on all credit cards you charge on
+
+           Data type: numeric
+           Record/columns: 1/198-202
+
+      ________________________________________________________________________
+
+      q1g                Balance for all other debts
+
+           Data type: numeric
+           Record/columns: 1/204-208
+
+      ________________________________________________________________________
+
+      q2sav              Money saved from employment
+
+           Data type: numeric
+           Record/columns: 1/210-214
+
+      ________________________________________________________________________
+
+      q2a2               Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/216-220
+
+      ________________________________________________________________________
+
+      q2b2               Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/222-226
+
+      ________________________________________________________________________
+
+      q2c2               Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/228-231
+
+      ________________________________________________________________________
+
+      q2d2               Government loans
+
+           Data type: numeric
+           Record/columns: 1/233-237
+
+      ________________________________________________________________________
+
+      q2e2               Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/239-243
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 23
+
+
+      q2f2               Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/245-249
+
+      ________________________________________________________________________
+
+      q2g2               Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/251-255
+
+      ________________________________________________________________________
+
+      q2h2               Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/257-261
+
+      ________________________________________________________________________
+
+      q2i2               Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/263-267
+
+      ________________________________________________________________________
+
+      q2j2               Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/269-273
+
+      ________________________________________________________________________
+
+      q2k2               [Money received from other sources]
+
+           Data type: numeric
+           Record/columns: 1/275-279
+
+      ________________________________________________________________________
+
+      q3a                Accommodation
+
+           Accommodation (pre-paid residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/281-285
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 24
+
+
+      q3c                Household
+
+           Household (pre-paid supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/287-291
+
+      ________________________________________________________________________
+
+      q3f                Food (pre-paid meal plan fees)
+
+           Data type: numeric
+           Record/columns: 1/293-297
+
+      ________________________________________________________________________
+
+      q3e                Clothing/Jewelry (indoor/outdoor, footware, etc)
+
+           Clothing/Jewelry (indoor/outdoor, footware, accessories needed for
+           school year)
+
+           Data type: numeric
+           Record/columns: 1/299-302
+
+      ________________________________________________________________________
+
+      q3h                Transportation (car purchase)
+
+           Data type: numeric
+           Record/columns: 1/304-308
+
+      ________________________________________________________________________
+
+      q3j                Education and Books (tuition, books, etc)
+
+           Education and Books (tuition, books, supplies, computer,
+           fees, school health insurance)
+
+           Data type: numeric
+           Record/columns: 1/310-314
+
+      ________________________________________________________________________
+
+      q3k                Personal Investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/316-320
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 25
+
+
+      q3l                Personal Debt Payment (payments on loans etc)
+
+           Personal Debt Payment (payments on loans/lines of credit in advance
+           of school year)
+
+           Data type: numeric
+           Record/columns: 1/322-326
+
+      ________________________________________________________________________
+
+      q3m                Other (income tax, donations, etc)
+
+           Other (income tax, donations, dues, fees for clubs, work related
+           expenses)
+
+           Data type: numeric
+           Record/columns: 1/328-332
+
+      ________________________________________________________________________
+
+      sex                Gender
+
+           VALUE  LABEL
+               1  Male
+               2  Female
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/334
+
+      ________________________________________________________________________
+
+      age                Respondents Age
+
+           Data type: numeric
+           Record/columns: 1/336-337
+
+      ________________________________________________________________________
+
+      o4a                October Personal employment income
+
+           October Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/339-343
+
+      ________________________________________________________________________
+
+      o4b                October Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/345-349
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 26
+
+
+      o4c                October Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/351-354
+
+      ________________________________________________________________________
+
+      o4d                October Money from other family members
+
+           October Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/356-360
+
+      ________________________________________________________________________
+
+      ogvtl              October Government loans
+
+           Data type: numeric
+           Record/columns: 1/362-366
+
+      ________________________________________________________________________
+
+      ogovb              October Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/368-372
+
+      ________________________________________________________________________
+
+      oothl              October Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/374-378
+
+      ________________________________________________________________________
+
+      opvtl              October Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/380-384
+
+      ________________________________________________________________________
+
+      o4e                October Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/386-390
+
+      ________________________________________________________________________
+
+      o4f                October Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/392-396
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 27
+
+
+      o4g                October Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/398-401
+
+      ________________________________________________________________________
+
+      o4h                October Money from government assistance
+
+           October Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/403-406
+
+      ________________________________________________________________________
+
+      o4i                October Other Income
+
+           Data type: numeric
+           Record/columns: 1/408-412
+
+      ________________________________________________________________________
+
+      o5a                October Accommodation
+
+           October Accommodation (residence fees, mortgage/rent, insurance
+
+           Data type: numeric
+           Record/columns: 1/414-418
+
+      ________________________________________________________________________
+
+      o5b                October Electricity
+
+           Data type: numeric
+           Record/columns: 1/420-422
+
+      ________________________________________________________________________
+
+      o5c                October Heating
+
+           Data type: numeric
+           Record/columns: 1/424-426
+
+      ________________________________________________________________________
+
+      o5d                October Telephone
+
+           Data type: numeric
+           Record/columns: 1/428-430
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 28
+
+
+      o5e                October Internet
+
+           Data type: numeric
+           Record/columns: 1/432-433
+
+      ________________________________________________________________________
+
+      o5f                October Cable
+
+           Data type: numeric
+           Record/columns: 1/435-437
+
+      ________________________________________________________________________
+
+      o5e1               October Other utilities
+
+           Data type: numeric
+           Record/columns: 1/439-442
+
+      ________________________________________________________________________
+
+      o5g                October Household
+
+           October Household (supplies/services, furniture/appliances, equipment)
+
+           Data type: numeric
+           Record/columns: 1/444-447
+
+      ________________________________________________________________________
+
+      o5j                October Education and books
+
+           October Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/449-453
+
+      ________________________________________________________________________
+
+      o5i                October Transportation
+
+           October Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/455-458
+
+      ________________________________________________________________________
+
+      o5h                October Child care
+
+           Data type: numeric
+           Record/columns: 1/460-462
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 29
+
+
+      o5k                October Personal investments
+
+           October Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/464-468
+
+      ________________________________________________________________________
+
+      o5l                October Personal debt payment
+
+           October Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/470-474
+
+      ________________________________________________________________________
+
+      o5m                October Other Expenses
+
+           October Other Expenses (income tax, donations, dues, fees
+           for clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/476-479
+
+      ________________________________________________________________________
+
+      o6a                October Food
+
+           Data type: numeric
+           Record/columns: 1/481-484
+
+      ________________________________________________________________________
+
+      o6b                October Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/486-489
+
+      ________________________________________________________________________
+
+      o6c                October Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/491-494
+
+      ________________________________________________________________________
+
+      o6d                October Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/496-500
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 30
+
+
+      ochan              Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/502
+
+      ________________________________________________________________________
+
+      n4a                November Personal employment income
+
+           November Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/504-508
+
+      ________________________________________________________________________
+
+      n4b                November Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/510-513
+
+      ________________________________________________________________________
+
+      n4c                November Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/515-518
+
+      ________________________________________________________________________
+
+      n4d                November Money from other family members
+
+           November Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/520-524
+
+      ________________________________________________________________________
+
+      ngvtl              November Government loans
+
+           Data type: numeric
+           Record/columns: 1/526-529
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 31
+
+
+      ngovb              November Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/531-534
+
+      ________________________________________________________________________
+
+      nothl              November Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/536-539
+
+      ________________________________________________________________________
+
+      npvtl              November Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/541-545
+
+      ________________________________________________________________________
+
+      n4e                November Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/547-551
+
+      ________________________________________________________________________
+
+      n4f                November Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/553-557
+
+      ________________________________________________________________________
+
+      n4g                November Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/559-562
+
+      ________________________________________________________________________
+
+      n4h                November Money from government assistance
+
+           November Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/564-567
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 32
+
+
+      n4i                November Other Income sources
+
+           Data type: numeric
+           Record/columns: 1/569-573
+
+      ________________________________________________________________________
+
+      n5a                November Accommodation
+
+           November Accommodation (residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/575-579
+
+      ________________________________________________________________________
+
+      n5b                November Electricity
+
+           Data type: numeric
+           Record/columns: 1/581-583
+
+      ________________________________________________________________________
+
+      n5c                November Heating
+
+           Data type: numeric
+           Record/columns: 1/585-587
+
+      ________________________________________________________________________
+
+      n5d                November Telephone
+
+           Data type: numeric
+           Record/columns: 1/589-591
+
+      ________________________________________________________________________
+
+      n5e                November Internet
+
+           Data type: numeric
+           Record/columns: 1/593-595
+
+      ________________________________________________________________________
+
+      n5f                November Cable
+
+           Data type: numeric
+           Record/columns: 1/597-599
+
+      ________________________________________________________________________
+
+      n5e1               November Other utilities
+
+           Data type: numeric
+           Record/columns: 1/601-603
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 33
+
+
+      n5g                November Household
+
+           November Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/605-608
+
+      ________________________________________________________________________
+
+      n5j                November Education and books
+
+           November Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/610-614
+
+      ________________________________________________________________________
+
+      n5i                November Transportation
+
+           November Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/616-620
+
+      ________________________________________________________________________
+
+      n5h                November Child care
+
+           Data type: numeric
+           Record/columns: 1/622-625
+
+      ________________________________________________________________________
+
+      n5k                November Personal investments
+
+           November Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/627-631
+
+      ________________________________________________________________________
+
+      n5l                November Personal debt payment
+
+           November Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/633-636
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 34
+
+
+      n5m                November Other Expenses
+
+           November Other Expenses (income tax, donations, dues, fees for
+           clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/638-641
+
+      ________________________________________________________________________
+
+      n6a                November Food
+
+           Data type: numeric
+           Record/columns: 1/643-646
+
+      ________________________________________________________________________
+
+      n6d                November Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/648-651
+
+      ________________________________________________________________________
+
+      n6b                November Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/653-657
+
+      ________________________________________________________________________
+
+      n6c                November Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/659-662
+
+      ________________________________________________________________________
+
+      nchng              Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/664
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 35
+
+
+      d4a                December Personal employment income
+
+           December Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/666-669
+
+      ________________________________________________________________________
+
+      d4b                December Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/671-674
+
+      ________________________________________________________________________
+
+      d4c                December Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/676-679
+
+      ________________________________________________________________________
+
+      d4d                December Money from other family members
+
+           December Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/681-685
+
+      ________________________________________________________________________
+
+      dgvtl              December Government loans
+
+           Data type: numeric
+           Record/columns: 1/687-690
+
+      ________________________________________________________________________
+
+      dgovb              December Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/692-695
+
+      ________________________________________________________________________
+
+      dothl              December Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/697-700
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 36
+
+
+      dpvtl              December Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/702-706
+
+      ________________________________________________________________________
+
+      d4e                December Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/708-711
+
+      ________________________________________________________________________
+
+      d4f                December Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/713-716
+
+      ________________________________________________________________________
+
+      d4g                December Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/718-721
+
+      ________________________________________________________________________
+
+      d4h                December Money from government assistance
+
+           December Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/723-726
+
+      ________________________________________________________________________
+
+      d4i                December Other Income sources
+
+           Data type: numeric
+           Record/columns: 1/728-731
+
+      ________________________________________________________________________
+
+      d5a                December Accommodation
+
+           December Accommodation (residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/733-737
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 37
+
+
+      d5b                December Electricity
+
+           Data type: numeric
+           Record/columns: 1/739-741
+
+      ________________________________________________________________________
+
+      d5c                December Heating
+
+           Data type: numeric
+           Record/columns: 1/743-745
+
+      ________________________________________________________________________
+
+      d5d                December Telephone
+
+           Data type: numeric
+           Record/columns: 1/747-749
+
+      ________________________________________________________________________
+
+      d5e                December Internet
+
+           Data type: numeric
+           Record/columns: 1/751-753
+
+      ________________________________________________________________________
+
+      d5f                December Cable
+
+           Data type: numeric
+           Record/columns: 1/755-757
+
+      ________________________________________________________________________
+
+      d5e1               December Other utilities
+
+           Data type: numeric
+           Record/columns: 1/759-761
+
+      ________________________________________________________________________
+
+      d5g                December Household
+
+           December Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/763-766
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 38
+
+
+      d5j                December Education and books
+
+           December Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/768-771
+
+      ________________________________________________________________________
+
+      d5i                December Transportation
+
+           December Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/773-776
+
+      ________________________________________________________________________
+
+      d5h                December Child care
+
+           Data type: numeric
+           Record/columns: 1/778-780
+
+      ________________________________________________________________________
+
+      d5k                December Personal investments
+
+           December Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/782-785
+
+      ________________________________________________________________________
+
+      d5l                December Personal debt payment
+
+           December Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/787-791
+
+      ________________________________________________________________________
+
+      d5m                December Other Expenses
+
+           December Other Expenses (income tax, donations, dues,
+           fees for clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/793-796
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 39
+
+
+      d6a                December Food
+
+           Data type: numeric
+           Record/columns: 1/798-801
+
+      ________________________________________________________________________
+
+      d6d                December Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/803-806
+
+      ________________________________________________________________________
+
+      d6b                December Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/808-811
+
+      ________________________________________________________________________
+
+      d6c                December Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/813-816
+
+      ________________________________________________________________________
+
+      dhang              Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/818
+
+      ________________________________________________________________________
+
+      j4a                January Personal employment income
+
+           January Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/820-824
+
+      ________________________________________________________________________
+
+      j4b                January Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/826-830
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 40
+
+
+      j4c                January Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/832-835
+
+      ________________________________________________________________________
+
+      j4d                January Money from other family members
+
+           January Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/837-841
+
+      ________________________________________________________________________
+
+      jgvtl              January Government loans
+
+           Data type: numeric
+           Record/columns: 1/843-846
+
+      ________________________________________________________________________
+
+      jgovb              January Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/848-851
+
+      ________________________________________________________________________
+
+      jothl              January Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/853-856
+
+      ________________________________________________________________________
+
+      jpvtl              January Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/858-861
+
+      ________________________________________________________________________
+
+      j4e                January Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/863-866
+
+      ________________________________________________________________________
+
+      j4f                January Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/868-872
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 41
+
+
+      j4g                January Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/874-878
+
+      ________________________________________________________________________
+
+      j4h                January Money from government assistance
+
+           January Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/880-883
+
+      ________________________________________________________________________
+
+      j4i                January Other Income sources
+
+           Data type: numeric
+           Record/columns: 1/885-888
+
+      ________________________________________________________________________
+
+      j5a                January Accommodation
+
+           January Accommodation (residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/890-893
+
+      ________________________________________________________________________
+
+      j5b                January Electricity
+
+           Data type: numeric
+           Record/columns: 1/895-897
+
+      ________________________________________________________________________
+
+      j5c                January Heating
+
+           Data type: numeric
+           Record/columns: 1/899-901
+
+      ________________________________________________________________________
+
+      j5d                January Telephone
+
+           Data type: numeric
+           Record/columns: 1/903-905
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 42
+
+
+      j5e                January Internet
+
+           Data type: numeric
+           Record/columns: 1/907-909
+
+      ________________________________________________________________________
+
+      j5f                January Cable
+
+           Data type: numeric
+           Record/columns: 1/911-913
+
+      ________________________________________________________________________
+
+      j5e1               January Other utilities
+
+           Data type: numeric
+           Record/columns: 1/915-917
+
+      ________________________________________________________________________
+
+      j5g                January Household
+
+           January Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/919-922
+
+      ________________________________________________________________________
+
+      j5j                January Education and books
+
+           January Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/924-928
+
+      ________________________________________________________________________
+
+      j5i                January Transportation
+
+           January Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/930-933
+
+      ________________________________________________________________________
+
+      j5h                January Child care
+
+           Data type: numeric
+           Record/columns: 1/935-937
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 43
+
+
+      j5k                January Personal investments
+
+           January Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/939-942
+
+      ________________________________________________________________________
+
+      j5l                January Personal debt payment
+
+           January Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/944-947
+
+      ________________________________________________________________________
+
+      j5m                January Other Expenses
+
+           January Other Expenses(income tax, donations, dues, fees for
+           clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/949-952
+
+      ________________________________________________________________________
+
+      j6a                January Food
+
+           Data type: numeric
+           Record/columns: 1/954-957
+
+      ________________________________________________________________________
+
+      j6d                January Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/959-962
+
+      ________________________________________________________________________
+
+      j6b                January Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/964-967
+
+      ________________________________________________________________________
+
+      j6c                January Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/969-972
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 44
+
+
+      jhang              Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/974
+
+      ________________________________________________________________________
+
+      jgrad              Average grade (GPA) for fall 2001 semester?
+
+           Approximately, what was your average grade (GPA) for your fall
+           2001 semester?
+
+           VALUE  LABEL
+               1  A's
+               2  A
+               3  A-
+               4  B's
+               5  B
+               6  B-
+               7  C's
+               8  C
+               9  C-
+              10  D's or below
+              11  D
+              12  D-
+              13  F
+              99  DK/REF
+
+           Data type: numeric
+           Missing-data code: 99
+           Record/columns: 1/976-977
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 45
+
+
+      jperf              Above/below average academic performance
+
+           Would you say that this represents an average, above average, or
+           below average academic performance for you?
+
+           VALUE  LABEL
+               1  Well above average
+               2  Above average
+               3  Average
+               4  Below average
+               5  Well below average
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/979
+
+      ________________________________________________________________________
+
+      jabovm1            Reason(s) for above average performance - 1st response
+
+           Which of the following best describes the reason(s) for this
+           [above average performance in jgrad and jperf]? - first response
+
+           VALUE  LABEL
+               1  Had lighter course load
+               2  Had easier courses
+               3  Did fewer paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/981
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 46
+
+
+      jabovm2            Reason(s) for above average performance - 2nd response
+
+           Which of the following best describes the reason(s) for this
+           [above average performance in jgrad and jperf]? - second response
+
+           VALUE  LABEL
+               1  Had lighter course load
+               2  Had easier courses
+               3  Did fewer paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/983
+
+      ________________________________________________________________________
+
+      jabovm3            Reason(s) for above average performance - 3rd response
+
+           Which of the following best describes the reason(s) for this
+           [above average performance in jgrad and jperf]? - third response
+
+           VALUE  LABEL
+               1  Had lighter course load
+               2  Had easier courses
+               3  Did fewer paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/985
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 47
+
+
+      jabovm4            Reason(s) for above average performance - 4th response
+
+           Which of the following best describes the reason(s) for this
+           [above average performance in jgrad and jperf]? - fourth response
+
+           VALUE  LABEL
+               1  Had lighter course load
+               2  Had easier courses
+               3  Did fewer paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/columns: 1/987-996
+
+      ________________________________________________________________________
+
+      jbelom1            Reason(s) for below average performance - 1st response
+
+           Which of the following best describes the reason(s) for this
+           [below average performance in jgrad and jperf]? - first response
+
+           VALUE  LABEL
+               1  Had heavier course load
+               2  Had more difficult courses
+               3  Did more paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/998
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 48
+
+
+      jbelom2            Reason(s) for below average performance - 2nd response
+
+           Which of the following best describes the reason(s) for this
+           [below average performance in jgrad and jperf]? - second response
+
+           VALUE  LABEL
+               1  Had heavier course load
+               2  Had more difficult courses
+               3  Did more paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1000
+
+      ________________________________________________________________________
+
+      jbelom3            Reason(s) for below average performance - 3rd response
+
+           Which of the following best describes the reason(s) for this
+           [below average performance in jgrad and jperf]? - third response
+
+           VALUE  LABEL
+               1  Had heavier course load
+               2  Had more difficult courses
+               3  Did more paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 49
+
+
+      jbelom4            Reason(s) for below average performance - 4th response
+
+           Which of the following best describes the reason(s) for this
+           [below average performance in jgrad and jperf]? - fourth response
+
+           VALUE  LABEL
+               1  Had heavier course load
+               2  Had more difficult courses
+               3  Did more paid hours of work than usual
+               4  Other (please specify)
+               9  DK/REF
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1004
+
+      ________________________________________________________________________
+
+      gasst              Government assistance flag
+
+           Do you receive any form of government assistance?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1006
+
+      ________________________________________________________________________
+
+      f4a                February Personal employment income
+
+           February Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/1008-1011
+
+      ________________________________________________________________________
+
+      f4b                February Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1013-1016
+
+      ________________________________________________________________________
+
+      f4c                February Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1018-1021
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 50
+
+
+      f4d                February Money from other family members
+
+           February Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1023-1026
+
+      ________________________________________________________________________
+
+      fgvtl              February Government loans
+
+           Data type: numeric
+           Record/columns: 1/1028-1032
+
+      ________________________________________________________________________
+
+      fgovb              February Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/1034-1037
+
+      ________________________________________________________________________
+
+      fothl              February Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/1039-1042
+
+      ________________________________________________________________________
+
+      fpvtl              February Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/1044-1047
+
+      ________________________________________________________________________
+
+      f4e                February Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/1049-1053
+
+      ________________________________________________________________________
+
+      f4f                February Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/1055-1058
+
+      ________________________________________________________________________
+
+      f4g                February Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/1060-1063
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 51
+
+
+      f4h                February Money from government assistance
+
+           February Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/1065-1068
+
+      ________________________________________________________________________
+
+      f4i                February Other Income Sources
+
+           Data type: numeric
+           Record/columns: 1/1070-1074
+
+      ________________________________________________________________________
+
+      f5a                February Accommodation
+
+           February Accommodation (residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/1076-1079
+
+      ________________________________________________________________________
+
+      f5b                February Electricity
+
+           Data type: numeric
+           Record/columns: 1/1081-1083
+
+      ________________________________________________________________________
+
+      f5c                February Heating
+
+           Data type: numeric
+           Record/columns: 1/1085-1087
+
+      ________________________________________________________________________
+
+      f5d                February Telephone
+
+           Data type: numeric
+           Record/columns: 1/1089-1092
+
+      ________________________________________________________________________
+
+      f5e                February Internet
+
+           Data type: numeric
+           Record/columns: 1/1094-1096
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 52
+
+
+      f5f                February Cable
+
+           Data type: numeric
+           Record/columns: 1/1098-1100
+
+      ________________________________________________________________________
+
+      f5e1               February Other utilities
+
+           Data type: numeric
+           Record/columns: 1/1102-1105
+
+      ________________________________________________________________________
+
+      f5g                February Household
+
+           February Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/1107-1110
+
+      ________________________________________________________________________
+
+      f5j                February Education and books
+
+           February Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/1112-1116
+
+      ________________________________________________________________________
+
+      f5i                February Transportation
+
+           February Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/1118-1121
+
+      ________________________________________________________________________
+
+      f5h                February Child care
+
+           Data type: numeric
+           Record/columns: 1/1123-1125
+
+      ________________________________________________________________________
+
+      f5k                February Personal investments
+
+           February Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/1127-1131
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 53
+
+
+      f5l                February Personal debt payment
+
+           February Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/1133-1137
+
+      ________________________________________________________________________
+
+      f5m                February Other Expenses
+
+           February Other Expenses (income tax, donations, dues, fees for
+           clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/1139-1142
+
+      ________________________________________________________________________
+
+      f6a                February Food
+
+           Data type: numeric
+           Record/columns: 1/1144-1147
+
+      ________________________________________________________________________
+
+      f6d                February Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/1149-1152
+
+      ________________________________________________________________________
+
+      f6b                February Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/1154-1157
+
+      ________________________________________________________________________
+
+      f6c                February Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/1159-1162
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 54
+
+
+      fchn1              Changes to living situation in the past month
+
+           Were there any changes to your living situation in the past month?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  DK/NR
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1164
+
+      ________________________________________________________________________
+
+      fchng              Living arrangements were still as q35
+
+           Last fall, when you did the first longer questionnaire, you told us
+           your living arrangements were <q35> . Is this still the case?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  DK/NR
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1166
+
+      ________________________________________________________________________
+
+      fchn3              New living arrangements?
+
+           What are your new living arrangements?
+
+           VALUE  LABEL
+               1  Living with parent(s)
+               2  Living with spouse or partner(with depen
+               3  living alone
+               4  Living with roommates
+               5  living alone with dependents
+               6  something else, please specify
+               9  no answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1168
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 55
+
+
+      fchn4              Month living arrangements changed
+
+           What month did this [living arrangements] change in?
+
+           VALUE  LABEL
+               1  Sept-Dec 2001
+               2  Jan 2002
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1170
+
+      ________________________________________________________________________
+
+      fwrk               Hours worked per week last semester?
+
+           On average how many hours were you typically working per
+           week last semester?
+
+           Data type: numeric
+           Record/columns: 1/1172-1173
+
+      ________________________________________________________________________
+
+      fwrk2              Hours R intends to work per week this semester
+
+           On average how many hours do you intend to work per week
+           this semester?
+
+           Data type: numeric
+           Record/columns: 1/1175-1176
+
+      ________________________________________________________________________
+
+      m4a                March Personal employment income
+
+           March Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/1178-1182
+
+      ________________________________________________________________________
+
+      m4b                March Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1184-1187
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 56
+
+
+      m4c                March Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1189-1192
+
+      ________________________________________________________________________
+
+      m4d                March Money from other family members
+
+           March Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1194-1197
+
+      ________________________________________________________________________
+
+      mgvtl              March Government loans
+
+           Data type: numeric
+           Record/columns: 1/1199-1202
+
+      ________________________________________________________________________
+
+      mgovb              March Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/1204-1207
+
+      ________________________________________________________________________
+
+      mothl              March Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/1209-1212
+
+      ________________________________________________________________________
+
+      mpvtl              March Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/1214-1218
+
+      ________________________________________________________________________
+
+      m4e                March Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/1220-1223
+
+      ________________________________________________________________________
+
+      m4f                March Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/1225-1228
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 57
+
+
+      m4g                March Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/1230-1233
+
+      ________________________________________________________________________
+
+      m4h                March Money from government assistance
+
+           March Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/1235-1238
+
+      ________________________________________________________________________
+
+      m4i                March Other Income
+
+           Data type: numeric
+           Record/columns: 1/1240-1243
+
+      ________________________________________________________________________
+
+      m5a                March Accommodation
+
+           March Accommodation (residence fees, mortgage/rent,
+           insurance)
+
+           Data type: numeric
+           Record/columns: 1/1245-1248
+
+      ________________________________________________________________________
+
+      m5b                March Electricity
+
+           Data type: numeric
+           Record/columns: 1/1250-1252
+
+      ________________________________________________________________________
+
+      m5c                March Heating
+
+           Data type: numeric
+           Record/columns: 1/1254-1256
+
+      ________________________________________________________________________
+
+      m5d                March Telephone
+
+           Data type: numeric
+           Record/columns: 1/1258-1260
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 58
+
+
+      m5e                March Internet
+
+           Data type: numeric
+           Record/columns: 1/1262-1264
+
+      ________________________________________________________________________
+
+      m5f                March Cable
+
+           Data type: numeric
+           Record/columns: 1/1266-1268
+
+      ________________________________________________________________________
+
+      m5e1               March Other utilities
+
+           Data type: numeric
+           Record/columns: 1/1270-1272
+
+      ________________________________________________________________________
+
+      m5g                March Household
+
+           March Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/1274-1277
+
+      ________________________________________________________________________
+
+      m5j                March Education and books
+
+           March Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/1279-1283
+
+      ________________________________________________________________________
+
+      m5i                March Transportation
+
+           March Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/1285-1289
+
+      ________________________________________________________________________
+
+      m5h                March Child care
+
+           Data type: numeric
+           Record/columns: 1/1291-1293
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 59
+
+
+      m5k                March Personal investments
+
+           March Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/1295-1298
+
+      ________________________________________________________________________
+
+      m5l                March Personal debt payment
+
+           March Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/1300-1303
+
+      ________________________________________________________________________
+
+      m5m                March Other Expenses
+
+           March Other Expenses (income tax, donations, dues, fees for
+           clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/1305-1308
+
+      ________________________________________________________________________
+
+      m6a                March Food
+
+           Data type: numeric
+           Record/columns: 1/1310-1313
+
+      ________________________________________________________________________
+
+      m6d                March Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/1315-1318
+
+      ________________________________________________________________________
+
+      m6b                March Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/1320-1323
+
+      ________________________________________________________________________
+
+      m6c                March Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/1325-1328
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 60
+
+
+      mchan              March Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1330
+
+      ________________________________________________________________________
+
+      mcarv              Auto ownership
+
+           This month, we would like to ask you an additional few questions about some of
+           the things you own. In the original survey that we conducted with you back in
+           September, you indicated that you <calc> a car. Is that still the case?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1332
+
+      ________________________________________________________________________
+
+      mcars              Why own car
+
+           Some people need a car in order to be able to get to and from school.
+           Others own cars for other reasons. Would you say you fall into the first
+           group of people or the second?
+
+           VALUE  LABEL
+               1  Need car for school
+               2  For other reasons
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1334
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 61
+
+
+      mcarg              Did you purchase/lease/receive car as gift?
+
+           Did you purchase or lease your car, or was it given to you (e.g. by a family
+           member)?
+
+           VALUE  LABEL
+               1  Purchased/leased it
+               2  Given to you
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1336
+
+      ________________________________________________________________________
+
+      mcary              Year obtaine car
+
+           When did you get your car? (Please enter the last 2 digits of the year)?
+
+           Data type: numeric
+           Record/columns: 1/1338-1339
+
+      ________________________________________________________________________
+
+      mcarm              Month obtained car (if 2000 or later)
+
+           ENTER MONTH IF 2000 OR LATER.
+
+           Data type: numeric
+           Record/columns: 1/1341-1342
+
+      ________________________________________________________________________
+
+      mmarv              Current value of car
+
+           If you were to sell it today, what do you think its current value would be
+           (i.e., how much do you think you could get for it)?
+
+           Data type: numeric
+           Record/columns: 1/1344-1348
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 62
+
+
+      mcomp              Access to computer at place of residence?
+
+           Do you have access to a computer at your place of residence?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1350
+
+      ________________________________________________________________________
+
+      mcom3              Onwership of computer at residence
+
+           Do you own the computer that you use at your place of residence or
+           does it belong to someone else?
+
+           VALUE  LABEL
+               1  Belongs to you
+               2  Belongs to someone else
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1352
+
+      ________________________________________________________________________
+
+      mcom2              Frequency use computer facilities at school?
+
+           How often do you use the computer facilities offered at your school?
+
+           VALUE  LABEL
+               0  Not at all
+               1  Less than once a month
+               2  A few times a month
+               3  A few times a week
+               4  Almost every day
+               8  Not applicable
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1354
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 63
+
+
+      mcom4              Computer was gift/purchase?
+
+           Was your computer a gift or did you purchase it yourself?
+
+           VALUE  LABEL
+               1  Gift
+               2  Purchased it
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1356
+
+      ________________________________________________________________________
+
+      mcom5              Computer obtained for studies
+
+           Did you get it specifically for your studies?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1358
+
+      ________________________________________________________________________
+
+      mcom6              Price of the computer?
+
+           Approximately what was the price of the computer?
+
+           Data type: numeric
+           Record/columns: 1/1360-1363
+
+      ________________________________________________________________________
+
+      mcom7              No. years since computer obtained
+
+           How long ago did you get it? ENTER NUMBER OF YEARS
+
+           Data type: numeric
+           Record/column: 1/1365
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 64
+
+
+      melism1            Other electronics R owns - 1st response
+
+           Do you own: - 1st response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1367
+
+      ________________________________________________________________________
+
+      melism2            Other electronics R owns - 2nd response
+
+           Do you own: - 2nd response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1369
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 65
+
+
+      melism3            Other electronics R owns - 3rd response
+
+           Do you own: - 3rd response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1371
+
+      ________________________________________________________________________
+
+      melism4            Other electronics R owns - 4th response
+
+           Do you own: - 4th response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1373
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 66
+
+
+      melism5            Other electronics R owns - 5th response
+
+           Do you own: - 5th response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1375
+
+      ________________________________________________________________________
+
+      melism6            Other electronics R owns - 6th response
+
+           Do you own: - 6th response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1377
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 67
+
+
+      melism7            Other electronics R owns - 7th response
+
+           Do you own: - 7th response
+
+           VALUE  LABEL
+               1  A television
+               2  VCR/DVD player
+               3  Stereo
+               4  Portable stereo
+               5  Video game console
+               6  Cell Phone
+               7  Other major electronics
+               9  Don't own any
+
+           Data type: numeric
+           Record/column: 1/1379
+
+      ________________________________________________________________________
+
+      melec              Value of electronics R owns?
+
+           What is the approximate value of the previously listed electronics?
+           This is a best guess, so rounding to the nearest hundred or so would
+           be fine.
+
+           Data type: numeric
+           Record/columns: 1/1381-1385
+
+      ________________________________________________________________________
+
+      masst              Total value of assets you own?
+
+           Excluding electronics, computers and motor vehicles, what is the
+           total value of assets you own (e.g., property, furniture, books,
+           household goods, bicyclkes, etc)? Just a best guess to the nearest
+           thousand would be fine.
+
+           Data type: numeric
+           Record/columns: 1/1387-1392
+
+      ________________________________________________________________________
+
+      mcage              What is the age of your car?
+
+           Data type: numeric
+           Decimals: 1
+           Record/columns: 1/1394-1397
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 68
+
+
+      a4a                April Personal (not household) employment income
+
+           April Personal employment income
+
+           Data type: numeric
+           Record/columns: 1/1399-1402
+
+      ________________________________________________________________________
+
+      a4b                April Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1404-1408
+
+      ________________________________________________________________________
+
+      a4c                April Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1410-1413
+
+      ________________________________________________________________________
+
+      a4d                April Money from other family members
+
+           April Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1415-1417
+
+      ________________________________________________________________________
+
+      agvtl              April Government loans
+
+           Data type: numeric
+           Record/columns: 1/1419-1422
+
+      ________________________________________________________________________
+
+      agovb              April Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/1424-1427
+
+      ________________________________________________________________________
+
+      aothl              April Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/1429-1432
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 69
+
+
+      apvtl              April Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/1434-1438
+
+      ________________________________________________________________________
+
+      a4e                April Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/1440-1443
+
+      ________________________________________________________________________
+
+      a4f                April Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/1445-1449
+
+      ________________________________________________________________________
+
+      a4g                April Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/1451-1454
+
+      ________________________________________________________________________
+
+      a4h                April Money from government assistance
+
+           April Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/1456-1459
+
+      ________________________________________________________________________
+
+      a4i                April Other Income
+
+           Data type: numeric
+           Record/columns: 1/1461-1464
+
+      ________________________________________________________________________
+
+      a5a                April Accommodation
+
+           April Accommodation (residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/1466-1469
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 70
+
+
+      a5b                April Electricity
+
+           Data type: numeric
+           Record/columns: 1/1471-1473
+
+      ________________________________________________________________________
+
+      a5c                April Heating
+
+           Data type: numeric
+           Record/columns: 1/1475-1477
+
+      ________________________________________________________________________
+
+      a5d                April Telephone
+
+           Data type: numeric
+           Record/columns: 1/1479-1482
+
+      ________________________________________________________________________
+
+      a5e                April Internet
+
+           Data type: numeric
+           Record/columns: 1/1484-1486
+
+      ________________________________________________________________________
+
+      a5f                April Cable
+
+           Data type: numeric
+           Record/columns: 1/1488-1490
+
+      ________________________________________________________________________
+
+      a5e1               April Other utilities
+
+           Data type: numeric
+           Record/columns: 1/1492-1494
+
+      ________________________________________________________________________
+
+      a5g                April Household
+
+           April Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/1496-1499
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 71
+
+
+      a5j                April Education and books
+
+           April Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/1501-1504
+
+      ________________________________________________________________________
+
+      a5i                April Transportation
+
+           April Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/1506-1510
+
+      ________________________________________________________________________
+
+      a5h                April Child care
+
+           Data type: numeric
+           Record/columns: 1/1512-1514
+
+      ________________________________________________________________________
+
+      a5k                April Personal investments
+
+           April Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/1516-1519
+
+      ________________________________________________________________________
+
+      a5l                April Personal debt payment
+
+           April Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/1521-1524
+
+      ________________________________________________________________________
+
+      a5m                April Other Other Expenses
+
+           April Other Other Expenses (income tax, donations, dues, fees for
+           clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/1526-1529
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 72
+
+
+      a6a                April Food
+
+           Data type: numeric
+           Record/columns: 1/1531-1534
+
+      ________________________________________________________________________
+
+      a6d                April Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/1536-1539
+
+      ________________________________________________________________________
+
+      a6b                April Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/1541-1544
+
+      ________________________________________________________________________
+
+      a6c                April Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/1546-1549
+
+      ________________________________________________________________________
+
+      achan              April Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1551
+
+      ________________________________________________________________________
+
+      aborr              Amt in government loans, current school year only
+
+           For those of you who have obtained government assistance for the
+           current academic year, we would just like to verify how much you have
+           borrowed. For the current school year only (September 2001 until
+           spring of 2002), what is the total amount that you have received
+           in government loans?
+
+           Data type: numeric
+           Record/columns: 1/1553-1557
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 73
+
+
+      y4a                May Personal employment income
+
+           May Personal (not household) employment income
+
+           Data type: numeric
+           Record/columns: 1/1559-1562
+
+      ________________________________________________________________________
+
+      y4b                May Money from parents (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1564-1568
+
+      ________________________________________________________________________
+
+      y4c                May Money from spouse (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1570-1573
+
+      ________________________________________________________________________
+
+      y4d                May Money from other family members
+
+           May Money from other family members (not as a loan)
+
+           Data type: numeric
+           Record/columns: 1/1575-1578
+
+      ________________________________________________________________________
+
+      ygvtl              May Government loans
+
+           Data type: numeric
+           Record/columns: 1/1580-1583
+
+      ________________________________________________________________________
+
+      ygovb              May Government bursaries/grants
+
+           Data type: numeric
+           Record/columns: 1/1585-1588
+
+      ________________________________________________________________________
+
+      yothl              May Other scholarships/grants
+
+           Data type: numeric
+           Record/columns: 1/1590-1593
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 74
+
+
+      ypvtl              May Private student loans/lines of credit
+
+           Data type: numeric
+           Record/columns: 1/1595-1599
+
+      ________________________________________________________________________
+
+      y4e                May Loans from any family members
+
+           Data type: numeric
+           Record/columns: 1/1601-1604
+
+      ________________________________________________________________________
+
+      y4f                May Investment, property income or pensions
+
+           Data type: numeric
+           Record/columns: 1/1606-1609
+
+      ________________________________________________________________________
+
+      y4g                May Child support or insurance settlements
+
+           Data type: numeric
+           Record/columns: 1/1611-1614
+
+      ________________________________________________________________________
+
+      y4h                May Money from government assistance
+
+           May Money from government assistance (social assistance,
+           Employment Insurance, Worker's Compensation)
+
+           Data type: numeric
+           Record/columns: 1/1616-1619
+
+      ________________________________________________________________________
+
+      y4i                May Other Income
+
+           Data type: numeric
+           Record/columns: 1/1621-1624
+
+      ________________________________________________________________________
+
+      y5a                May Accommodation
+
+           May Accommodation (residence fees, mortgage/rent, insurance)
+
+           Data type: numeric
+           Record/columns: 1/1626-1629
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 75
+
+
+      y5b                May Electricity
+
+           Data type: numeric
+           Record/columns: 1/1631-1633
+
+      ________________________________________________________________________
+
+      y5c                May Heating
+
+           Data type: numeric
+           Record/columns: 1/1635-1637
+
+      ________________________________________________________________________
+
+      y5d                May Telephone
+
+           Data type: numeric
+           Record/columns: 1/1639-1642
+
+      ________________________________________________________________________
+
+      y5e                May Internet
+
+           Data type: numeric
+           Record/columns: 1/1644-1646
+
+      ________________________________________________________________________
+
+      y5f                May Cable
+
+           Data type: numeric
+           Record/columns: 1/1648-1650
+
+      ________________________________________________________________________
+
+      y5e1               May Other utilities
+
+           Data type: numeric
+           Record/columns: 1/1652-1654
+
+      ________________________________________________________________________
+
+      y5g                May Household
+
+           May Household (supplies/services, furniture/appliances,equipement)
+
+           Data type: numeric
+           Record/columns: 1/1656-1659
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 76
+
+
+      y5j                May Education and books
+
+           May Education and books (tuition, books, supplies, computer, fees)
+
+           Data type: numeric
+           Record/columns: 1/1661-1665
+
+      ________________________________________________________________________
+
+      y5i                May Transportation
+
+           May Transportation (public transit, car purchase, fuel, parking)
+
+           Data type: numeric
+           Record/columns: 1/1667-1670
+
+      ________________________________________________________________________
+
+      y5h                May Child care
+
+           Data type: numeric
+           Record/columns: 1/1672-1674
+
+      ________________________________________________________________________
+
+      y5k                May Personal investments
+
+           May Personal investments (mutual funds, stocks, bonds)
+
+           Data type: numeric
+           Record/columns: 1/1676-1679
+
+      ________________________________________________________________________
+
+      y5l                May Personal debt payment
+
+           May Personal debt payment (payment on loans/lines of credit)
+
+           Data type: numeric
+           Record/columns: 1/1681-1684
+
+      ________________________________________________________________________
+
+      y5m                May Other Other Expenses
+
+           May Other Other Expenses (income tax, donations, dues, fees for
+           clubs, work related expenses)
+
+           Data type: numeric
+           Record/columns: 1/1686-1689
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 77
+
+
+      y6a                May Food
+
+           Data type: numeric
+           Record/columns: 1/1691-1694
+
+      ________________________________________________________________________
+
+      y6d                May Clothing/Jewelry
+
+           Data type: numeric
+           Record/columns: 1/1696-1699
+
+      ________________________________________________________________________
+
+      y6b                May Personal/Health Care
+
+           Data type: numeric
+           Record/columns: 1/1701-1704
+
+      ________________________________________________________________________
+
+      y6c                May Entertainment/Recreation
+
+           Data type: numeric
+           Record/columns: 1/1706-1709
+
+      ________________________________________________________________________
+
+      ychan              May Changed e-mail address?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1711
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 78
+
+
+      yamte              AMOUNTS RECEIVED more/less than expected
+
+           During the course of the school year, were the AMOUNTS YOU RECEIVED from all
+           sources more than, less than or about the same as what you expected before
+           the school year?
+
+           VALUE  LABEL
+               1  More than expected
+               2  Less than expected
+               3  The same
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1713
+
+      ________________________________________________________________________
+
+      yspex              EXPENSES more/less than expected
+
+           During the course of the school year, were your EXPENSES more than, less than or
+           about the same as what you expected before the school year?
+
+           VALUE  LABEL
+               1  More than expected
+               2  Less than expected
+               3  The same
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1715
+
+      ________________________________________________________________________
+
+      ycred              Credit card balance
+
+           At the start of this survey last fall, we asked you what your balance was
+           across all of your credit cards. We would like to ask this question of you
+           again now, at the end of the school year. What is the total unpaid balance
+           on all of the credit cards you have?
+
+           Data type: numeric
+           Missing-data code: 99999
+           Record/columns: 1/1717-1721
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 79
+
+
+      ydone              Graduating this spring?
+
+           Are you graduating from your current program this spring?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1723
+
+      ________________________________________________________________________
+
+      ynxty              Plans for next year?
+
+           What are your plans for next year?
+
+           VALUE  LABEL
+               1  Continue academic study
+               2  Begin a new program
+               3  Seeking employment
+               8  Other
+               9  Don't know/No Answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1725
+
+      ________________________________________________________________________
+
+      ynore              Primary reason for not returning to school next year?
+
+           What is your primary reason for not returning to school next year?
+
+           VALUE  LABEL
+               1  Financial
+               2  Academic
+               8  Other
+               9  Don't know/No answer
+
+           Data type: numeric
+           Missing-data code: 9
+           Record/column: 1/1727
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 80
+
+
+      yaend              Like to receive report of responses to this survey
+
+           Would you like us to email you a report of your responses to this
+           survey over the course of the year?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Record/column: 1/1729
+
+      ________________________________________________________________________
+
+      ybend              Would to be notified of publication of report
+
+           Would you like to be notified by the Canada Millennium
+           Scholarship Foundation of the publication of the report on this
+           survey in the fall?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+
+           Data type: numeric
+           Record/column: 1/1731
+
+      ________________________________________________________________________
+
+      wgt                Weight
+
+           Data type: numeric
+           Decimals: 6
+           Record/columns: 1/1733-1740
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      Student financial survey, 2001-2002                              Page 81
+
+
+      iarea              Telephone area code
+
+           VALUE  LABEL
+             204  204
+             250  250
+             306  306
+             403  403
+             416  416
+             418  418
+             450  450
+             506  506
+             514  514
+             519  519
+             604  604
+             613  613
+             705  705
+             709  709
+             780  780
+             807  807
+             819  819
+             867  867
+             902  902
+             905  905
+
+           Data type: numeric
+           Record/columns: 1/1742-1744
+
+      ________________________________________________________________________
+
+      prov               Province
+
+           VALUE  LABEL
+               1  BC
+               2  Alberta
+               3  Saskatchewan
+               4  Manitoba
+               5  Ontario
+               6  Quebec
+               7  New Brunswick
+               8  Nova Scotia/PEI
+               9  Newfoundland
+
+           Data type: numeric
+           Record/column: 1/1746
+
+
+
+
+
+
+
+
+                                 February 25, 2019

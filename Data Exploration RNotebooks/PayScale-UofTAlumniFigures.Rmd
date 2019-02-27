@@ -1,0 +1,36 @@
+---
+title: "PayScale Average Salary by Degree/Major Subject for University of Toronto Alumni Data Scrape"
+output: html_notebook
+---
+
+ParentUrl = "https://www.payscale.com/research/CA/School=University_of_Toronto/Salary/by_Degree"
+
+```{r}
+library(tidyverse)
+library(rvest)
+```
+
+
+```{r}
+URL = "https://www.payscale.com/research/CA/School=University_of_Toronto/Salary/by_Degree#by_Job"
+
+# read_html(URL) %>% 
+#   html_nodes(xpath = "//*[@class = 'median-alignment']") %>% 
+#   html_text() 
+
+
+PayScale1 = read_html(URL) %>%
+  html_table(fill = TRUE)
+```
+
+
+```{r}
+UoftMedianSalary_byDegree = PayScale1[[1]]
+UoftMedianSalary_byDegree
+```
+
+Save data into csv for later analysis
+```{r}
+write_csv(UoftMedianSalary_byDegree, "UoftMedianSalaryPerDegree.csv")
+```
+

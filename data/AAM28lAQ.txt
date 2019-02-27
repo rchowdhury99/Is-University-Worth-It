@@ -1,0 +1,5599 @@
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      CODEBOOK
+
+
+                    National Survey of 2009-2010 Graduates, 2013
+                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page i
+
+
+                                      CONTENTS
+
+
+      item                                                                page
+
+      CASEID             Copy of variable pumfid                             1
+      pumfid             Ramdomly generated record identifier                1
+      regonid            Region of institution                               1
+      de_q03p            Number of dependent children                        2
+      de_q05ap           Language spoken at time of graduation: English o    2
+      de_q30             Health problem of six months or more limits home    3
+      de_q31             Health problem of six months or more limits work    3
+      de_q32             Health problem of six months or more limits othe    4
+      de_q33p            Long-term disability of six months or more          4
+      msncq01p           Marital status                                      5
+      sex_q01            Sex of respondent                                   5
+      pr_q05             Academic ranking                                    6
+      pr_q07             Enrolment status when taking program                6
+      pr_q08a            Reason did not take program full time: Had a ful    7
+      pr_q08b            Reason did not take program full time: Had a par    7
+      pr_q08c            Reason did not take program full time: Lack of m    8
+      pr_q08ep           Reason did not take program full time: Family re    8
+      pr_q08g            Reason did not take program full time: Program n    9
+      pr_q08jp           Reason did not take program full time: Other        9
+      pr_q09             Leave of absence from studies                      10
+      pr_q12b            Co-op program                                      10
+      pr_q12d            Program included components taken outside Canada   11
+      pr_q13p            Program taken through correspondance/other type    11
+      pr_q17a            Importance in choice of program: future employme   12
+      pr_q17b            Importance in choice of program: personal intere   12
+      pr_q17c            Importance in choice of program: parents/friends   13
+      pr_q17d            Importance in choice of program: reputation of p   13
+      pr_q17e            Importance in choice of program: reputation of i   14
+      pr_q17f            Importance in choice of program: proximity to ho   14
+      pr_q18             Would select same field of study or specializati   15
+      pr_q19             Main reason would not select the same field of s   15
+      ab_q04p            Major activity 12 months before enrolled in prog   16
+      ab_q06             Last principal residence                           16
+      ab_q07b            Last principal residence same city graduated in    17
+      ab_q08             Reason for moving                                  17
+      ab_q11             Worked full-time 30 hrs or more a week before co   18
+      ab_q13             Full-time jobs lasted  6 months or more with sam   18
+      ab_q14             Most recent full-time job of 6+ months end befor   19
+      lf_q01             Attended school, college, CEGEP or university la   19
+      lf_q02             Full-time or part-time student                     20
+      lf_q06             More than one job last week                        20
+      lf_q17b            Moved in order to find or to begin job             21
+      lf_q22c            First job after graduation                         21
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page ii
+
+
+      item                                                                page
+
+      lf_q24             Job permanent or not permanent                     22
+      lf_q44             Supervise other employees at job last week         22
+      lf_q50             Employer specified specific field of study         23
+      lf_q52             Employer specified related work experience essen   23
+      lf_q53p            Main method used to find job                       24
+      lf_q54a            Feel overqualified for main job held last week     24
+      lf_q54b            Feel underqualified for main job held last week    25
+      lf_q54c            Feel have skills to cope with demanding duties     25
+      lf_q54d            Feel need further training to cope with duties     26
+      lf_q55             Job held last week related to certificate, diplo   26
+      lf_q56a            Satisfied with job held last week                  27
+      lf_q56b            Satisfied with money made at job                   27
+      lf_q57aa           Job provided: Extended health care benefits        28
+      lf_q57ab           Job provided: A dental plan                        28
+      lf_q57ac           Job provided: Retirement plan benefits             29
+      lf_q57ad           Job provided: Paid vacation                        29
+      lf_q57ae           Job provided: Sick leave benefits                  30
+      lf_q57af           Job provided: None of the above                    30
+      lf_q58             Looked for another job with different employer i   31
+      lf_q59             Want another job to replace last week job or add   31
+      lf_q60a            Reason looking for other job: Want more work hou   32
+      lf_q60c            Reason looking for other job: Job that  correspo   32
+      lf_q60d            Reason looking for other job: Want better paying   33
+      lf_q60e            Reason looking for other job: Want job closer to   33
+      lf_q60f            Reason looking for other job: Want better workin   34
+      lf_q60g            Reason looking for other job: Want job in anothe   34
+      lf_q60i            Reason looking for other job: Want benefits        35
+      lf_q60l            Reason looking for other job: End of job/contrac   35
+      lf_q60m            Reason looking for other job: Want more challeng   36
+      lf_q60np           Reason looking for other job: Other                36
+      lf_q61a            Did to look for other job: Checked with family o   37
+      lf_q61b            Did to look for other job: Looked at job ads (In   37
+      lf_q61c            Did to look for other job: Looked at job ads (ne   38
+      lf_q61d            Did to look for other job: Placed or answered jo   38
+      lf_q61fp           Did to look for other job: Contacted employers     39
+      lf_q61hp           Did to look for other job: Consulted an employme   39
+      lf_q61i            Did to look for other job: Networked, attended j   40
+      lf_q61kp           Did to look for other job: Other                   40
+      lf_q95             Would move to improve job or career prospects      41
+      lf_q96p            Main reason would not move                         41
+      lf_q97             Job had last week job hoping to have after gradu   42
+      lf_q98a            Current job differ from intended ocupation: Has    42
+      lf_q98b            Current job differ from intended ocupation: Has    43
+      lf_q98c            Current job differ from intended ocupation: Did    43
+      lf_q98d            Current job differ from intended ocupation: Chan   44
+      lf_q98e            Current job differ from intended ocupation: Coul   44
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                    Page iii
+
+
+      item                                                                page
+
+      lf_q98f            Current job differ from intended ocupation: Coul   45
+      lf_q98g            Current job differ from intended ocupation: Purs   45
+      lf_q98h            Current job differ from intended ocupation: Pers   46
+      lf_q98jp           Current job differ from intended ocupation: Heal   46
+      em_q01p            Number of employers worked for since graduation    47
+      em_q13a            Job permanent or not permanent                     47
+      em_q13b            What way job not permanent                         48
+      em_q37             Job closely related to program                     48
+      ed_q01             Taken program towards certificate, diploma or de   49
+      ed_q02p            Number of programs taken                           49
+      ed_q06             Taken other education or training since graduati   50
+      ed_q07             Education or training taken for job related reas   50
+      st_q01a            Sources funding post-secondary education: Parent   51
+      st_q01b            Sources funding post-secondary education: Spouse   51
+      st_q01c            Sources funding post-secondary education: Other    52
+      st_q01d            Sources funding post-secondary education: Govern   52
+      st_q01e            Sources funding post-secondary education: Bank/o   53
+      st_q01f            Sources funding post-secondary education: Credit   53
+      st_q01g            Sources funding post-secondary education: Line o   54
+      st_q01h            Sources funding post-secondary education: Person   54
+      st_q01i            Sources funding post-secondary education: Schola   55
+      st_q01j            Sources funding post-secondary education: Grants   55
+      st_q01m            Sources funding post-secondary education: Employ   56
+      st_q01n            Sources funding post-secondary education: Employ   56
+      st_q01o            Sources funding post-secondary education: RESPs    57
+      st_q01qp           Sources funding post-secondary education: Other    57
+      st_q02a            Main source funding for post-secondary education   58
+      st_q02b            Main source funding for post-secondary education   58
+      st_q02c            Main source funding for post-secondary education   59
+      st_q02d            Main source funding post-secondary education: Go   59
+      st_q02e            Main source funding post-secondary education:Ban   60
+      st_q02f            Main source funding for post-secondary education   60
+      st_q02g            Main source funding for post-secondary education   61
+      st_q02h            Main source funding for post-secondary education   61
+      st_q02i            Main source funding post-secondary education: Sc   62
+      st_q02j            Main source funding post-secondary education: Gr   62
+      st_q02m            Main source funding post-secondary education: Em   63
+      st_q02n            Main source funding post-secondary education: Em   63
+      st_q02o            Main source funding post-secondary education: RE   64
+      st_q02qp           Main source funding post-secondary education: Ot   64
+      st_q11p            Amount received from RESP for post-secondary edu   65
+      st_q14             Applied to a government student loan program       65
+      st_q15a            Student loan applications approved                 66
+      st_q16p            Main reason did not apply for a government spons   66
+      st_q20             Received loan remission/debt reduction/loan forg   67
+      st_q25a            Received government assistance: Interest relief    67
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page iv
+
+
+      item                                                                page
+
+      st_q25b            Received government assistance: Repayment assist   68
+      st_q25c            Received government assistance: Revision of term   68
+      st_q25d            Received gov assistance: Interest only payments    69
+      st_q25e            Received government assistance: None               69
+      st_q25f            Received government assistance: Other              70
+      st_q27             Borrowed from any financial institution to repay   70
+      st_q29a            Made payments to repay government student loan     71
+      st_q32p            Year expect to have government student loans pai   71
+      st_q33a            Borrowed money from family for post-sec educatio   72
+      st_q38             Received money from governments (Canada Student    72
+      st_q40             Received grants/bursaries from non-government so   73
+      st_q43p            Amount of  scolarships/awards/fellowships/prizes   73
+      dbtalgrd           Debt size of all loans at time of graduation       74
+      dbtalint           Debt size of all loans at time of interview        74
+      dbtgsgrd           Debt size of government sponsored student loans    75
+      dbtgsint           Debt size of government sponsored student loans    75
+      dbtotgrd           Debt size of other loans at time of graduation     76
+      dbtotint           Debt size of other loans at time of interview      76
+      edbefor            Highest level of education completed prior to en   77
+      fatedgrd           Father’s education level relative to graduate�   77
+      fatedint           Father’s education level relative to graduate�   78
+      fathedp            Recoded father’s education level                 78
+      jobcl              Classification of job 2013 survey week as full-t   78
+      lfstat             Labour force status of the 2009/10 graduate in 2   79
+      motedgrd           Mother’s education level relative to graduate�   79
+      motedint           Mother’s education level relative to graduate�   79
+      mothedp            Recoded mother’s education level                 80
+      stuloans           Borrowed money from government for student loans   80
+      visbminp           Identified as member of visible minority ethnic    80
+      srcfund            Sources of funding used for all post-secondary e   81
+      prcipagp           Special Aggregation Structure (CIP 2000) - PUMF    81
+      lhomep             Language spoken most often at home                 81
+      luawmop            Languages used at work most often in job 2013 su   82
+      jobedp             Job education: recode level of education needed    82
+      jobincp            Gross annual earnings in Cnd $ for job held duri   83
+      jobqlgrd           Job qualification 2009/2010                        83
+      jobqlint           Job qualifications 2013 level of education of th   84
+      lfcindp            Classification of industry groups for job held l   84
+      lfcoccp            Unit group of occupations for job held last week   85
+      lfirstp            Language first learned at home and still underst   85
+      gradagep           Age of respondent at the time of graduation        86
+      hlosgrdp           Highest known level of studies completed at time   86
+      hlosintp           Highest known level of studies completed at time   86
+      certlevp           2009-2010 level of certification as reported by    87
+      cndpersp           Conv. US-Cdn $ for total personal income from al   87
+      ctzshipp           Respondent’s status in Canada at the time of t   88
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page v
+
+
+      item                                                                page
+
+      slm_q01p           Feel about life as a whole                         88
+      lma3q10p           Employee or self-employed                          89
+      wtpp               Weight variable                                    89
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 1
+
+
+      CASEID             Copy of variable pumfid
+
+           Data type: numeric
+           Record/columns: 1/1-5
+
+      ________________________________________________________________________
+
+      pumfid             Ramdomly generated record identifier
+
+           VALUE  LABEL
+           99996  Valid skip
+           99997  Don't know
+           99998  Refusal
+           99999  Not stated
+
+           Data type: numeric
+           Missing-data codes: 99996-99999
+           Record/columns: 1/7-11
+
+      ________________________________________________________________________
+
+      regonid            Region of institution
+
+           VALUE  LABEL
+               1  Atlantic provinces
+               2  Quebec
+               3  Ontario
+               4  Western provinces, territories
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 2
+
+
+      de_q03p            Number of dependent children
+
+           Interviewer Instructions:
+           If greater than 20, enter 20.
+
+           Literal Question:
+           How many dependent children do you have?
+
+           VALUE  LABEL
+               0  None
+               1  One
+               2  Two
+               3  Three or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/15
+
+      ________________________________________________________________________
+
+      de_q05ap           Language spoken at time of graduation: English or French
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           At the  time  of  your  graduation  [date  completed  requirement  for
+           program], of English or French which language(s) did  you  speak  well
+           enough to conduct a conversation? Is it…?
+
+           VALUE  LABEL
+               1  English only
+               2  French only
+               3  Both English and French
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/17
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 3
+
+
+      de_q30             Health problem of six months or more limits home activity
+
+           Literal Question:
+           Does a  long-term  physical  condition,  mental  condition  or  health
+           problem, that is, one that has lasted  or  is  expected  to  last  six
+           months or more, limit the kind or the amount of activity you  can  do:
+           at home?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/19
+
+      ________________________________________________________________________
+
+      de_q31             Health problem of six months or more limits work/school
+
+           Literal Question:
+           Does a  long-term  physical  condition,  mental  condition  or  health
+           problem, that is, one that has lasted  or  is  expected  to  last  six
+           months or more, limit the kind or the amount of activity you  can  do:
+           at work or at school?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/21
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 4
+
+
+      de_q32             Health problem of six months or more limits other activity
+
+           Literal Question:
+           Does a  long-term  physical  condition,  mental  condition  or  health
+           problem, that is, one that has lasted  or  is  expected  to  last  six
+           months or more, limit the kind or the amount of activity you  can  do:
+           ...in  other  activities  (for  example,  travel   or   leisure   time
+           activities)?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/23
+
+      ________________________________________________________________________
+
+      de_q33p            Long-term disability of six months or more
+
+           Literal Question:
+           Do you have any long-term disabilities or handicaps, that is, ones that have lasted or are expected
+           to last six months or more?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/25
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 5
+
+
+      msncq01p           Marital status
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           What is your marital status? Are you... ?
+
+           VALUE  LABEL
+               1  Married or common-law
+               2  Single / widowed / separated / divorced
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/27
+
+      ________________________________________________________________________
+
+      sex_q01            Sex of respondent
+
+           VALUE  LABEL
+               1  Male
+               2  Female
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/29
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 6
+
+
+      pr_q05             Academic ranking
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           Compared to the rest of your graduating  class  in  your  field(s)  of
+           study, did you rank academically...?
+
+           VALUE  LABEL
+               1  In the top 10%
+               2  Below the top 10% but in the top 25%
+               3  Below the top 25% but in the top half
+               4  Below the top half
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/31
+
+      ________________________________________________________________________
+
+      pr_q07             Enrolment status when taking program
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           Were you enrolled in your [certificate/diploma/degree] program as...?
+
+           VALUE  LABEL
+               1  A full-time student
+               2  A part-time student
+               3  Both full-time and part-time student
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/33
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 7
+
+
+      pr_q08a            Reason did not take program full time: Had a full-time job
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What were the reasons you didn't take this program full-time only?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/35
+
+      ________________________________________________________________________
+
+      pr_q08b            Reason did not take program full time: Had a part-time job
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What were the reasons you didn't take this program full-time only?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/37
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 8
+
+
+      pr_q08c            Reason did not take program full time: Lack of money
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What were the reasons you didn't take this program full-time only?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/39
+
+      ________________________________________________________________________
+
+      pr_q08ep           Reason did not take program full time: Family responsibilities
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What were the reasons you didn't take this program full-time only?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/41
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                      Page 9
+
+
+      pr_q08g            Reason did not take program full time: Program not offered full-time
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What were the reasons you didn't take this program full-time only?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/43
+
+      ________________________________________________________________________
+
+      pr_q08jp           Reason did not take program full time: Other
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What were the reasons you didn't take this program full-time only?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/45
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 10
+
+
+      pr_q09             Leave of absence from studies
+
+           Literal Question:
+           Did you take any leaves of absence from your studies that delayed  the
+           completion of your program?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/47
+
+      ________________________________________________________________________
+
+      pr_q12b            Co-op program
+
+           Interviewer Instructions:
+           This is a program that is specifically called a  co-operative  program
+           by the institution. It alternates periods of paid work and study.
+
+           Literal Question:
+           Was your [certificate/diploma/degree] program a co-op program?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/49
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 11
+
+
+      pr_q12d            Program included components taken outside Canada
+
+           Literal Question:
+           Did this program include any components that  were  taken  outside  of
+           Canada?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/51
+
+      ________________________________________________________________________
+
+      pr_q13p            Program taken through correspondance/other type of distance education
+
+           Interviewer Instructions:
+           Include radio broadcasts, videotapes, video-conferencing, Internet and
+           e-mail. Read categories to respondent.
+
+           Literal Question:
+           How much of your [certificate/diploma/degree] program have  you  taken
+           through correspondence or another  type  of  distance  education  like
+           Internet, television or video? Is that...?
+
+           VALUE  LABEL
+               1  None
+               2  Less than half
+               3  Half or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/53
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 12
+
+
+      pr_q17a            Importance in choice of program: future employment opportunities
+
+           Interviewer Instructions:
+           Read  categories  to  respondent  if  necessary.  If  respondent  says
+           "important", probe to  determine  if  "very  important"  or  "somewhat
+           important".
+
+           Literal Question:
+           How important were the following  factors  in  your  choice  of  post-
+           secondary program: future employment opportunities?
+
+           VALUE  LABEL
+               1  Very important
+               2  Somewhat important
+               3  Not important at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/55
+
+      ________________________________________________________________________
+
+      pr_q17b            Importance in choice of program: personal interest
+
+           Interviewer Instructions:
+           Read  categories  to  respondent  if  necessary.  If  respondent  says
+           "important", probe to  determine  if  "very  important"  or  "somewhat
+           important".
+
+           Literal Question:
+           How important were the following  factors  in  your  choice  of  post-
+           secondary program: personal interest?
+
+           VALUE  LABEL
+               1  Very important
+               2  Somewhat important
+               3  Not important at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/57
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 13
+
+
+      pr_q17c            Importance in choice of program: parents/friends recommendations
+
+           Interviewer Instructions:
+           Read  categories  to  respondent  if  necessary.  If  respondent  says
+           "important", probe to  determine  if  "very  important"  or  "somewhat
+           important".
+
+           Literal Question:
+           How important were the following  factors  in  your  choice  of  post-
+           secondary program: parents/friends recommendations?
+
+           VALUE  LABEL
+               1  Very important
+               2  Somewhat important
+               3  Not important at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/59
+
+      ________________________________________________________________________
+
+      pr_q17d            Importance in choice of program: reputation of program
+
+           Interviewer Instructions:
+           Read  categories  to  respondent  if  necessary.  If  respondent  says
+           "important", probe to  determine  if  "very  important"  or  "somewhat
+           important".
+
+           Literal Question:
+           How important were the following  factors  in  your  choice  of  post-
+           secondary program: reputation of program?
+
+           VALUE  LABEL
+               1  Very important
+               2  Somewhat important
+               3  Not important at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/61
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 14
+
+
+      pr_q17e            Importance in choice of program: reputation of institution
+
+           Interviewer Instructions:
+           Read  categories  to  respondent  if  necessary.  If  respondent  says
+           "important", probe to  determine  if  "very  important"  or  "somewhat
+           important".
+
+           Literal Question:
+           How important were the following  factors  in  your  choice  of  post-
+           secondary program: reputation of institution?
+
+           VALUE  LABEL
+               1  Very important
+               2  Somewhat important
+               3  Not important at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/63
+
+      ________________________________________________________________________
+
+      pr_q17f            Importance in choice of program: proximity to home
+
+           Interviewer Instructions:
+           Read  categories  to  respondent  if  necessary.  If  respondent  says
+           "important", probe to  determine  if  "very  important"  or  "somewhat
+           important".
+
+           Literal Question:
+           How important were the following  factors  in  your  choice  of  post-
+           secondary program: proximity to home?
+
+           VALUE  LABEL
+               1  Very important
+               2  Somewhat important
+               3  Not important at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/65
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 15
+
+
+      pr_q18             Would select same field of study or specialization
+
+           Literal Question:
+           If you could choose again, would you select the same field of study or
+           specialization that you  completed  [date  completed  requirement  for
+           program]?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/67
+
+      ________________________________________________________________________
+
+      pr_q19             Main reason would not select the same field of study
+
+           Literal Question:
+           What is the main reason you would not select the same field of study?
+
+           VALUE  LABEL
+               1  This field wasn't my first choice
+               2  Couldn't find work in my field
+               3  Not satisfied with current job
+               4  Not satisfied with salary in current job
+               5  Degree/course not acknowledged
+               6  Change of interest
+               7  Not satisfied with my choice of field of study
+               8  Other - Specify
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/69-70
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 16
+
+
+      ab_q04p            Major activity 12 months before enrolled in program
+
+           Literal Question:
+           During   the    12    months    before    you    enrolled    in    the
+           [certificate/diploma/degree] program, what was  your  major  activity?
+           For example, was it going to school, working, family responsibilities,
+           or without work and looking for work
+
+           VALUE  LABEL
+               1  Going to school
+               2  Working
+               3  Working and going to school
+               4  Without work and looking for work
+               5  Other
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/72
+
+      ________________________________________________________________________
+
+      ab_q06             Last principal residence
+
+           Literal Question:
+           During these 12 months, was your  last  principal  residence  in  [the
+           provice or territory where you graduated]?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/74
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 17
+
+
+      ab_q07b            Last principal residence same city graduated in
+
+           Literal Question:
+           During these 12 months, was your last principal residence in the  same
+           city where you graduated?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/76
+
+      ________________________________________________________________________
+
+      ab_q08             Reason for moving
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           Did you move specifically to...?
+
+           VALUE  LABEL
+               1  To enroll in the program
+               2  For another reason
+               3  Did not move
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/78
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 18
+
+
+      ab_q11             Worked full-time 30 hrs or more a week before completed program
+
+           Literal Question:
+           The following questions are about  your  work  experience  before  you
+           completed your [certificate/diploma/degree]  program  [date  completed
+           requirements for program]. Before you completed your program, did  you
+           ever work full-time, that is, usually 30 or more hours a week?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/80
+
+      ________________________________________________________________________
+
+      ab_q13             Full-time jobs lasted  6 months or more with same employer
+
+           Literal Question:
+           Did any of these full-time jobs last six consecutive  months  or  more
+           with the same employer?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/82
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 19
+
+
+      ab_q14             Most recent full-time job of 6+ months end before completed program
+
+           Literal Question:
+           Thinking of the most recent of these full-time jobs  that  lasted  six
+           months or longer, did the job end before you completed your program?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/84
+
+      ________________________________________________________________________
+
+      lf_q01             Attended school, college, CEGEP or university last week
+
+           Interviewer Instructions:
+           Ask respondent to include attendance only for courses that can be used
+           as credit towards a certificate diploma or degree.
+
+           Literal Question:
+           Did you attend school,  college,  CEGEP  or  university  at  any  time
+           between [Monday of last week] and [Sunday of last week]?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/86
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 20
+
+
+      lf_q02             Full-time or part-time student
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           Were you enrolled as...?
+
+           VALUE  LABEL
+               1  A full-time student
+               2  A part-time student
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/88
+
+      ________________________________________________________________________
+
+      lf_q06             More than one job last week
+
+           Literal Question:
+           Did you have more than one job or business last week?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/90
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 21
+
+
+      lf_q17b            Moved in order to find or to begin job
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           In order to find or to begin this job, did you move to...?
+
+           VALUE  LABEL
+               1  Another country
+               2  Another province
+               3  Another city
+               4  Within the same city
+               5  Or did not move
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/92
+
+      ________________________________________________________________________
+
+      lf_q22c            First job after graduation
+
+           Interviewer Instructions:
+           Include  self-employment  as  well  as  any  jobs  that  began  before
+           graduation and continued after graduation.
+
+           Literal Question:
+           Is this your first job after graduation?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/94
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 22
+
+
+      lf_q24             Job permanent or not permanent
+
+           Literal Question:
+           Was this job permanent, or is there some way that it was not permanent
+           (e.g. seasonal, temporary, term, casual, etc.)?
+
+           VALUE  LABEL
+               1  Permanent
+               2  Not permanent
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/96
+
+      ________________________________________________________________________
+
+      lf_q44             Supervise other employees at job last week
+
+           Literal Question:
+           Did you supervise other employees at your [job/main job] last week?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/98
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 23
+
+
+      lf_q50             Employer specified specific field of study
+
+           Literal Question:
+           Did your employer specify that it must  be  in  a  specific  field  of
+           study?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/100
+
+      ________________________________________________________________________
+
+      lf_q52             Employer specified related work experience essential for job
+
+           Literal Question:
+           Did your employer specify that related work experience  was  essential
+           for this job?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/102
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 24
+
+
+      lf_q53p            Main method used to find job
+
+           Literal Question:
+           What was the main method you used to find this job?
+
+           VALUE  LABEL
+               1  Referred by family, friends or teachers (professors)
+               2  Answered job ad (Internet)
+               3  Answered job ad (newspaper, etc.)
+               4  Contacted employer directly
+               5  Contacted previous employer/held job before
+               6  Campus placement office
+               7  Employment Agency (public and private)
+               8  Approached or contacted directly by employer/head hunter
+               9  Networking, job fair
+              10  Other
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/104-105
+
+      ________________________________________________________________________
+
+      lf_q54a            Feel overqualified for main job held last week
+
+           Literal Question:
+           Considering your experience, education and training, do you feel  that
+           you are overqualified for the [job/main job] you held last week?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/107
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 25
+
+
+      lf_q54b            Feel underqualified for main job held last week
+
+           Literal Question:
+           Considering your experience, education and training, do you feel  that
+           you are underqualifed for the [job/main job] you held last week?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/109
+
+      ________________________________________________________________________
+
+      lf_q54c            Feel have skills to cope with demanding duties
+
+           Literal Question:
+           Do you feel that you have the  skills  to  cope  with  more  demanding
+           duties than those you are required to perform in your current job?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/111
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 26
+
+
+      lf_q54d            Feel need further training to cope with duties
+
+           Literal Question:
+           Do you feel that you need further training in order to cope well  with
+           your present duties?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/113
+
+      ________________________________________________________________________
+
+      lf_q55             Job held last week related to certificate, diploma or degree
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           How closely is the [job/main job] you held last week related  to  your
+           certificate, diploma or degree? Is it...?
+
+           VALUE  LABEL
+               1  Closely related
+               2  Somewhat related
+               3  Not related at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/115
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 27
+
+
+      lf_q56a            Satisfied with job held last week
+
+           Interviewer Instructions:
+           Read categories (1 to 4) to respondent.
+
+           Literal Question:
+           Considering all aspects of the [job/main job] you held last week,  how
+           satisfied were you with the job? Would you say you were...?
+
+           VALUE  LABEL
+               1  Very satisfied
+               2  Satisfied
+               3  Dissatisfied
+               4  Very dissatisfied
+               5  Neither satisfied or dissatisfied
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/117
+
+      ________________________________________________________________________
+
+      lf_q56b            Satisfied with money made at job
+
+           Interviewer Instructions:
+           Read categories (1 to 4) to respondent.
+
+           Literal Question:
+           Considering the duties and responsibilities of this job, how satisfied
+           were you with the money you made? Would you say that you were...?
+
+           VALUE  LABEL
+               1  Very satisfied
+               2  Satisfied
+               3  Dissatisfied
+               4  Very dissatisfied
+               5  Neither satisfied or dissatisfied
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/119
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 28
+
+
+      lf_q57aa           Job provided: Extended health care benefits
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Does this job provide any of the following...?  Extended  health  care
+           benefits (not covered by provincial health)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/121
+
+      ________________________________________________________________________
+
+      lf_q57ab           Job provided: A dental plan
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Does this job provide any of the following...? A dental plan
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/123
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 29
+
+
+      lf_q57ac           Job provided: Retirement plan benefits
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Does this  job  provide  any  of  the  following...?  Retirement  plan
+           benefits
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/125
+
+      ________________________________________________________________________
+
+      lf_q57ad           Job provided: Paid vacation
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Does this job provide any of the following...? Paid vacation
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/127
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 30
+
+
+      lf_q57ae           Job provided: Sick leave benefits
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Does this job provide any of the following...? Sick leave benefits
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/129
+
+      ________________________________________________________________________
+
+      lf_q57af           Job provided: None of the above
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Does this job provide any of the following...? None of the above
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/131
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 31
+
+
+      lf_q58             Looked for another job with different employer in last 4 weeks
+
+           Literal Question:
+           In the past four weeks,  have  you  looked  for  another  job  with  a
+           different employer?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/133
+
+      ________________________________________________________________________
+
+      lf_q59             Want another job to replace last week job or additional job
+
+           Literal Question:
+           Do you want another job to replace the [job/main  job]  you  had  last
+           week or serve as an additional job?
+
+           VALUE  LABEL
+               1  Replace current job
+               2  Additional job
+               3  Either
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/135
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 32
+
+
+      lf_q60a            Reason looking for other job: Want more work hours
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job? Want more work hours
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/137
+
+      ________________________________________________________________________
+
+      lf_q60c            Reason looking for other job: Job that  corresponds with training
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking  for  another  job?  Want  job  that  better
+           corresponds with qualifications/training
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/139
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 33
+
+
+      lf_q60d            Reason looking for other job: Want better paying job
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job? Want better paying job
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/141
+
+      ________________________________________________________________________
+
+      lf_q60e            Reason looking for other job: Want job closer to home
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job? Want job closer to home
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/143
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 34
+
+
+      lf_q60f            Reason looking for other job: Want better working conditions
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you  been  looking  for  another  job?  Want  better  working
+           conditions
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/145
+
+      ________________________________________________________________________
+
+      lf_q60g            Reason looking for other job: Want job in another region
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job? Want job in another region
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/147
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 35
+
+
+      lf_q60i            Reason looking for other job: Want benefits
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for  another  job?  Want  benefits  (health,
+           dental, pension, etc.)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/149
+
+      ________________________________________________________________________
+
+      lf_q60l            Reason looking for other job: End of job/contract
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job? End of job/contract
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/151
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 36
+
+
+      lf_q60m            Reason looking for other job: Want more challenges
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job?  Want  more  challenges  or
+           responsibilities
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/153
+
+      ________________________________________________________________________
+
+      lf_q60np           Reason looking for other job: Other
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           Why have you been looking for another job? Other - Specify
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/155
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 37
+
+
+      lf_q61a            Did to look for other job: Checked with family or friends
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past  four  weeks  to  look  for  another  job?
+           Checked with family or friends
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/157
+
+      ________________________________________________________________________
+
+      lf_q61b            Did to look for other job: Looked at job ads (Internet)
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past four weeks to look for another job? Looked
+           at job ads (Internet)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/159
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 38
+
+
+      lf_q61c            Did to look for other job: Looked at job ads (newspapers, etc.)
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past four weeks to look for another job? Looked
+           at job ads (newspapers, etc.)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/161
+
+      ________________________________________________________________________
+
+      lf_q61d            Did to look for other job: Placed or answered job ads
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past four weeks to look for another job? Placed
+           or answered job ads
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/163
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 39
+
+
+      lf_q61fp           Did to look for other job: Contacted employers
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past  four  weeks  to  look  for  another  job?
+           Contacted previous employer
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/165
+
+      ________________________________________________________________________
+
+      lf_q61hp           Did to look for other job: Consulted an employment agency
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past  four  weeks  to  look  for  another  job?
+           Consulted a private employment agency
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/167
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 40
+
+
+      lf_q61i            Did to look for other job: Networked, attended job fair
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past  four  weeks  to  look  for  another  job?
+           Networked, attended job fair
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/169
+
+      ________________________________________________________________________
+
+      lf_q61kp           Did to look for other job: Other
+
+           Interviewer Instructions:
+           Mark up to four answers.
+
+           Literal Question:
+           What did you do in the past four weeks to look for another job?  Other
+           - Specify
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/171
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 41
+
+
+      lf_q95             Would move to improve job or career prospects
+
+           Literal Question:
+           Would you move to another city or town to improve your job  or  career
+           prospects?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               3  Maybe
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/173
+
+      ________________________________________________________________________
+
+      lf_q96p            Main reason would not move
+
+           Literal Question:
+           What is the main reason you would not move?
+
+           VALUE  LABEL
+               1  Caring for own children,maternity/parental leave, pregnancy
+               2  Other family responsibilities
+               3  Social, cultural or linguistic reasons
+               4  Satisfied with job/living environment
+               5  Other
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/175
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 42
+
+
+      lf_q97             Job had last week job hoping to have after graduation
+
+           Literal Question:
+           Is the job you had last week, the job you  had  hoped  to  have  after
+           graduation?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/177
+
+      ________________________________________________________________________
+
+      lf_q98a            Current job differ from intended ocupation: Has better pay
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? Your current job has better pay
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/179
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 43
+
+
+      lf_q98b            Current job differ from intended ocupation: Has better benefits
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? Your current job  has  better  benefits  (health,  dental,
+           pension, etc) or working conditions
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/181
+
+      ________________________________________________________________________
+
+      lf_q98c            Current job differ from intended ocupation: Did not want to move
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? You didn't want to move (i.e.  expensive,  stay  close  to
+           family and friends)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/183
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 44
+
+
+      lf_q98d            Current job differ from intended ocupation: Changed expectations
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? You changed your expectations
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/185
+
+      ________________________________________________________________________
+
+      lf_q98e            Current job differ from intended ocupation: Could not find job wanted
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? You couldn't find the type of job you wanted
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/187
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 45
+
+
+      lf_q98f            Current job differ from intended ocupation: Could not wait job wanted
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? You could no longer wait to get the job you wanted
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/189
+
+      ________________________________________________________________________
+
+      lf_q98g            Current job differ from intended ocupation: Pursued further education
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? You pursued further education
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/191
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 46
+
+
+      lf_q98h            Current job differ from intended ocupation: Personal/family reasons
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? Personal and/or family reasons
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/193
+
+      ________________________________________________________________________
+
+      lf_q98jp           Current job differ from intended ocupation: Health reason or other
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Why does your current job differ  from  your  intended  occupation  at
+           graduation? Health reasons/other
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/195
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 47
+
+
+      em_q01p            Number of employers worked for since graduation
+
+           Interviewer Instructions:
+           If more than 10, enter 10.
+
+           Literal Question:
+           [Excluding the main job or business you held last week, how/How]  many
+           [other] employers have you worked for since graduation? Count all self-
+           employment contracts as one employer only.
+
+           VALUE  LABEL
+               0  No employer
+               1  1 employer
+               2  2 employers
+               3  3 employers
+               4  4 employers
+               5  5 or more employers
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/197
+
+      ________________________________________________________________________
+
+      em_q13a            Job permanent or not permanent
+
+           Literal Question:
+           [Is/Was] this job permanent, or is there some way that it [is/was] not
+           permanent (e.g. seasonal, temporary, term, casual, etc.)?
+
+           VALUE  LABEL
+               1  Permanent
+               2  Not permanent
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/199
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 48
+
+
+      em_q13b            What way job not permanent
+
+           Literal Question:
+           In what way [is/was] this job not permanent?
+
+           VALUE  LABEL
+               1  Seasonal job
+               2  Temporary, term or contract job (non-seasonal)
+               3  Casual job
+               4  Other - Specify
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/201
+
+      ________________________________________________________________________
+
+      em_q37             Job closely related to program
+
+           Interviewer Instructions:
+           Read categories to respondent.
+
+           Literal Question:
+           How closely [is/was] your job with [your first  employer]  related  to
+           your [certificate/diploma/degree] program? [Is/Was] it...?
+
+           VALUE  LABEL
+               1  Closely related
+               2  Somewhat related
+               3  Not related at all
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/203
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 49
+
+
+      ed_q01             Taken program towards certificate, diploma or degree since graduation
+
+           Interviewer Instructions:
+           Include programs which may have been started before the graduation.
+
+           Literal Question:
+           Since your graduation [date completed requirement for  program],  have
+           you taken a program towards a certificate, diploma or degree? That is,
+           a program above the high school  level  which  would  take  someone  3
+           months or more to complete if taken full-time.
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/205
+
+      ________________________________________________________________________
+
+      ed_q02p            Number of programs taken
+
+           Interviewer Instructions:
+           If more than 7, enter 8.
+
+           Literal Question:
+           How many of these programs have you taken?
+
+           VALUE  LABEL
+               1  One
+               2  Two
+               3  Three or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/207
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 50
+
+
+      ed_q06             Taken other education or training since graduation
+
+           Literal Question:
+           Since your graduation [date completed requirement for  program],  have
+           you  taken  any  other  education  or  training,  including   courses,
+           workshops, seminars, and tutorials? [Please exclude the programs  that
+           last three months or more if taken  full-time  that  we  have  already
+           discussed.]
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/209
+
+      ________________________________________________________________________
+
+      ed_q07             Education or training taken for job related reason since gaduation
+
+           Literal Question:
+           Since your graduation [date completed requirement  for  program],  was
+           any of this education or training  taken  for  job  or  career-related
+           reasons?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/211
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 51
+
+
+      st_q01a            Sources funding post-secondary education: Parents
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: your parents?  Exclude  amounts
+           received from RESPs, RRSPs, trust funds or savings bonds.
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/213
+
+      ________________________________________________________________________
+
+      st_q01b            Sources funding post-secondary education: Spouse/partner
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: your spouse / partner?  Exclude
+           amounts received from RESPs, RRSPs , trust funds or savings bonds.
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/215
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 52
+
+
+      st_q01c            Sources funding post-secondary education: Other people
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: other people,  such  as  family
+           and friends? Exclude amounts received from RESPs, RRSPs,  trust  funds
+           or savings bonds.
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/217
+
+      ________________________________________________________________________
+
+      st_q01d            Sources funding post-secondary education: Government student loans
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: government student loans?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/219
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 53
+
+
+      st_q01e            Sources funding post-secondary education: Bank/other institution loans
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: bank / other institution loans?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/221
+
+      ________________________________________________________________________
+
+      st_q01f            Sources funding post-secondary education: Credit cards
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: credit cards?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/223
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 54
+
+
+      st_q01g            Sources funding post-secondary education: Line of credit
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: line of credit?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/225
+
+      ________________________________________________________________________
+
+      st_q01h            Sources funding post-secondary education: Personal savings
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: personal savings?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/227
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 55
+
+
+      st_q01i            Sources funding post-secondary education: Scholarships/awards/prizes
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did  you  receive  money  from:  scholarships  /  awards  /
+           fellowships / prizes?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/229
+
+      ________________________________________________________________________
+
+      st_q01j            Sources funding post-secondary education: Grants/bursaries
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: grants /  bursaries  (based  on
+           your financial needs)?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/231
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 56
+
+
+      st_q01m            Sources funding post-secondary education: Employer
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: employer? For example, tuition,
+           books or other supplies.
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/233
+
+      ________________________________________________________________________
+
+      st_q01n            Sources funding post-secondary education: Employment savings
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: employment earnings?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/235
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 57
+
+
+      st_q01o            Sources funding post-secondary education: RESPs
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from:  Registered  Education  Savings
+           Plans (RESPs)?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/237
+
+      ________________________________________________________________________
+
+      st_q01qp           Sources funding post-secondary education: Other
+
+           Literal Question:
+           What were the sources  of  funding  for  all  of  your  post-secondary
+           education? Did you receive money from: other?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/239
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 58
+
+
+      st_q02a            Main source funding for post-secondary education: Parents
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Parents
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/241
+
+      ________________________________________________________________________
+
+      st_q02b            Main source funding for post-secondary education: Spouse/Partner
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Spouse/partner
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/243
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 59
+
+
+      st_q02c            Main source funding for post-secondary education: Other people
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Other people
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/245
+
+      ________________________________________________________________________
+
+      st_q02d            Main source funding post-secondary education: Gov't student loans
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Government student loans
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/247
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 60
+
+
+      st_q02e            Main source funding post-secondary education:Bank/institution loans
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Bank/other insitution loans
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/249
+
+      ________________________________________________________________________
+
+      st_q02f            Main source funding for post-secondary education: Credit cards
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Credit cards
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/251
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 61
+
+
+      st_q02g            Main source funding for post-secondary education: Line of credit
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Line of credit
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/253
+
+      ________________________________________________________________________
+
+      st_q02h            Main source funding for post-secondary education: Personal savings
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Personal savings
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/255
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 62
+
+
+      st_q02i            Main source funding post-secondary education: Scholarships/prizes
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Scholarships/awards/fellowships/prizes
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/257
+
+      ________________________________________________________________________
+
+      st_q02j            Main source funding post-secondary education: Grants/bursaries
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Grants/bursaries (based on financial needs)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/259
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 63
+
+
+      st_q02m            Main source funding post-secondary education: Employer
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Employer
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/261
+
+      ________________________________________________________________________
+
+      st_q02n            Main source funding post-secondary education: Employment earnings
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Employment earnings
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/263
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 64
+
+
+      st_q02o            Main source funding post-secondary education: RESPs
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Registered Education Savings Plans (RESPs)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/265
+
+      ________________________________________________________________________
+
+      st_q02qp           Main source funding post-secondary education: Other
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark up to two responses.
+
+           Literal Question:
+           Of these, what were your two main sources of funding for all  of  your
+           post-secondary education? Other
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/267
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 65
+
+
+      st_q11p            Amount received from RESP for post-secondary education
+
+           Literal Question:
+           What was the total  amount  you  received  from  Registered  Education
+           Savings Plan (RESP) to fund all your post-secondary education?
+
+           VALUE  LABEL
+               1  Less than 5,000
+               2  5,000 to 9,999
+               3  10,000 to 24,999
+               4  25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/269
+
+      ________________________________________________________________________
+
+      st_q14             Applied to a government student loan program
+
+           Literal Question:
+           Did you ever apply to a government sponsored student loan program?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/271
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 66
+
+
+      st_q15a            Student loan applications approved
+
+           Literal Question:
+           Were any of your student loan applications approved?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/273
+
+      ________________________________________________________________________
+
+      st_q16p            Main reason did not apply for a government sponsered student loan
+
+           Literal Question:
+           What is the  main  reason  you  have  not  applied  for  a  government
+           sponsored student loan?
+
+           VALUE  LABEL
+               1  Did not need one
+               2  Thought would not qualify/Parents/respondent income too high
+               3  Don't know how to apply
+               4  Don't meet residency requirements
+               5  Not willing to borrow the amount required to go to school
+               6  Prefer to borrow elsewhere
+               7  Other
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/275-276
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 67
+
+
+      st_q20             Received loan remission/debt reduction/loan forgiveness on gov loan
+
+           Literal Question:
+           Did you receive a loan remission, debt reduction or  loan  forgiveness
+           on your government student loan in the  first  six  months  after  you
+           graduated?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/278
+
+      ________________________________________________________________________
+
+      st_q25a            Received government assistance: Interest relief
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Did you receive any of the following government assistance  in  making
+           repayment of your student loans? Interest relief (IR)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/280
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 68
+
+
+      st_q25b            Received government assistance: Repayment assistance plan
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Did you receive any of the following government assistance  in  making
+           repayment of your student loans? Repayment assistance plan (RAP)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/282
+
+      ________________________________________________________________________
+
+      st_q25c            Received government assistance: Revision of terms
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Did you receive any of the following government assistance  in  making
+           repayment of your student loans? Revision of terms (ROT)
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/284
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 69
+
+
+      st_q25d            Received gov assistance: Interest only payments
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Did you receive any of the following government assistance  in  making
+           repayment of your student loans? Interest only payments
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/286
+
+      ________________________________________________________________________
+
+      st_q25e            Received government assistance: None
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Did you receive any of the following government assistance  in  making
+           repayment of your student loans? None
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/288
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 70
+
+
+      st_q25f            Received government assistance: Other
+
+           Interviewer Instructions:
+           Read categories to respondent. Mark all that apply.
+
+           Literal Question:
+           Did you receive any of the following government assistance  in  making
+           repayment of your student loans? Other
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/290
+
+      ________________________________________________________________________
+
+      st_q27             Borrowed from any financial institution to repay student debt
+
+           Literal Question:
+           Thinking of your student loan,  did  you  borrow  from  any  financial
+           institution, such as banks or credit cards companies,  to  repay  your
+           student debt?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/292
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 71
+
+
+      st_q29a            Made payments to repay government student loan
+
+           Literal Question:
+           Did you make payments to repay your government student loan?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/294
+
+      ________________________________________________________________________
+
+      st_q32p            Year expect to have government student loans paid off
+
+           Literal Question:
+           In what year do you expect to have your government  sponsored  student
+           loans paid off?
+
+           VALUE  LABEL
+               1  2013-2014
+               2  2015-2016
+               3  2017-2018
+               4  2019-2020
+               5  2021-2022
+               6  2023-2024
+               7  2025 or later
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/296-297
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 72
+
+
+      st_q33a            Borrowed money from family for post-sec education had to pay back
+
+           Literal Question:
+           Did you ever borrow money to fund your post-secondary  education  from
+           your parents, spouse / partner, family or friends that you have to pay
+           back?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/299
+
+      ________________________________________________________________________
+
+      st_q38             Received money from governments (Canada Student Grants Program)
+
+           Literal Question:
+           You indicated that you received grants  or  bursaries  based  on  your
+           financial  needs  to  fund  your  post-secondary  education.  Did  you
+           specifically receive money from governments (such  as  Canada  Student
+           Grants Program)?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/301
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 73
+
+
+      st_q40             Received grants/bursaries from non-government sources
+
+           Literal Question:
+           While you were studying, did you receive any grants or bursaries based
+           on  your  financial  needs  from  non-government  sources   (such   as
+           universities, colleges, and private foundations)?
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/303
+
+      ________________________________________________________________________
+
+      st_q43p            Amount of  scolarships/awards/fellowships/prizes
+
+           Interviewer Instructions:
+           Round to the nearest dollar.
+
+           Literal Question:
+           What was the total amount of the scholarships, awards, fellowships  or
+           prizes to fund your post-secondary education?
+
+           VALUE  LABEL
+               1  Less than 5,000
+               2  5,000 to 9,999
+               3  10,000 to 24,999
+               4  25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/305
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 74
+
+
+      dbtalgrd           Debt size of all loans at time of graduation
+
+           VALUE  LABEL
+               0  $0
+               1  Less than $5,000
+               2  $5,000 to less than $10,000
+               3  $10,000 to less than $25,000
+               4  $25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/307
+
+      ________________________________________________________________________
+
+      dbtalint           Debt size of all loans at time of interview
+
+           VALUE  LABEL
+               0  $0
+               1  Less than $5,000
+               2  $5,000 to less than $10,000
+               3  $10,000 to less than $25,000
+               4  $25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/309
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 75
+
+
+      dbtgsgrd           Debt size of government sponsored student loans at time of graduation
+
+           VALUE  LABEL
+               0  $0
+               1  Less than $5,000
+               2  $5,000 to less than $10,000
+               3  $10,000 to less than $25,000
+               4  $25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/311
+
+      ________________________________________________________________________
+
+      dbtgsint           Debt size of government sponsored student loans at time of interview
+
+           VALUE  LABEL
+               0  $0
+               1  Less than $5,000
+               2  $5,000 to less than $10,000
+               3  $10,000 to less than $25,000
+               4  $25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/313
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 76
+
+
+      dbtotgrd           Debt size of other loans at time of graduation
+
+           VALUE  LABEL
+               0  $0
+               1  Less than $5,000
+               2  $5,000 to less than $10,000
+               3  $10,000 to less than $25,000
+               4  $25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/315
+
+      ________________________________________________________________________
+
+      dbtotint           Debt size of other loans at time of interview
+
+           VALUE  LABEL
+               0  $0
+               1  Less than $5,000
+               2  $5,000 to less than $10,000
+               3  $10,000 to less than $25,000
+               4  $25,000 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/317
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 77
+
+
+      edbefor            Highest level of education completed prior to enrolment:aggregated
+
+           VALUE  LABEL
+               0  No postsecondary education
+               1  Registered apprenticeship or trade/voc diploma/certificate
+               2  College/CEGEP/Tech.inst./School of nursing
+               3  University diploma/certificate below bachelor level
+               4  Bachelor’s degree or first professional degree
+               5  University diploma or certificate above BA but below MA
+               7  Master’s degree
+               8  Doctorate
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/319-320
+
+      ________________________________________________________________________
+
+      fatedgrd           Father’s education level relative to graduate’s level at grad. 2009/10
+
+           VALUE  LABEL
+               1  Graduate’s level of education was higher than father’s
+               2  Graduate’s level of education was the same as father’s
+               3  Graduate’s level of education was lower than father’s
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/322
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 78
+
+
+      fatedint           Father’s education level relative to graduate’s level 2013 interview
+
+           VALUE  LABEL
+               1  Graduate’s level of education was higher than father’s
+               2  Graduate’s level of education was the same as father’s
+               3  Graduate’s level of education was lower than father’s
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/324
+
+      ________________________________________________________________________
+
+      fathedp            Recoded father’s education level
+
+           VALUE  LABEL
+               1  Less than high school diploma or its equivalent
+               2  High school diploma or a high school equivalency certificate
+               3  Trade certificate or diploma
+               4  College,CEGEP or other non-university certificate or diploma
+               5  University up to and including Bachelors
+               6  University above the Bachelors
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/326-327
+
+      ________________________________________________________________________
+
+      jobcl              Classification of job 2013 survey week as full-time or part-time
+
+           VALUE  LABEL
+               1  Full-time (30 hours or more)
+               2  Part-time (29 hours or less)
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/329
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 79
+
+
+      lfstat             Labour force status of the 2009/10 graduate in 2013 reference week
+
+           VALUE  LABEL
+               1  Employed
+               2  Unemployed
+               3  Not in the labour force
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/331
+
+      ________________________________________________________________________
+
+      motedgrd           Mother’s education level relative to graduate’s level at grad 2009/10
+
+           VALUE  LABEL
+               1  Graduate’s level of education was higher than mother’s
+               2  Graduate’s level of education was the same as mother’s
+               3  Graduate’s level of education was lower than mother’s
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/333
+
+      ________________________________________________________________________
+
+      motedint           Mother’s education level relative to graduate’s level 2013 interview
+
+           VALUE  LABEL
+               1  Graduate’s level of education was higher than mother’s
+               2  Graduate’s level of education was the same as mother’s
+               3  Graduate’s level of education was lower than mother’s
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/335
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 80
+
+
+      mothedp            Recoded mother’s education level
+
+           VALUE  LABEL
+               1  Less than high school diploma or its equivalent
+               2  High school diploma or a high school equivalency certificate
+               3  Trade certificate or diploma
+               4  College,CEGEP or other non-university certificate or diploma
+               5  University up to and including Bachelors
+               6  University above the Bachelors
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/337-338
+
+      ________________________________________________________________________
+
+      stuloans           Borrowed money from government for student loans
+
+           VALUE  LABEL
+               1  Yes
+               2  No
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/340
+
+      ________________________________________________________________________
+
+      visbminp           Identified as member of visible minority ethnic or racial group
+
+           VALUE  LABEL
+               1  Identified as member of a visible minority group
+               2  Not identified as a member of a visible minority group
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/342
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 81
+
+
+      srcfund            Sources of funding used for all post-secondary education
+
+           VALUE  LABEL
+               1  One source of funding
+               2  Two sources of funding
+               3  Three or more sources of funding
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/344
+
+      ________________________________________________________________________
+
+      prcipagp           Special Aggregation Structure (CIP 2000) - PUMF
+
+           VALUE  LABEL
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/346-347
+
+      ________________________________________________________________________
+
+      lhomep             Language spoken most often at home
+
+           VALUE  LABEL
+               1  English only
+               2  French only
+               3  Other only
+               4  English and French only
+               5  None of the above
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/349
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 82
+
+
+      luawmop            Languages used at work most often in job 2013 survey reference week
+
+           VALUE  LABEL
+               1  English only
+               2  French only
+               3  English and French only
+               4  Mix of English, French and Other
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/351
+
+      ________________________________________________________________________
+
+      jobedp             Job education: recode level of education needed last week’s job
+
+           VALUE  LABEL
+               0  No postsecondary education
+               1  Trade/vocational diploma or certificate
+               2  College or CEGEP diploma or certificate
+               3  University diploma or certificate below bachelor level
+               4  Bachelor’s degree or first professional degree
+               5  University certificate, diploma, degree above the BA
+               6  No qualifications specified as needed
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/353-354
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 83
+
+
+      jobincp            Gross annual earnings in Cnd $ for job held during 2013 reference week
+
+           VALUE  LABEL
+               1  Less than 9,999
+               2  10,000 to 19,999
+               3  20,000 to 29,999
+               4  30,000 to 39,999
+               5  40,000 to 49,999
+               6  50,000 to 59,999
+               7  60,000 to 69,999
+               8  70,000 to 79,999
+               9  80,000 to 89,999
+              10  90,000 or more
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/356-357
+
+      ________________________________________________________________________
+
+      jobqlgrd           Job qualification 2009/2010
+
+           VALUE  LABEL
+               0  No education requirements specified
+               1  Respondent has more than required
+               2  Respondent has same as required
+               3  Respondent has less than required
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/359
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 84
+
+
+      jobqlint           Job qualifications 2013 level of education of the graduate by 2013.
+
+           VALUE  LABEL
+               0  No education requirements specified
+               1  Respondent has more than required
+               2  Respondent has same as required
+               3  Respondent has less than required
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/361
+
+      ________________________________________________________________________
+
+      lfcindp            Classification of industry groups for job held last week
+
+           VALUE  LABEL
+               1  Goods-producing industries
+               2  Trade, transportation and warehousing
+               3  Finance, insurance, real estate, public administration
+               4  Professional, scientific and technical services
+               5  Educational services
+               6  Health care and social assistance
+               7  Other services
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/363-364
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 85
+
+
+      lfcoccp            Unit group of occupations for job held last week
+
+           VALUE  LABEL
+               1  Management occupations
+               2  Business, finance and administrative occupations
+               3  Natural and applied sciences and related occupations
+               4  Health occupations
+               5  Social science, education, government service and religion
+               6  Occupations in art, culture, recreation and sport
+               7  Sales and service occupations
+               8  Trades, transport and equipment operators and related
+               9  Primary industry, processing, manufacturing and utilities
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/366-367
+
+      ________________________________________________________________________
+
+      lfirstp            Language first learned at home and still understand
+
+           VALUE  LABEL
+               1  English only
+               2  French only
+               3  Other only
+               4  English and French only
+               5  None of the above
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/369
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 86
+
+
+      gradagep           Age of respondent at the time of graduation
+
+           VALUE  LABEL
+               1  Less than 25
+               2  25 to 29
+               3  30 to 39
+               4  40 or more
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/371
+
+      ________________________________________________________________________
+
+      hlosgrdp           Highest known level of studies completed at time of grad (2009/2010)
+
+           VALUE  LABEL
+               1  College or CEGEP diploma or certificate
+               2  BA degree, 1st prof. degree, university dip./cert. below BA
+               3  Master's degree, doctorate, university dip./cert. above BA
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/373
+
+      ________________________________________________________________________
+
+      hlosintp           Highest known level of studies completed at time of interview (2013)
+
+           VALUE  LABEL
+               1  College or CEGEP diploma or certificate
+               2  BA degree, 1st prof. degree, university dip./cert. below BA
+               3  Master's degree, doctorate, university dip./cert. above BA
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/375
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 87
+
+
+      certlevp           2009-2010 level of certification as reported by respondents
+
+           VALUE  LABEL
+               1  College or CEGEP diploma or certificate
+               2  BA degree, 1st prof. degree, university dip./cert. below BA
+               3  Master's degree, doctorate, university dip./cert. above BA
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/377
+
+      ________________________________________________________________________
+
+      cndpersp           Conv. US-Cdn $ for total personal income from all sources in 2013
+
+           VALUE  LABEL
+               1  Less than 9,999
+               2  10,000 to 19,999
+               3  20,000 to 29,999
+               4  30,000 to 39,999
+               5  40,000 to 49,999
+               6  50,000 to 59,999
+               7  60,000 to 69,999
+               8  70,000 to 79,999
+               9  80,000 to 89,999
+              10  90,000 or more
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/379-380
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 88
+
+
+      ctzshipp           Respondent’s status in Canada at the time of the interview
+
+           VALUE  LABEL
+               1  Canadian citizen by birth
+               2  Canadian citizen by naturalization
+               3  Landed immigrant
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/382
+
+      ________________________________________________________________________
+
+      slm_q01p           Feel about life as a whole
+
+           Literal Question:
+           Using a scale of 0 to 10, where 0 means  "Very  dissatisfied"  and  10
+           means "Very satisfied", how do you feel about your  life  as  a  whole
+           right now?
+
+           VALUE  LABEL
+              96  Valid skip
+              97  Don't know
+              98  Refusal
+              99  Not stated
+
+           Data type: numeric
+           Missing-data codes: 96-99
+           Record/columns: 1/384-385
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
+
+
+
+      National Survey of 2009-2010 Graduates, 2013                     Page 89
+
+
+      lma3q10p           Employee or self-employed
+
+           Literal Question:
+           Were you an employee or self-employed?
+
+           VALUE  LABEL
+               1  Employee
+               2  Self-employed and working in a family business without pay
+               6  Valid skip
+               7  Don't know
+               8  Refusal
+               9  Not stated
+
+           Data type: numeric
+           Missing-data codes: 6-9
+           Record/column: 1/387
+
+      ________________________________________________________________________
+
+      wtpp               Weight variable
+
+                  VALUE  LABEL
+           9999999.9996  Valid skip
+           9999999.9997  Don't know
+           9999999.9998  Refusal
+           9999999.9999  Not stated
+
+           Data type: numeric
+           Decimals: 4
+           Missing-data codes: 9999999.9996-9999999.9999
+           Record/columns: 1/389-396
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 February 25, 2019
