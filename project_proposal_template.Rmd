@@ -35,16 +35,22 @@ We will compare international and domestic student results. The data handling wi
 
 Write a paragraph describing where your data comes from and and how they were collected, providing links/references to your sources. Identify any potential issues related to their appropriateness or representativeness (e.g. bias). 
 
+The data we used and are planning to use are collected from online resources refered below. The first three resources below are URLs that provide an option to download a csv file corresponding to the data. The last resource (Payscale) shows the data about the salary of UofT allumnis and the data was obtained through webscraping.
+Given the data sources used, we tried making the data and questions as broad as possible, but still catered towards UofT students.
+
+
 -Canadian undergraduate tuition fees by field of study:
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301
 
 -Canadian average undergraduate tuition fees for full-time students by province:
 https://www150.statcan.gc.ca/n1/daily-quotidien/170906/t003b-eng.htm
 
--Tuition and Living Accomodations for Full-time students (2017-2018)
+***-Tuition and Living Accomodations for Full-time students (2017-2018)
 http://odesi2.scholarsportal.info/documentation/TLAC/tlac9310-tables.html
 
--
+-Data that shows the salary of an undergrad, grad, and PhD from UofT
+https://www.payscale.com/research/CA/School=University_of_Toronto/Salary/by_Degree#by_Job
+
 
 
 3. Identify the variables/observations you will use for your analysis.
