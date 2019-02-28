@@ -2,8 +2,9 @@
 title: "STAA57 W19 - Project Proposal"
 author: "Group 10"
 output:
-  html_document:
-    df_print: paged
+  html_notebook
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ***
@@ -12,34 +13,35 @@ output:
 
 1. Specify which questions you will address.
 
-Write a paragraph describing the topic of your investigation and stating specific questions the questions you will investigate.
-
-The topic of the investigation revolves around wether university is worth it or not depending on how long it takes to amortize the money invested in getting the degree.
-
+The topic of the investigation revolves around whether university is worth it or not depending on how long it takes to amortize the money invested in getting the degree.
 The first question is "How long does it take for a domestic student in the Statistics BsC to amortize their tuition fee?"
-
 The second question is "How long does it take for an international student in the Statistics BsC to amortize their tuition fee?"
+It is important to make a contrast between domestic and international students as their tuition fees have a significant difference so we hypothesize the results of Degree cost amortization timeframes will vary greatly.
 
-It is important to make a contrast between domestic and international students as their tuition fees have a significant gap so we predict the results will vary greatly.
+2. Specify your data analysis plan
 
+We make some helpful asumptions for simplification:
+Assume students get a job right after their graduation.
+Assume the cost of living during studying in university is covered.
+Assume the student starts to pay for their cost of living from income after graduation.
+This study will focus on tuition fees, living costs after graduation and time to Amortize.
 
-2. Specify your data analysis plan 
+Data Collection Goals:
+Data on tuition fees for domestic and international students doing a Bachelor of Science degree in the University of Toronto.
+Data of incomes from source such as PayScale.
+Data on cost of living.
 
-Describe (in words) how you will address these questions using data .
-
-We assume students get their job right after their graduation from university. We also assume the cost of living during studying in university is covered. This study will focus on tuition fees. By gathering data on tuition fees for domestic and international students doing a Bachelor of Science degree in the University of Toronto. This data will be acquired from the tuition statistics posted online. After the student graduates and goes to work, we are looking for the data of incomes online. During working period, we assume the student starts to pay or their cost of living. To determine the value for cost of living, we add the data of cost for clothing, commuting, eating, rent, and utilities. Those factors will be acquired from online data sets.
-
-We will compare international and domestic student results. The data handling will focus on first calculating total tuition at the end of an average time period of study. Then calculating the total average yearly income and subtracting the average cost of living in Toronto. Then dividing the total tuition number by the resulting income to get the predicted total time in years that will take to pay their whole tuition.
+Methodology:
+The data handling will focus on first calculating total tuition at the end of an average time period of study.
+Then calculating the total average yearly income and subtracting the average cost of living in Toronto to get remaining funds.
+Then dividing the total tuition cost by the resulting annual remaining funds to get the predicted timeframe in years taken to pay their whole tuition cost.
 
 #### Data Description
 
-2. Specify your data sources and data collection methods.
+2. Specify your data sources and data collection methods. 
 
-Write a paragraph describing where your data comes from and and how they were collected, providing links/references to your sources. Identify any potential issues related to their appropriateness or representativeness (e.g. bias). 
-
-The data we used and are planning to use are collected from online resources refered below. The first three resources below are URLs that provide an option to download a csv file corresponding to the data. The last resource (Payscale) shows the data about the salary of UofT allumnis and the data was obtained through webscraping.
+The data we used and are planning to use are collected from online resources referred below. The first three resources below are URLs that provide an option to download a csv file corresponding to the data. The last resource (Payscale) shows the data about the salary of UofT alumni and the data was obtained through web-scraping.
 Given the data sources used, we tried making the data and questions as broad as possible, but still catered towards UofT students.
-
 
 -Canadian undergraduate tuition fees by field of study:
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301
@@ -47,24 +49,20 @@ https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301
 -Canadian average undergraduate tuition fees for full-time students by province:
 https://www150.statcan.gc.ca/n1/daily-quotidien/170906/t003b-eng.htm
 
-***-Tuition and Living Accomodations for Full-time students (2017-2018)
+***-Tuition and Living Accommodations for Full-time students (2017-2018)
 http://odesi2.scholarsportal.info/documentation/TLAC/tlac9310-tables.html
 
 -Data that shows the salary of an undergrad, grad, and PhD from UofT
 https://www.payscale.com/research/CA/School=University_of_Toronto/Salary/by_Degree#by_Job
 
-
-
 3. Identify the variables/observations you will use for your analysis.
-
-For each of your data sources, describe which variables and sets of observations are relevant for your analysis.
 
 For the data set that gives us tuition the important variables are:
 * Type of student (Domestic or international)
 * Tuition fee
-* Program type
+* Program/Degree type
 
-The important observations to get from this are the different in tuition fees from international and domestic students and the average tuition fee for a domestic and an international student studying a specific program type.
+The important observations to get from this are the difference in tuition fees from international and domestic students and corresponding average tuition fee respective to each type of student.
 
 For the data set that gives us average cost of living for a person that has graduated, the important variables are:
 * Cost of clothing
@@ -73,37 +71,33 @@ For the data set that gives us average cost of living for a person that has grad
 * Cost of rent
 * Cost of utilities
 * Extra costs.
-
-The important observation to get from this is the average cost of living in Toronto.
+The important summary value to get from this is the average cost of living in Toronto.
 
 For the data set that gives us average income the important variables are:
 * Amount of income 
 * Program type
-
 The important observation to get from this is the average amount of yearly income from a person who has obtained a degree in a specific program type.
 
 #### Getting Started 
-
 
 5. Load data into R.
 
 Provide a copy of the data files, and the commands used to load them into R. 
 
-```{r}
+```{r results='hide', message=F, warning=F}
 library(tidyverse)
 ```
 
-```{r}
+```{r message=F, warning=F}
 fpath = file.choose()
 MeanSalaries_uoft = read_csv(fpath)
+
 ```
 
 
 6. Explore data 
 
-Create three data visualizations which are relevant to your questions.
-
-===Visualizing PayScale Median Uoft Alumni salaries by degree completed===
+===Visualizing PayScale Average Uoft Alumni salaries by degree completed===
 Clean:
 ```{r}
 MeanSalaries_uoft$Average = str_remove_all(MeanSalaries_uoft$Average, "\\D")
@@ -112,62 +106,15 @@ MeanSalaries_uoft$Average = as.numeric(MeanSalaries_uoft$Average)
 
 
 ```{r}
-(degreesOrdered = MeanSalaries_uoft %>% arrange(desc(`Degree/Major Subject`)))
-```
-
-```{r}
-#MeanSalaries_uoft
-
-(Doctrate = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Doc")))
-(Masters = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Master")))
-(Bachelor = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Bachelor")))
-# (Certificate = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Certificate")))
-
-# head(MeanSalaries_uoft) %>% 
-#   ggplot(aes(x=`Degree/Major Subject`, y=Average))+
-#   geom_bar(stat = "identity")
-```
-===Doctrate===
-```{r}
-legend_ord = levels(with(Doctrate, reorder(Doctrate$`Degree/Major Subject`, -Average)))
-
-Doctrate %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
-                       y=Average,
-                       fill = `Degree/Major Subject`))+
-  geom_bar(stat = "identity")+
-  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_blank())+
-  ggtitle("Average Salary for Uoft Alumni by Doctrate Degree")+
-  ylab("Average Salary")+
-  geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
-  
-```
-
-===Masters===
-
-```{r}
-legend_ord = levels(with(Masters, reorder(Masters$`Degree/Major Subject`, -Average)))
-
-Masters %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
-                       y=Average,
-                       fill = `Degree/Major Subject`))+
-  geom_bar(stat = "identity")+
-  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
-  theme(axis.title.x = element_blank(),
-        axis.text.x = element_blank())+
-  ggtitle("Average Salary for Uoft Alumni by Masters Degree")+
-  ylab("Average Salary")+
-  geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
-  
+degreesOrdered = MeanSalaries_uoft %>% arrange(desc(`Degree/Major Subject`))
+Bachelor = degreesOrdered %>% filter(str_detect(`Degree/Major Subject`, "Bachelor"))
 ```
 
 ===Bachelor===
 
 ```{r}
 legend_ord = levels(with(Bachelor, reorder(Bachelor$`Degree/Major Subject`, -Average)))
-
-Bachelor %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
+head(Bachelor) %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
                        y=Average,
                        fill = `Degree/Major Subject`))+
   geom_bar(stat = "identity")+
@@ -177,23 +124,37 @@ Bachelor %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
   ggtitle("Average Salary for Uoft Alumni by Bachelor Degree")+
   ylab("Average Salary")+
   geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
-  
 ```
-
-===Certificate===
 
 ```{r}
-# legend_ord = levels(with(Certificate, reorder(Certificate$`Degree/Major Subject`, -Average)))
-# 
-# Certificate %>% ggplot(aes(x=reorder(`Degree/Major Subject`, -Average),
-#                        y=Average,
-#                        fill = `Degree/Major Subject`))+
-#   geom_bar(stat = "identity")+
-#   scale_fill_discrete(breaks=legend_ord, name="Certificate Subject")+
-#   theme(axis.title.x = element_blank(),
-#         axis.text.x = element_blank())+
-#   ggtitle("Average Salary for Uoft Alumni by Certificate")+
-#   ylab("Average Salary")+
-#   geom_text(aes(label=Average), size=2.5, position = position_stack(vjust = 0.9))
-  
+DegreeCost_and_Salary = MeanSalaries_uoft %>% filter(!is.na(Tuition))
+# 1,326.67C$ without rent/month + 2,028.95 rent/month Apartment (1 bedroom) in City Centre
+Average_annual_cost_of_living = 12*(1327 +  2029)#(including taxes)
+Total_degree_cost = 4* DegreeCost_and_Salary$Tuition
+Remaining_funds = DegreeCost_and_Salary$Average - Average_annual_cost_of_living
+Time_to_amortize = round(Total_degree_cost / Remaining_funds)
+
+DegreeCost_and_Salary = DegreeCost_and_Salary %>% mutate(TimeToAmortize = Time_to_amortize) %>% arrange(desc(TimeToAmortize))
+legend_ord = levels(with(DegreeCost_and_Salary, reorder(DegreeCost_and_Salary$`Degree/Major Subject`, -TimeToAmortize)))
+
+DegreeCost_and_Salary %>% 
+  ggplot(aes(x=reorder(`Degree/Major Subject`, -Tuition), y=Tuition, fill=`Degree/Major Subject`))+
+  geom_bar(stat = "identity")+
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank())+
+  ylab("Annual Tuition in Dollars")+
+  geom_text(aes(label=Tuition), size=2.5, position = position_stack(vjust = 0.9))+
+  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
+  ggtitle("Annual Tuition of Selected Degrees 2017-2018")
+
+DegreeCost_and_Salary %>% 
+  ggplot(aes(x=reorder(`Degree/Major Subject`, -TimeToAmortize), y=TimeToAmortize, fill=`Degree/Major Subject`))+
+  geom_bar(stat = "identity")+
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank())+
+  ylab("Time To Amortaize Degree cost in Years")+
+  geom_text(aes(label=TimeToAmortize), size=2.5, position = position_stack(vjust = 0.9))+
+  scale_fill_discrete(breaks=legend_ord, name="Degree Subject")+
+  ggtitle("Time in Years taken to amortize degree cost for select programs")
 ```
+
