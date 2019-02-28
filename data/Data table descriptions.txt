@@ -67,3 +67,8 @@ link in STAA57H3 Project Description Pdf
 ===Labour Force Survey (LFS)===
 use file provided in class:
 download original complete files here: http://sda.chass.utoronto.ca/cgi-bin/sda/hsda?harcsda4+lfs2018v6
+
+
+===PayScale:===
+Data for the salary for each degree from the University of Toronto
+Webscrape from https://www.payscale.com/research/CA/School=University_of_Toronto/Salary/by_Degree#by_Job

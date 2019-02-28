@@ -1,6 +1,6 @@
 ---
 title: "STAA57 W19 - Project Proposal"
-author:  "Team 10?"
+author:  "Group 10"
 output: html_notebook
 ---
 
@@ -34,6 +34,18 @@ We will compare international and domestic student results. The data handling wi
 2. Specify your data sources and data collection methods.
 
 Write a paragraph describing where your data comes from and and how they were collected, providing links/references to your sources. Identify any potential issues related to their appropriateness or representativeness (e.g. bias). 
+
+-Canadian undergraduate tuition fees by field of study:
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301
+
+-Canadian average undergraduate tuition fees for full-time students by province:
+https://www150.statcan.gc.ca/n1/daily-quotidien/170906/t003b-eng.htm
+
+-Tuition and Living Accomodations for Full-time students (2017-2018)
+http://odesi2.scholarsportal.info/documentation/TLAC/tlac9310-tables.html
+
+-
+
 
 3. Identify the variables/observations you will use for your analysis.
 
