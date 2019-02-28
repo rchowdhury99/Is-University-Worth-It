@@ -1,7 +1,9 @@
 ---
 title: "STAA57 W19 - Project Proposal"
-author:  "Group 10"
-output: html_notebook
+author: "Group 10"
+output:
+  html_document:
+    df_print: paged
 ---
 
 ***
