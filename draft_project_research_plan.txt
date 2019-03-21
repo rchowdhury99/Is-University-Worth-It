@@ -1,0 +1,36 @@
+Draft Project Proposal plan:
+
+Tuition data:
+https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
+Provides graduate and undergraduate data for domestic and international students.
+
+https://www150.statcan.gc.ca/n1/en/daily-quotidien/180905/dq180905b-eng.pdf?st=KKHzDvP6
+Provides graduate and undergraduate data based on field of study.
+
+Income data:
+http://sda.chass.utoronto.ca/sdaweb/html/lfs.htm
+http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt <-- codebook
+
+New tentative questions:
+Is it worth it to get a bachelor's degree as an:
+	-International Student
+	-Domestic Student
+	-Also possible to analyze based on field of study
+
+Is it worth it to get a graduate degree as an:
+	-International Student
+	-Domestic Student
+	-Also possible to graph based on field of study
+
+Plan:
+Get mean income for level of study (undergraduate/graduate, variable = educ) from LFS data and calculate amount of time it takes to amortize tuition for all the previous categories mentioned. Tuition costs calculated from univcan.ca and statcan.gc.ca.
+
+Also investigate unemployment based on undergraduate vs graduate degrees.
+
+Based on results conclude if it is worth it to:
+1. Get a bachelor's (international vs. domestic)
+2. Get a masters (international vs. domestic)
+3. Get a masters immediately after a bachelor's vs. after a few years
+4. Most worth it field of study. (for undergraduate and graduate, for international and domestic)
+5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
+6. Comment on unemployment
