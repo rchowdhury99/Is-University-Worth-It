@@ -1,0 +1,24 @@
+---
+title: "Analysis_for_DraftReport"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(rvest)
+```
+
+#### Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
+```{r}
+URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
+page = read_html(url(URL))
+
+univcan_data =   
+  page %>% 
+  html_nodes(xpath = '//*[@id="data_table"]') %>%
+  html_table(fill = TRUE) %>% 
+  as.data.frame()
+univcan_data = univcan_data[-1,]
+univcan_data 
+```
