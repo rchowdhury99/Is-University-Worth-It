@@ -7,6 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(rvest)
+library(stringr)
 ```
 
 #### Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
@@ -20,5 +21,54 @@ univcan_data =
   html_table(fill = TRUE) %>% 
   as.data.frame()
 univcan_data = univcan_data[-1,]
-univcan_data 
+univcan_data
 ```
+
+#### Setting up the data in interest
+```{r}
+domestic_undergraduate =
+  univcan_data %>% 
+  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
+  select(domestic_undergraduate_tuition) %>% na.omit()
+
+domestic_undergraduate$domestic_undergraduate_tuition =
+  as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
+
+domestic_undergraduate
+######################################################################################################################
+international_undergraduate =
+  univcan_data %>% 
+  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
+  select(international_undergraduate_tuition) %>% na.omit()
+
+international_undergraduate$international_undergraduate_tuition = 
+  as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
+
+international_undergraduate
+######################################################################################################################
+domestic_graduate =
+  univcan_data %>% 
+  mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
+  select(domestic_graduate_tuition) %>% na.omit()
+
+domestic_graduate$domestic_graduate_tuition = 
+  as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
+
+domestic_graduate
+######################################################################################################################
+international_graduate =
+  univcan_data %>% 
+  mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
+  select(international_graduate_tuition) %>% na.omit()
+
+international_graduate$international_graduate_tuition = 
+  as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
+
+international_graduate
+```
+#### DATA ANAYLSIS
+#### Q1: Get a bachelor's tuition (international vs. domestic)
+
+
+
+#### Q2: Get a masters (international vs. domestic)
