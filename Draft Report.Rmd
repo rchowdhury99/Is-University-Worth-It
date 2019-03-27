@@ -33,11 +33,20 @@ Instructions:
 
 ## Introduction 
 
-(*Description of questions that are being investigated*)
+"Is university worth it?" is one of the hardest questions to answer. University is a very different experience from person to person depending on various factors. One of the main worries of most people is the heavy economical investment university takes. This skews the question towards the idea of measuring worth by future economical gain that cancels out the original investment. Therefore, to investigate if university is worth it, it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada.
+
+Since tuition expenses show great variance depending on factors such as nationality, type of degree, or field of study, to have a relevant conclusion it is necessary to answer the following questions:
+
+1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
+2. Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
+3. Is it worth it to get a masters degree immediately after getting a bachelors degree or is it better to invest in a masters degree after a few years?
+4. What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+5. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+6. Who has a bigger rate of unemployment? Bachelor degrees or master degrees?
 
 ## Data 
 
-(*Description of data used to answer the questions*)
+To answer the questions stated above it is required to get the mean income for each level of study (undergraduate and graduate) from the LFS data and then use those numbers to compare them against the tuition costs from the Univcan and statcan data.
 
 ## Analysis 
 
@@ -49,7 +58,7 @@ Instructions:
 
 (*Plots should be created in R, and not imported from file*)
 
-```{r, echo = FALSE, fig.width = 5, fig.heigh = 5}
+```{r, echo = FALSE, fig.width = 2, fig.height = 2}
 tibble( t = seq(0, 2*pi, by=0.1) ) %>% 
   mutate( x = 16*sin(t)^3, 
           y = 13*cos(t)-5*cos(2*t)-2*cos(3*t)-cos(4*t) ) %>% 
