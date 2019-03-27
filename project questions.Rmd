@@ -111,6 +111,9 @@ a = income %>% arrange(desc(Median.after.tax.income....))
 a
 c = income %>% arrange(desc(Average.employment.income....))
 c
+a %>% top_n(10, Median.after.tax.income....)
+c %>% top_n(10, Average.employment.income....)
+
 ```
 
 5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
