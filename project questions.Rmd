@@ -98,23 +98,20 @@ pro_masterno
 ```
 
 4. Most worth it field of study. (for undergraduate and graduate, for international and domestic)
+
+The data we use is come from that link:
+https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&LANG=E&A=R&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=35&GL=-1&GID=1341685&GK=1&GRP=1&O=D&PID=111839&PRID=10&PTYPE=109445&S=0&SHOWALL=0&SUB=0&Temporal=2017&THEME=123&VID=0&VNAMEE=&VNAMEF=&D1=0&D2=0&D3=0&D4=0&D5=0&D6=0&fbclid=IwAR2UiD5ZcCwmoBu9g7ZeIkvZwQD3H1uIJvWYusU7zu0seh9wjdY89H0kjFo
 undergrduate:
-domestic:
 ```{r}
-income = read.csv("../data/income3.CSV")
+income = read.csv("../data/income6.CSV")
 ```
-international:
-```{r}
 
-```
-graduate:
-domestic:
 ```{r}
-
+a = income %>% arrange(desc(Median.after.tax.income....))
+a
+c = income %>% arrange(desc(Average.employment.income....))
+c
 ```
-international:
-```{r}
 
-```
 5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
 6. Comment on unemployment
