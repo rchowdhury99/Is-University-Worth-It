@@ -280,29 +280,201 @@ Instructions:
 <div id="data" class="section level2">
 <h2>Data</h2>
 <p>To answer the questions stated above it is required to get the mean income for each level of study (undergraduate and graduate) from the LFS data and then use those numbers to compare them against the tuition costs from the Univcan and statcan data.</p>
-</div>
-<div id="analysis" class="section level2">
-<h2>Analysis</h2>
-<p>(<em>Main body of analysis, containing data summaries (tables/plots), statistical analyses (estimations, tests), and modelling (regression, classification) </em>)</p>
-<div id="some-subsection-title" class="section level3">
-<h3>Some Subsection Title</h3>
-<!-- You can organize content in subsections -->
-<p>(<em>Plots should be created in R, and not imported from file</em>)</p>
+<p>The original sources for the data are: Tuition data: <a href="https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/" class="uri">https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/</a> Provides graduate and undergraduate data for domestic and international students.</p>
+<p><a href="https://www150.statcan.gc.ca/n1/en/daily-quotidien/180905/dq180905b-eng.pdf?st=KKHzDvP6" class="uri">https://www150.statcan.gc.ca/n1/en/daily-quotidien/180905/dq180905b-eng.pdf?st=KKHzDvP6</a> Provides graduate and undergraduate data based on field of study.</p>
+<p>Income data: <a href="http://sda.chass.utoronto.ca/sdaweb/html/lfs.htm" class="uri">http://sda.chass.utoronto.ca/sdaweb/html/lfs.htm</a> <a href="http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt" class="uri">http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt</a> &lt;– codebook</p>
+<!-- rnb-text-end -->
+<!-- rnb-text-begin -->
+<div id="webscraping-httpswww.univcan.cauniversitiesfacts-and-statstuition-fees-by-university" class="section level4">
+<h4>Webscraping <a href="https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/" class="uri">https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/</a></h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVVJMID0gJ2h0dHBzOi8vd3d3LnVuaXZjYW4uY2EvdW5pdmVyc2l0aWVzL2ZhY3RzLWFuZC1zdGF0cy90dWl0aW9uLWZlZXMtYnktdW5pdmVyc2l0eS8nXG5wYWdlID0gcmVhZF9odG1sKHVybChVUkwpKVxudW5pdmNhbl9kYXRhID0gICBcbiAgcGFnZSAlPiUgXG4gIGh0bWxfbm9kZXMoeHBhdGggPSAnLy8qW0BpZD1cImRhdGFfdGFibGVcIl0nKSAlPiVcbiAgaHRtbF90YWJsZShmaWxsID0gVFJVRSkgJT4lIFxuICBhcy5kYXRhLmZyYW1lKClcbnVuaXZjYW5fZGF0YSA9IHVuaXZjYW5fZGF0YVstMSxdXG51bml2Y2FuX2RhdGFcbmBgYCJ9 -->
+<pre class="r"><code>URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
+page = read_html(url(URL))
+univcan_data =   
+  page %&gt;% 
+  html_nodes(xpath = '//*[@id=&quot;data_table&quot;]') %&gt;%
+  html_table(fill = TRUE) %&gt;% 
+  as.data.frame()
+univcan_data = univcan_data[-1,]
+univcan_data</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<div id="some-subsubsection-title" class="section level4">
-<h4>Some Subsubsection Title</h4>
-<p>(<em>R output tables can be converted to .html with</em> <code>knitr::kable()</code>)</p>
+</div>
+<div id="setting-up-the-data-in-interest" class="section level4">
+<h4>Setting up the data in interest</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9tZXN0aWNfdW5kZXJncmFkdWF0ZSA9XG4gIHVuaXZjYW5fZGF0YSAlPiUgXG4gIG11dGF0ZShkb21lc3RpY191bmRlcmdyYWR1YXRlX3R1aXRpb24gPSBzdHJfZXh0cmFjdChVbmRlcmdyYWR1YXRlLCBcIihcXFxcZCspW14tKl0qJFwiKSkgJT4lIFxuICBzZWxlY3QoZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSAlPiUgbmEub21pdCgpXG5kb21lc3RpY191bmRlcmdyYWR1YXRlJGRvbWVzdGljX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbiA9XG4gIGFzLm51bWVyaWMoZ3N1YihcIixcIixcIlwiLGRvbWVzdGljX3VuZGVyZ3JhZHVhdGUkZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSlcbmRvbWVzdGljX3VuZGVyZ3JhZHVhdGVcbmRvID0gZG9tZXN0aWNfdW5kZXJncmFkdWF0ZSAlPiUgbXV0YXRlKHN1bSA9IG4oKS0xKVxuZG9cbiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbmludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZSA9XG4gIHVuaXZjYW5fZGF0YSAlPiUgXG4gIG11dGF0ZShpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbiA9IHN0cl9leHRyYWN0KFVuZGVyZ3JhZHVhdGUuMSwgXCIoXFxcXGQrKVteLSpdKiRcIikpICU+JSBcbiAgc2VsZWN0KGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSAlPiUgbmEub21pdCgpXG5pbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGUkaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlX3R1aXRpb24gPSBcbiAgYXMubnVtZXJpYyhnc3ViKFwiLFwiLFwiXCIsIGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZSRpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbikpXG5pbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVcbmludGVyID0gaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlICU+JSBtdXRhdGUoc3VtID0gbigpKVxuaW50ZXJcbiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbmRvbWVzdGljX2dyYWR1YXRlID1cbiAgdW5pdmNhbl9kYXRhICU+JSBcbiAgbXV0YXRlKGRvbWVzdGljX2dyYWR1YXRlX3R1aXRpb24gPSBzdHJfZXh0cmFjdChHcmFkdWF0ZSwgXCIoXFxcXGQrKVteLSpdKiRcIikpICU+JSBcbiAgc2VsZWN0KGRvbWVzdGljX2dyYWR1YXRlX3R1aXRpb24pICU+JSBuYS5vbWl0KClcbmRvbWVzdGljX2dyYWR1YXRlJGRvbWVzdGljX2dyYWR1YXRlX3R1aXRpb24gPSBcbiAgYXMubnVtZXJpYyhnc3ViKFwiLFwiLCBcIlwiLCBkb21lc3RpY19ncmFkdWF0ZSRkb21lc3RpY19ncmFkdWF0ZV90dWl0aW9uKSlcbmRvbWVzdGljX2dyYWR1YXRlXG5kb2cgPSBkb21lc3RpY19ncmFkdWF0ZSAlPiUgbXV0YXRlKHN1bSA9IG4oKSsxNylcbmRvZ1xuIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuaW50ZXJuYXRpb25hbF9ncmFkdWF0ZSA9XG4gIHVuaXZjYW5fZGF0YSAlPiUgXG4gIG11dGF0ZShpbnRlcm5hdGlvbmFsX2dyYWR1YXRlX3R1aXRpb24gPSBzdHJfZXh0cmFjdChHcmFkdWF0ZS4xLCBcIihcXFxcZCspW14tKl0qJFwiKSkgJT4lIFxuICBzZWxlY3QoaW50ZXJuYXRpb25hbF9ncmFkdWF0ZV90dWl0aW9uKSAlPiUgbmEub21pdCgpXG5pbnRlcm5hdGlvbmFsX2dyYWR1YXRlJGludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbiA9IFxuICBhcy5udW1lcmljKGdzdWIoXCIsXCIsXCJcIiwgaW50ZXJuYXRpb25hbF9ncmFkdWF0ZSRpbnRlcm5hdGlvbmFsX2dyYWR1YXRlX3R1aXRpb24pKVxuaW50ZXJuYXRpb25hbF9ncmFkdWF0ZVxuaW50ZXJnID0gaW50ZXJuYXRpb25hbF9ncmFkdWF0ZSAlPiUgbXV0YXRlKHN1bSA9IG4oKSsxOClcbmludGVyZ1xuYGBgIn0= -->
+<pre class="r"><code>domestic_undergraduate =
+  univcan_data %&gt;% 
+  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, &quot;(\\d+)[^-*]*$&quot;)) %&gt;% 
+  select(domestic_undergraduate_tuition) %&gt;% na.omit()
+domestic_undergraduate$domestic_undergraduate_tuition =
+  as.numeric(gsub(&quot;,&quot;,&quot;&quot;,domestic_undergraduate$domestic_undergraduate_tuition))
+domestic_undergraduate
+do = domestic_undergraduate %&gt;% mutate(sum = n()-1)
+do
+######################################################################################################################
+international_undergraduate =
+  univcan_data %&gt;% 
+  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, &quot;(\\d+)[^-*]*$&quot;)) %&gt;% 
+  select(international_undergraduate_tuition) %&gt;% na.omit()
+international_undergraduate$international_undergraduate_tuition = 
+  as.numeric(gsub(&quot;,&quot;,&quot;&quot;, international_undergraduate$international_undergraduate_tuition))
+international_undergraduate
+inter = international_undergraduate %&gt;% mutate(sum = n())
+inter
+######################################################################################################################
+domestic_graduate =
+  univcan_data %&gt;% 
+  mutate(domestic_graduate_tuition = str_extract(Graduate, &quot;(\\d+)[^-*]*$&quot;)) %&gt;% 
+  select(domestic_graduate_tuition) %&gt;% na.omit()
+domestic_graduate$domestic_graduate_tuition = 
+  as.numeric(gsub(&quot;,&quot;, &quot;&quot;, domestic_graduate$domestic_graduate_tuition))
+domestic_graduate
+dog = domestic_graduate %&gt;% mutate(sum = n()+17)
+dog
+######################################################################################################################
+international_graduate =
+  univcan_data %&gt;% 
+  mutate(international_graduate_tuition = str_extract(Graduate.1, &quot;(\\d+)[^-*]*$&quot;)) %&gt;% 
+  select(international_graduate_tuition) %&gt;% na.omit()
+international_graduate$international_graduate_tuition = 
+  as.numeric(gsub(&quot;,&quot;,&quot;&quot;, international_graduate$international_graduate_tuition))
+international_graduate
+interg = international_graduate %&gt;% mutate(sum = n()+18)
+interg</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<!-- 
-for more help on RMarkdown see: https://rmarkdown.rstudio.com/lesson-15.html 
--->
 </div>
+<div id="data-anaylsis" class="section level4">
+<h4>DATA ANAYLSIS</h4>
+</div>
+<div id="q1-get-a-bachelors-tuition-international-vs.domestic" class="section level4">
+<h4>Q1: Get a bachelor’s tuition (international vs. domestic)</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9tZXN0aWNfdW5kZXJncmFkdWF0ZSAlPiUgXG4gIGFycmFuZ2UoZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSAlPiUgXG4gIGdncGxvdChhZXMoeD1Vbml2ZXJzaXR5LCB5ID0gZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSkgKyBnZW9tX3BvaW50KClcblxuaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlICU+JSBcbiAgYXJyYW5nZShpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbikgJT4lIFxuICBnZ3Bsb3QoYWVzKHg9VW5pdmVyc2l0eSwgeSA9IGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSkgKyBnZW9tX3BvaW50KClcbmBgYCJ9 -->
+<pre class="r"><code>domestic_undergraduate %&gt;% 
+  arrange(domestic_undergraduate_tuition) %&gt;% 
+  ggplot(aes(x=University, y = domestic_undergraduate_tuition)) + geom_point()
+
+international_undergraduate %&gt;% 
+  arrange(international_undergraduate_tuition) %&gt;% 
+  ggplot(aes(x=University, y = international_undergraduate_tuition)) + geom_point()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="shows-domestic-vs.international-used-left-join" class="section level4">
+<h4>Shows Domestic vs. International (used LEFT JOIN)</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9tZXN0aWNfaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlID0gXG4gIGxlZnRfam9pbihkb21lc3RpY191bmRlcmdyYWR1YXRlLCBpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGUsIGJ5ID0gXCJVbml2ZXJzaXR5XCIpXG5cbmRvbWVzdGljX2ludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZSAlPiUgXG4gIGdncGxvdChhZXMoeCA9IFVuaXZlcnNpdHksIHkgPSBUdWl0aW9uLCBjb2xvciA9IFR5cGVPZlN0dWRlbnQpKSArIFxuICBnZW9tX3BvaW50KGFlcyh5ID0gZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uLCBjb2wgPSBcIkRvbWVzdGljXCIpKSArIFxuICBnZW9tX3BvaW50KGFlcyh5ID0gaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlX3R1aXRpb24sIGNvbCA9IFwiSW50ZXJuYXRpb25hbFwiKSlcbmBgYCJ9 -->
+<pre class="r"><code>domestic_international_undergraduate = 
+  left_join(domestic_undergraduate, international_undergraduate, by = &quot;University&quot;)
+
+domestic_international_undergraduate %&gt;% 
+  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
+  geom_point(aes(y = domestic_undergraduate_tuition, col = &quot;Domestic&quot;)) + 
+  geom_point(aes(y = international_undergraduate_tuition, col = &quot;International&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="q2-get-a-masters-international-vs.domestic" class="section level4">
+<h4>Q2: Get a masters (international vs. domestic)</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9tZXN0aWNfZ3JhZHVhdGUgJT4lIFxuICBhcnJhbmdlKGRvbWVzdGljX2dyYWR1YXRlX3R1aXRpb24pICU+JSBcbiAgZ2dwbG90KGFlcyh4PVVuaXZlcnNpdHksIHkgPSBkb21lc3RpY19ncmFkdWF0ZV90dWl0aW9uKSkgKyBnZW9tX3BvaW50KClcblxuaW50ZXJuYXRpb25hbF9ncmFkdWF0ZSAlPiUgXG4gIGFycmFuZ2UoaW50ZXJuYXRpb25hbF9ncmFkdWF0ZV90dWl0aW9uKSAlPiUgXG4gIGdncGxvdChhZXMoeD1Vbml2ZXJzaXR5LCB5ID0gaW50ZXJuYXRpb25hbF9ncmFkdWF0ZV90dWl0aW9uKSkgKyBnZW9tX3BvaW50KClcbmBgYCJ9 -->
+<pre class="r"><code>domestic_graduate %&gt;% 
+  arrange(domestic_graduate_tuition) %&gt;% 
+  ggplot(aes(x=University, y = domestic_graduate_tuition)) + geom_point()
+
+international_graduate %&gt;% 
+  arrange(international_graduate_tuition) %&gt;% 
+  ggplot(aes(x=University, y = international_graduate_tuition)) + geom_point()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="shows-domestic-vs.international-used-left-join-1" class="section level4">
+<h4>Shows Domestic vs. International (used LEFT JOIN)</h4>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9tZXN0aWNfaW50ZXJuYXRpb25hbF9ncmFkdWF0ZSA9IFxuICBsZWZ0X2pvaW4oZG9tZXN0aWNfZ3JhZHVhdGUsIGludGVybmF0aW9uYWxfZ3JhZHVhdGUsIGJ5ID0gXCJVbml2ZXJzaXR5XCIpXG5cbmRvbWVzdGljX2ludGVybmF0aW9uYWxfZ3JhZHVhdGUgJT4lIFxuICBnZ3Bsb3QoYWVzKHggPSBVbml2ZXJzaXR5LCB5ID0gVHVpdGlvbiwgY29sb3IgPSBUeXBlT2ZTdHVkZW50KSkgKyBcbiAgZ2VvbV9wb2ludChhZXMoeSA9IGRvbWVzdGljX2dyYWR1YXRlX3R1aXRpb24sIGNvbCA9IFwiRG9tZXN0aWNcIikpICsgXG4gIGdlb21fcG9pbnQoYWVzKHkgPSBpbnRlcm5hdGlvbmFsX2dyYWR1YXRlX3R1aXRpb24sIGNvbCA9IFwiSW50ZXJuYXRpb25hbFwiKSlcbmBgYCJ9 -->
+<pre class="r"><code>domestic_international_graduate = 
+  left_join(domestic_graduate, international_graduate, by = &quot;University&quot;)
+
+domestic_international_graduate %&gt;% 
+  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
+  geom_point(aes(y = domestic_graduate_tuition, col = &quot;Domestic&quot;)) + 
+  geom_point(aes(y = international_graduate_tuition, col = &quot;International&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="q3-get-a-masters-immediately-after-a-bachelors-vs.after-a-few-years" class="section level4">
+<h4>Q3: Get a masters immediately after a bachelor’s vs. after a few years</h4>
+<p>Assume there is four years of undergraduate study and 2 years of graduate study. The table shown below represents the total tuition fees for a domestic student and an international student have to pay if he/she is deciding to complete a master degree.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZG9tZXN0aWNfc3VtID0gbGVmdF9qb2luKGRvLCBkb2csIGJ5ID0gXCJzdW1cIikgJT4lIG11dGF0ZShzdW1fdHVpdGlvbiA9IDQqZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uICsgMipkb21lc3RpY19ncmFkdWF0ZV90dWl0aW9uKSAlPiUgc2VsZWN0KHN1bV90dWl0aW9uKVxuZG9tZXN0aWNfc3VtXG5pbnRlcm5hdGlvbmFsX3N1bSA9IGxlZnRfam9pbihpbnRlciwgaW50ZXJnLCBieSA9IFwic3VtXCIpICU+JSBtdXRhdGUoc3VtX3R1aXRpb24gPSA0KmludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uICsgMippbnRlcm5hdGlvbmFsX2dyYWR1YXRlX3R1aXRpb24pICU+JSBzZWxlY3Qoc3VtX3R1aXRpb24pXG5pbnRlcm5hdGlvbmFsX3N1bVxuXG5gYGAifQ== -->
+<pre class="r"><code>domestic_sum = left_join(do, dog, by = &quot;sum&quot;) %&gt;% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %&gt;% select(sum_tuition)
+domestic_sum
+international_sum = left_join(inter, interg, by = &quot;sum&quot;) %&gt;% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %&gt;% select(sum_tuition)
+international_sum
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>To find the proportion of a student who study for master immediately vs the proportion of a student who study for master after few years. We filtered the student who took school recently after getting the bachelor degree. We also filtered the student who does not took school recently after getting the bachelor degree. After we summarised people who get bachelor degree and use each group of people(who is taking master recently and not)divide by all bachelor degree students. We find out that people who take master immediately after he/she has got the bachelor degree is just around 8%, on the other hand, people is still not take the master yet after got the bachelor degree is almost 92%.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmdzID0gcmVhZC5jc3YoXCIuLi9kYXRhL25ncy5jc3ZcIilcbmRhdGEgPSBuZ3MgJT4lIHNlbGVjdChlZGJlZm9yLCBsZl9xMDEpXG5tYXN0ZXJfaW1tZWRpYXRlID0gZGF0YSAlPiUgZmlsdGVyKGxmX3EwMSA9PSAxICkgJT4lIGZpbHRlcihlZGJlZm9yID09IDUpICU+JSBzdW1tYXJpc2UobnVtID0gbigpKVxubWFzdGVyX2ltbWVkaWF0ZVxubWFzdGVyX25vdF9pbW1lID0gIGRhdGEgJT4lIGZpbHRlcihsZl9xMDEgPT0gMiApICU+JSBmaWx0ZXIoZWRiZWZvciA9PSA1KSAlPiUgc3VtbWFyaXNlKG51bSA9IG4oKSlcbm1hc3Rlcl9ub3RfaW1tZVxuc3VtX21hc3RlciA9IG1hc3Rlcl9pbW1lZGlhdGUgJT4lIHB1bGwoKSArIG1hc3Rlcl9ub3RfaW1tZSAlPiUgcHVsbCgpXG5wcm9fbWFzdGVyaSA9IG1hc3Rlcl9pbW1lZGlhdGUvc3VtX21hc3RlclxucHJvX21hc3RlcmlcbnByb19tYXN0ZXJubyA9IG1hc3Rlcl9ub3RfaW1tZS9zdW1fbWFzdGVyXG5wcm9fbWFzdGVybm9cbmBgYCJ9 -->
+<pre class="r"><code>ngs = read.csv(&quot;../data/ngs.csv&quot;)
+data = ngs %&gt;% select(edbefor, lf_q01)
+master_immediate = data %&gt;% filter(lf_q01 == 1 ) %&gt;% filter(edbefor == 5) %&gt;% summarise(num = n())
+master_immediate
+master_not_imme =  data %&gt;% filter(lf_q01 == 2 ) %&gt;% filter(edbefor == 5) %&gt;% summarise(num = n())
+master_not_imme
+sum_master = master_immediate %&gt;% pull() + master_not_imme %&gt;% pull()
+pro_masteri = master_immediate/sum_master
+pro_masteri
+pro_masterno = master_not_imme/sum_master
+pro_masterno</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="q4-most-worth-it-field-of-study.-for-undergraduate-and-graduate-for-international-and-domestic" class="section level4">
+<h4>Q4: Most worth it field of study. (for undergraduate and graduate, for international and domestic)</h4>
+<p>The data we use is come from that link: <a href="https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&amp;LANG=E&amp;A=R&amp;APATH=3&amp;DETAIL=0&amp;DIM=0&amp;FL=A&amp;FREE=0&amp;GC=35&amp;GL=-1&amp;GID=1341685&amp;GK=1&amp;GRP=1&amp;O=D&amp;PID=111839&amp;PRID=10&amp;PTYPE=109445&amp;S=0&amp;SHOWALL=0&amp;SUB=0&amp;Temporal=2017&amp;THEME=123&amp;VID=0&amp;VNAMEE" class="uri">https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&amp;LANG=E&amp;A=R&amp;APATH=3&amp;DETAIL=0&amp;DIM=0&amp;FL=A&amp;FREE=0&amp;GC=35&amp;GL=-1&amp;GID=1341685&amp;GK=1&amp;GRP=1&amp;O=D&amp;PID=111839&amp;PRID=10&amp;PTYPE=109445&amp;S=0&amp;SHOWALL=0&amp;SUB=0&amp;Temporal=2017&amp;THEME=123&amp;VID=0&amp;VNAMEE</a>=&amp;VNAMEF=&amp;D1=0&amp;D2=0&amp;D3=0&amp;D4=0&amp;D5=0&amp;D6=0&amp;fbclid=IwAR2UiD5ZcCwmoBu9g7ZeIkvZwQD3H1uIJvWYusU7zu0seh9wjdY89H0kjFo undergrduate:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5jb21lID0gcmVhZC5jc3YoXCIuLi9kYXRhL2luY29tZTYuQ1NWXCIpXG5gYGAifQ== -->
+<pre class="r"><code>income = read.csv(&quot;../data/income6.CSV&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYSA9IGluY29tZSAlPiUgYXJyYW5nZShkZXNjKE1lZGlhbi5hZnRlci50YXguaW5jb21lLi4uLikpXG5hXG5jID0gaW5jb21lICU+JSBhcnJhbmdlKGRlc2MoQXZlcmFnZS5lbXBsb3ltZW50LmluY29tZS4uLi4pKVxuY1xuYGBgIn0= -->
+<pre class="r"><code>a = income %&gt;% arrange(desc(Median.after.tax.income....))
+a
+c = income %&gt;% arrange(desc(Average.employment.income....))
+c</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ol start="5" style="list-style-type: decimal">
+<li>Least worth it field of study. (for undergraduate and graduate, for international and domestic)</li>
+<li>Comment on unemployment</li>
+</ol>
 </div>
 </div>
 <div id="summary" class="section level2">
@@ -316,7 +488,7 @@ for more help on RMarkdown see: https://rmarkdown.rstudio.com/lesson-15.html
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNUQUE1NyBGaW5hbCBQcm9qZWN0IFJlcG9ydCAiDQphdXRob3I6ICJUZWFtIDEwIChEYW5pZWxhIFZlbnR1cm8gRXNhaW5lLCBSZWl6d2FuIENob2RodXJ5LCBSYWxwaCBTYW1zb24gTGFsLCBYaWFvdG9uZyBZZSkiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KYGBge3IsIGVjaG89RkFMU0UsIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9DQojIyBlY2hvPUZBTFNFIHN0b3BzIHRoZSBjb2RlIGNodW5rIGZyb20gYXBwZWFyaW5nIGluIHRoZSBodG1sIGRvY3VtZW50DQojIyB3YXJuaW5nPUZBTFNFIC8gbWVzc2FnZT1GQUxTRSBzdG9wIFIgd2FybmluZ3MvbWVzc2FnZXMgZnJvbSBhcHBlYXJpbmcgaW4gdGhlIGtuaXQgZG9jdW1lbnQNCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCg0KKioqDQoNCjwhLS0gDQooZXZlcnl0aGluZyBiZWxvdyBpbiBoZXJlIGlzIGFuIC5odG1sIGNvbW1lbnQpDQoNCkluc3RydWN0aW9uczogDQotIFVzZSB0eXBpY2FsIHN0cnVjdHVyZSBvZiBkYXRhIGFuYWx5c2lzIHJlcG9ydCwgdy8gc2VjdGlvbnM6DQogICAgKyBJbnRyb2R1Y3Rpb24NCiAgICArIERhdGENCiAgICArIEFuYWx5c2lzDQogICAgKyBTdW1tYXJ5DQogICAgKyBBcHBlbmRpeCAob3B0aW9uYWwpDQotIFJlcG9ydCBzaG91bGQgYmUgNSBwYWdlcyBNQVggKHdoZW4gY29tcGlsZWQva25pdCBhcyBwZGYpDQotIEFwcGVuZGl4IGRvZXMgbm90IGNvdW50IHRvd2FyZHMgcGFnZSBsaW1pdA0KLSBQdXQgYWxsIHlvdXIgZGF0YSBpbiBhIHNlcGFyYXRlICIuL2RhdGEvIiBzdWItZm9sZGVyIA0KLSBTdWJtaXQgY29tcHJlc3NlZCBwcm9qZWN0IGZvbGRlciANCi0gWW91IHN1Ym1pc3Npb25zIHNob3VsZCBiZSByZXByb2R1Y2libGUgKGkuZS4gSSBzaG91bGQgYmUgYWJsZSB0byAgIA0KICByZS1jb21waWxlIHlvdXIgcmVwb3J0IHdpdGggYSBjbGljayBvZiB0aGUgUHJldmlldy9Lbml0IGJ1dHRvbikgDQoNCi0tPg0KDQojIyBJbnRyb2R1Y3Rpb24gDQoNCiJJcyB1bml2ZXJzaXR5IHdvcnRoIGl0PyIgaXMgb25lIG9mIHRoZSBoYXJkZXN0IHF1ZXN0aW9ucyB0byBhbnN3ZXIuIFVuaXZlcnNpdHkgaXMgYSB2ZXJ5IGRpZmZlcmVudCBleHBlcmllbmNlIGZyb20gcGVyc29uIHRvIHBlcnNvbiBkZXBlbmRpbmcgb24gdmFyaW91cyBmYWN0b3JzLiBPbmUgb2YgdGhlIG1haW4gd29ycmllcyBvZiBtb3N0IHBlb3BsZSBpcyB0aGUgaGVhdnkgZWNvbm9taWNhbCBpbnZlc3RtZW50IHVuaXZlcnNpdHkgdGFrZXMuIFRoaXMgc2tld3MgdGhlIHF1ZXN0aW9uIHRvd2FyZHMgdGhlIGlkZWEgb2YgbWVhc3VyaW5nIHdvcnRoIGJ5IGZ1dHVyZSBlY29ub21pY2FsIGdhaW4gdGhhdCBjYW5jZWxzIG91dCB0aGUgb3JpZ2luYWwgaW52ZXN0bWVudC4gVGhlcmVmb3JlLCB0byBpbnZlc3RpZ2F0ZSBpZiB1bml2ZXJzaXR5IGlzIHdvcnRoIGl0LCBpdCBtYWtlcyBzZW5zZSB0byBjYWxjdWxhdGUgdGhlIGFtb3VudCBvZiB0aW1lIGl0IHRha2VzIHRvIGFtb3J0aXplIHRvdGFsIHR1aXRpb24gY29zdCBpbiBDYW5hZGEuDQoNClNpbmNlIHR1aXRpb24gZXhwZW5zZXMgc2hvdyBncmVhdCB2YXJpYW5jZSBkZXBlbmRpbmcgb24gZmFjdG9ycyBzdWNoIGFzIG5hdGlvbmFsaXR5LCB0eXBlIG9mIGRlZ3JlZSwgb3IgZmllbGQgb2Ygc3R1ZHksIHRvIGhhdmUgYSByZWxldmFudCBjb25jbHVzaW9uIGl0IGlzIG5lY2Vzc2FyeSB0byBhbnN3ZXIgdGhlIGZvbGxvd2luZyBxdWVzdGlvbnM6DQoNCjEuIElzIGl0IHdvcnRoIGl0IHRvIGdldCBhIEJhY2hlbG9yJ3MgZGVncmVlIGFzIGEgQ2FuYWRpYW4gZG9tZXN0aWMgc3R1ZGVudCBjb21wYXJlZCB0byBhbiBpbnRlcm5hdGlvbmFsIHN0dWRlbnQ/DQoyLiBJcyBpdCB3b3J0aCBpdCB0byBnZXQgYSBNYXN0ZXJzIGRlZ3JlZSBhcyBhIENhbmFkaWFuIGRvbWVzdGljIHN0dWRlbnQgY29tcGFyZWQgdG8gYW4gaW50ZXJuYXRpb25hbCBzdHVkZW50Pw0KMy4gSXMgaXQgd29ydGggaXQgdG8gZ2V0IGEgbWFzdGVycyBkZWdyZWUgaW1tZWRpYXRlbHkgYWZ0ZXIgZ2V0dGluZyBhIGJhY2hlbG9ycyBkZWdyZWUgb3IgaXMgaXQgYmV0dGVyIHRvIGludmVzdCBpbiBhIG1hc3RlcnMgZGVncmVlIGFmdGVyIGEgZmV3IHllYXJzPw0KNC4gV2hhdCBpcyB0aGUgbW9zdCAid29ydGgtaXQiIGZpZWxkIG9mIHN0dWR5PyAoZm9yIHVuZGVyZ3JhZHVhdGUgYW5kIGdyYWR1YXRlLCBmb3IgaW50ZXJuYXRpb25hbCBhbmQgZG9tZXN0aWMpDQo1LiBXaGF0IGlzIHRoZSBsZWFzdCAid29ydGgtaXQiIGZpZWxkIG9mIHN0dWR5PyAoZm9yIHVuZGVyZ3JhZHVhdGUgYW5kIGdyYWR1YXRlLCBmb3IgaW50ZXJuYXRpb25hbCBhbmQgZG9tZXN0aWMpDQo2LiBXaG8gaGFzIGEgYmlnZ2VyIHJhdGUgb2YgdW5lbXBsb3ltZW50PyBCYWNoZWxvciBkZWdyZWVzIG9yIG1hc3RlciBkZWdyZWVzPw0KDQojIyBEYXRhIA0KDQpUbyBhbnN3ZXIgdGhlIHF1ZXN0aW9ucyBzdGF0ZWQgYWJvdmUgaXQgaXMgcmVxdWlyZWQgdG8gZ2V0IHRoZSBtZWFuIGluY29tZSBmb3IgZWFjaCBsZXZlbCBvZiBzdHVkeSAodW5kZXJncmFkdWF0ZSBhbmQgZ3JhZHVhdGUpIGZyb20gdGhlIExGUyBkYXRhIGFuZCB0aGVuIHVzZSB0aG9zZSBudW1iZXJzIHRvIGNvbXBhcmUgdGhlbSBhZ2FpbnN0IHRoZSB0dWl0aW9uIGNvc3RzIGZyb20gdGhlIFVuaXZjYW4gYW5kIHN0YXRjYW4gZGF0YS4NCg0KIyMgQW5hbHlzaXMgDQoNCigqTWFpbiBib2R5IG9mIGFuYWx5c2lzLCBjb250YWluaW5nIGRhdGEgc3VtbWFyaWVzICh0YWJsZXMvcGxvdHMpLCAgc3RhdGlzdGljYWwgYW5hbHlzZXMgKGVzdGltYXRpb25zLCB0ZXN0cyksIGFuZCBtb2RlbGxpbmcgKHJlZ3Jlc3Npb24sIGNsYXNzaWZpY2F0aW9uKSAqKQ0KDQojIyMgU29tZSBTdWJzZWN0aW9uIFRpdGxlDQoNCjwhLS0gWW91IGNhbiBvcmdhbml6ZSBjb250ZW50IGluIHN1YnNlY3Rpb25zIC0tPg0KDQooKlBsb3RzIHNob3VsZCBiZSBjcmVhdGVkIGluIFIsIGFuZCBub3QgaW1wb3J0ZWQgZnJvbSBmaWxlKikNCg0KYGBge3IsIGVjaG8gPSBGQUxTRSwgZmlnLndpZHRoID0gMiwgZmlnLmhlaWdodCA9IDJ9DQp0aWJibGUoIHQgPSBzZXEoMCwgMipwaSwgYnk9MC4xKSApICU+JSANCiAgbXV0YXRlKCB4ID0gMTYqc2luKHQpXjMsIA0KICAgICAgICAgIHkgPSAxMypjb3ModCktNSpjb3MoMip0KS0yKmNvcygzKnQpLWNvcyg0KnQpICkgJT4lIA0KICBnZ3Bsb3QoYWVzKCB4ID0geCwgeSA9IHkpKSArIA0KICBnZW9tX3BvbHlnb24oIGZpbGwgPSAicGluayIpICsNCiAgY29vcmRfZml4ZWQoKSANCmBgYA0KDQojIyMjIFNvbWUgU3Vic3Vic2VjdGlvbiBUaXRsZQ0KDQooKlIgb3V0cHV0IHRhYmxlcyBjYW4gYmUgY29udmVydGVkIHRvIC5odG1sIHdpdGgqIGBrbml0cjo6a2FibGUoKWApIA0KDQpgYGB7ciwgZWNobyA9IEZBTFNFfQ0KdGliYmxlKCBYID0gYygidGhpcyIsICJpcyIpLCANCiAgICAgICAgWSA9IGMoIm15IiwgInRhYmxlIikgKSAlPiUgDQogIGtuaXRyOjprYWJsZSgpDQpgYGANCjwhLS0gDQpmb3IgbW9yZSBoZWxwIG9uIFJNYXJrZG93biBzZWU6IGh0dHBzOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tL2xlc3Nvbi0xNS5odG1sIA0KLS0+DQoNCg0KIyMgU3VtbWFyeSANCg0KKCpSZWNhcCBvZiB5b3VyIGZpbmRpbmdzIGFuZCBjb25jbHVzaW9ucyopDQoNCg0KDQoqKiogIA0KDQojIyBBcHBlbmRpeCANCg0KKCpFdmVyeXRoaW5nIGhlcmUgZG9lcyBub3QgY291bnQgdG93YXJkcyBwYWdlIGxpbWl0KikNCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNUQUE1NyBGaW5hbCBQcm9qZWN0IFJlcG9ydCAiDQphdXRob3I6ICJUZWFtIDEwIChEYW5pZWxhIFZlbnR1cm8gRXNhaW5lLCBSZWl6d2FuIENob2RodXJ5LCBSYWxwaCBTYW1zb24gTGFsLCBYaWFvdG9uZyBZZSkiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KYGBge3IsIGVjaG89RkFMU0UsIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9DQojIyBlY2hvPUZBTFNFIHN0b3BzIHRoZSBjb2RlIGNodW5rIGZyb20gYXBwZWFyaW5nIGluIHRoZSBodG1sIGRvY3VtZW50DQojIyB3YXJuaW5nPUZBTFNFIC8gbWVzc2FnZT1GQUxTRSBzdG9wIFIgd2FybmluZ3MvbWVzc2FnZXMgZnJvbSBhcHBlYXJpbmcgaW4gdGhlIGtuaXQgZG9jdW1lbnQNCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCg0KKioqDQoNCjwhLS0gDQooZXZlcnl0aGluZyBiZWxvdyBpbiBoZXJlIGlzIGFuIC5odG1sIGNvbW1lbnQpDQoNCkluc3RydWN0aW9uczogDQotIFVzZSB0eXBpY2FsIHN0cnVjdHVyZSBvZiBkYXRhIGFuYWx5c2lzIHJlcG9ydCwgdy8gc2VjdGlvbnM6DQogICAgKyBJbnRyb2R1Y3Rpb24NCiAgICArIERhdGENCiAgICArIEFuYWx5c2lzDQogICAgKyBTdW1tYXJ5DQogICAgKyBBcHBlbmRpeCAob3B0aW9uYWwpDQotIFJlcG9ydCBzaG91bGQgYmUgNSBwYWdlcyBNQVggKHdoZW4gY29tcGlsZWQva25pdCBhcyBwZGYpDQotIEFwcGVuZGl4IGRvZXMgbm90IGNvdW50IHRvd2FyZHMgcGFnZSBsaW1pdA0KLSBQdXQgYWxsIHlvdXIgZGF0YSBpbiBhIHNlcGFyYXRlICIuL2RhdGEvIiBzdWItZm9sZGVyIA0KLSBTdWJtaXQgY29tcHJlc3NlZCBwcm9qZWN0IGZvbGRlciANCi0gWW91IHN1Ym1pc3Npb25zIHNob3VsZCBiZSByZXByb2R1Y2libGUgKGkuZS4gSSBzaG91bGQgYmUgYWJsZSB0byAgIA0KICByZS1jb21waWxlIHlvdXIgcmVwb3J0IHdpdGggYSBjbGljayBvZiB0aGUgUHJldmlldy9Lbml0IGJ1dHRvbikgDQoNCi0tPg0KDQojIyBJbnRyb2R1Y3Rpb24gDQoNCiJJcyB1bml2ZXJzaXR5IHdvcnRoIGl0PyIgaXMgb25lIG9mIHRoZSBoYXJkZXN0IHF1ZXN0aW9ucyB0byBhbnN3ZXIuIFVuaXZlcnNpdHkgaXMgYSB2ZXJ5IGRpZmZlcmVudCBleHBlcmllbmNlIGZyb20gcGVyc29uIHRvIHBlcnNvbiBkZXBlbmRpbmcgb24gdmFyaW91cyBmYWN0b3JzLiBPbmUgb2YgdGhlIG1haW4gd29ycmllcyBvZiBtb3N0IHBlb3BsZSBpcyB0aGUgaGVhdnkgZWNvbm9taWNhbCBpbnZlc3RtZW50IHVuaXZlcnNpdHkgdGFrZXMuIFRoaXMgc2tld3MgdGhlIHF1ZXN0aW9uIHRvd2FyZHMgdGhlIGlkZWEgb2YgbWVhc3VyaW5nIHdvcnRoIGJ5IGZ1dHVyZSBlY29ub21pY2FsIGdhaW4gdGhhdCBjYW5jZWxzIG91dCB0aGUgb3JpZ2luYWwgaW52ZXN0bWVudC4gVGhlcmVmb3JlLCB0byBpbnZlc3RpZ2F0ZSBpZiB1bml2ZXJzaXR5IGlzIHdvcnRoIGl0LCBpdCBtYWtlcyBzZW5zZSB0byBjYWxjdWxhdGUgdGhlIGFtb3VudCBvZiB0aW1lIGl0IHRha2VzIHRvIGFtb3J0aXplIHRvdGFsIHR1aXRpb24gY29zdCBpbiBDYW5hZGEuDQoNClNpbmNlIHR1aXRpb24gZXhwZW5zZXMgc2hvdyBncmVhdCB2YXJpYW5jZSBkZXBlbmRpbmcgb24gZmFjdG9ycyBzdWNoIGFzIG5hdGlvbmFsaXR5LCB0eXBlIG9mIGRlZ3JlZSwgb3IgZmllbGQgb2Ygc3R1ZHksIHRvIGhhdmUgYSByZWxldmFudCBjb25jbHVzaW9uIGl0IGlzIG5lY2Vzc2FyeSB0byBhbnN3ZXIgdGhlIGZvbGxvd2luZyBxdWVzdGlvbnM6DQoNCjEuIElzIGl0IHdvcnRoIGl0IHRvIGdldCBhIEJhY2hlbG9yJ3MgZGVncmVlIGFzIGEgQ2FuYWRpYW4gZG9tZXN0aWMgc3R1ZGVudCBjb21wYXJlZCB0byBhbiBpbnRlcm5hdGlvbmFsIHN0dWRlbnQ/DQoyLiBJcyBpdCB3b3J0aCBpdCB0byBnZXQgYSBNYXN0ZXJzIGRlZ3JlZSBhcyBhIENhbmFkaWFuIGRvbWVzdGljIHN0dWRlbnQgY29tcGFyZWQgdG8gYW4gaW50ZXJuYXRpb25hbCBzdHVkZW50Pw0KMy4gSXMgaXQgd29ydGggaXQgdG8gZ2V0IGEgbWFzdGVycyBkZWdyZWUgaW1tZWRpYXRlbHkgYWZ0ZXIgZ2V0dGluZyBhIGJhY2hlbG9ycyBkZWdyZWUgb3IgaXMgaXQgYmV0dGVyIHRvIGludmVzdCBpbiBhIG1hc3RlcnMgZGVncmVlIGFmdGVyIGEgZmV3IHllYXJzPw0KNC4gV2hhdCBpcyB0aGUgbW9zdCAid29ydGgtaXQiIGZpZWxkIG9mIHN0dWR5PyAoZm9yIHVuZGVyZ3JhZHVhdGUgYW5kIGdyYWR1YXRlLCBmb3IgaW50ZXJuYXRpb25hbCBhbmQgZG9tZXN0aWMpDQo1LiBXaGF0IGlzIHRoZSBsZWFzdCAid29ydGgtaXQiIGZpZWxkIG9mIHN0dWR5PyAoZm9yIHVuZGVyZ3JhZHVhdGUgYW5kIGdyYWR1YXRlLCBmb3IgaW50ZXJuYXRpb25hbCBhbmQgZG9tZXN0aWMpDQo2LiBXaG8gaGFzIGEgYmlnZ2VyIHJhdGUgb2YgdW5lbXBsb3ltZW50PyBCYWNoZWxvciBkZWdyZWVzIG9yIG1hc3RlciBkZWdyZWVzPw0KDQojIyBEYXRhIA0KDQpUbyBhbnN3ZXIgdGhlIHF1ZXN0aW9ucyBzdGF0ZWQgYWJvdmUgaXQgaXMgcmVxdWlyZWQgdG8gZ2V0IHRoZSBtZWFuIGluY29tZSBmb3IgZWFjaCBsZXZlbCBvZiBzdHVkeSAodW5kZXJncmFkdWF0ZSBhbmQgZ3JhZHVhdGUpIGZyb20gdGhlIExGUyBkYXRhIGFuZCB0aGVuIHVzZSB0aG9zZSBudW1iZXJzIHRvIGNvbXBhcmUgdGhlbSBhZ2FpbnN0IHRoZSB0dWl0aW9uIGNvc3RzIGZyb20gdGhlIFVuaXZjYW4gYW5kIHN0YXRjYW4gZGF0YS4NCg0KVGhlIG9yaWdpbmFsIHNvdXJjZXMgZm9yIHRoZSBkYXRhIGFyZToNClR1aXRpb24gZGF0YToNCmh0dHBzOi8vd3d3LnVuaXZjYW4uY2EvdW5pdmVyc2l0aWVzL2ZhY3RzLWFuZC1zdGF0cy90dWl0aW9uLWZlZXMtYnktdW5pdmVyc2l0eS8NClByb3ZpZGVzIGdyYWR1YXRlIGFuZCB1bmRlcmdyYWR1YXRlIGRhdGEgZm9yIGRvbWVzdGljIGFuZCBpbnRlcm5hdGlvbmFsIHN0dWRlbnRzLg0KDQpodHRwczovL3d3dzE1MC5zdGF0Y2FuLmdjLmNhL24xL2VuL2RhaWx5LXF1b3RpZGllbi8xODA5MDUvZHExODA5MDViLWVuZy5wZGY/c3Q9S0tIekR2UDYNClByb3ZpZGVzIGdyYWR1YXRlIGFuZCB1bmRlcmdyYWR1YXRlIGRhdGEgYmFzZWQgb24gZmllbGQgb2Ygc3R1ZHkuDQoNCkluY29tZSBkYXRhOg0KaHR0cDovL3NkYS5jaGFzcy51dG9yb250by5jYS9zZGF3ZWIvaHRtbC9sZnMuaHRtDQpodHRwOi8vc2RhLmNoYXNzLnV0b3JvbnRvLmNhL3NkYXdlYi90bXBkaXIvQUFrUTBHVkgudHh0IDwtLSBjb2RlYm9vaw0KDQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0NCmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShydmVzdCkNCmxpYnJhcnkoc3RyaW5ncikNCmBgYA0KDQojIyMjIFdlYnNjcmFwaW5nIGh0dHBzOi8vd3d3LnVuaXZjYW4uY2EvdW5pdmVyc2l0aWVzL2ZhY3RzLWFuZC1zdGF0cy90dWl0aW9uLWZlZXMtYnktdW5pdmVyc2l0eS8NCmBgYHtyfQ0KVVJMID0gJ2h0dHBzOi8vd3d3LnVuaXZjYW4uY2EvdW5pdmVyc2l0aWVzL2ZhY3RzLWFuZC1zdGF0cy90dWl0aW9uLWZlZXMtYnktdW5pdmVyc2l0eS8nDQpwYWdlID0gcmVhZF9odG1sKHVybChVUkwpKQ0KdW5pdmNhbl9kYXRhID0gICANCiAgcGFnZSAlPiUgDQogIGh0bWxfbm9kZXMoeHBhdGggPSAnLy8qW0BpZD0iZGF0YV90YWJsZSJdJykgJT4lDQogIGh0bWxfdGFibGUoZmlsbCA9IFRSVUUpICU+JSANCiAgYXMuZGF0YS5mcmFtZSgpDQp1bml2Y2FuX2RhdGEgPSB1bml2Y2FuX2RhdGFbLTEsXQ0KdW5pdmNhbl9kYXRhDQpgYGANCg0KIyMjIyBTZXR0aW5nIHVwIHRoZSBkYXRhIGluIGludGVyZXN0DQpgYGB7cn0NCmRvbWVzdGljX3VuZGVyZ3JhZHVhdGUgPQ0KICB1bml2Y2FuX2RhdGEgJT4lIA0KICBtdXRhdGUoZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uID0gc3RyX2V4dHJhY3QoVW5kZXJncmFkdWF0ZSwgIihcXGQrKVteLSpdKiQiKSkgJT4lIA0KICBzZWxlY3QoZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSAlPiUgbmEub21pdCgpDQpkb21lc3RpY191bmRlcmdyYWR1YXRlJGRvbWVzdGljX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbiA9DQogIGFzLm51bWVyaWMoZ3N1YigiLCIsIiIsZG9tZXN0aWNfdW5kZXJncmFkdWF0ZSRkb21lc3RpY191bmRlcmdyYWR1YXRlX3R1aXRpb24pKQ0KZG9tZXN0aWNfdW5kZXJncmFkdWF0ZQ0KZG8gPSBkb21lc3RpY191bmRlcmdyYWR1YXRlICU+JSBtdXRhdGUoc3VtID0gbigpLTEpDQpkbw0KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIw0KaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlID0NCiAgdW5pdmNhbl9kYXRhICU+JSANCiAgbXV0YXRlKGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uID0gc3RyX2V4dHJhY3QoVW5kZXJncmFkdWF0ZS4xLCAiKFxcZCspW14tKl0qJCIpKSAlPiUgDQogIHNlbGVjdChpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbikgJT4lIG5hLm9taXQoKQ0KaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlJGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uID0gDQogIGFzLm51bWVyaWMoZ3N1YigiLCIsIiIsIGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZSRpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbikpDQppbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGUNCmludGVyID0gaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlICU+JSBtdXRhdGUoc3VtID0gbigpKQ0KaW50ZXINCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCmRvbWVzdGljX2dyYWR1YXRlID0NCiAgdW5pdmNhbl9kYXRhICU+JSANCiAgbXV0YXRlKGRvbWVzdGljX2dyYWR1YXRlX3R1aXRpb24gPSBzdHJfZXh0cmFjdChHcmFkdWF0ZSwgIihcXGQrKVteLSpdKiQiKSkgJT4lIA0KICBzZWxlY3QoZG9tZXN0aWNfZ3JhZHVhdGVfdHVpdGlvbikgJT4lIG5hLm9taXQoKQ0KZG9tZXN0aWNfZ3JhZHVhdGUkZG9tZXN0aWNfZ3JhZHVhdGVfdHVpdGlvbiA9IA0KICBhcy5udW1lcmljKGdzdWIoIiwiLCAiIiwgZG9tZXN0aWNfZ3JhZHVhdGUkZG9tZXN0aWNfZ3JhZHVhdGVfdHVpdGlvbikpDQpkb21lc3RpY19ncmFkdWF0ZQ0KZG9nID0gZG9tZXN0aWNfZ3JhZHVhdGUgJT4lIG11dGF0ZShzdW0gPSBuKCkrMTcpDQpkb2cNCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMNCmludGVybmF0aW9uYWxfZ3JhZHVhdGUgPQ0KICB1bml2Y2FuX2RhdGEgJT4lIA0KICBtdXRhdGUoaW50ZXJuYXRpb25hbF9ncmFkdWF0ZV90dWl0aW9uID0gc3RyX2V4dHJhY3QoR3JhZHVhdGUuMSwgIihcXGQrKVteLSpdKiQiKSkgJT4lIA0KICBzZWxlY3QoaW50ZXJuYXRpb25hbF9ncmFkdWF0ZV90dWl0aW9uKSAlPiUgbmEub21pdCgpDQppbnRlcm5hdGlvbmFsX2dyYWR1YXRlJGludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbiA9IA0KICBhcy5udW1lcmljKGdzdWIoIiwiLCIiLCBpbnRlcm5hdGlvbmFsX2dyYWR1YXRlJGludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbikpDQppbnRlcm5hdGlvbmFsX2dyYWR1YXRlDQppbnRlcmcgPSBpbnRlcm5hdGlvbmFsX2dyYWR1YXRlICU+JSBtdXRhdGUoc3VtID0gbigpKzE4KQ0KaW50ZXJnDQpgYGANCiMjIyMgREFUQSBBTkFZTFNJUw0KIyMjIyBRMTogR2V0IGEgYmFjaGVsb3IncyB0dWl0aW9uIChpbnRlcm5hdGlvbmFsIHZzLiBkb21lc3RpYykNCmBgYHtyfQ0KZG9tZXN0aWNfdW5kZXJncmFkdWF0ZSAlPiUgDQogIGFycmFuZ2UoZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSAlPiUgDQogIGdncGxvdChhZXMoeD1Vbml2ZXJzaXR5LCB5ID0gZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSkgKyBnZW9tX3BvaW50KCkNCg0KaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlICU+JSANCiAgYXJyYW5nZShpbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbikgJT4lIA0KICBnZ3Bsb3QoYWVzKHg9VW5pdmVyc2l0eSwgeSA9IGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uKSkgKyBnZW9tX3BvaW50KCkNCmBgYA0KDQoNCiMjIyMgU2hvd3MgRG9tZXN0aWMgdnMuIEludGVybmF0aW9uYWwgKHVzZWQgTEVGVCBKT0lOKQ0KYGBge3J9DQpkb21lc3RpY19pbnRlcm5hdGlvbmFsX3VuZGVyZ3JhZHVhdGUgPSANCiAgbGVmdF9qb2luKGRvbWVzdGljX3VuZGVyZ3JhZHVhdGUsIGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZSwgYnkgPSAiVW5pdmVyc2l0eSIpDQoNCmRvbWVzdGljX2ludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZSAlPiUgDQogIGdncGxvdChhZXMoeCA9IFVuaXZlcnNpdHksIHkgPSBUdWl0aW9uLCBjb2xvciA9IFR5cGVPZlN0dWRlbnQpKSArIA0KICBnZW9tX3BvaW50KGFlcyh5ID0gZG9tZXN0aWNfdW5kZXJncmFkdWF0ZV90dWl0aW9uLCBjb2wgPSAiRG9tZXN0aWMiKSkgKyANCiAgZ2VvbV9wb2ludChhZXMoeSA9IGludGVybmF0aW9uYWxfdW5kZXJncmFkdWF0ZV90dWl0aW9uLCBjb2wgPSAiSW50ZXJuYXRpb25hbCIpKQ0KYGBgDQoNCg0KIyMjIyBRMjogR2V0IGEgbWFzdGVycyAoaW50ZXJuYXRpb25hbCB2cy4gZG9tZXN0aWMpDQpgYGB7cn0NCmRvbWVzdGljX2dyYWR1YXRlICU+JSANCiAgYXJyYW5nZShkb21lc3RpY19ncmFkdWF0ZV90dWl0aW9uKSAlPiUgDQogIGdncGxvdChhZXMoeD1Vbml2ZXJzaXR5LCB5ID0gZG9tZXN0aWNfZ3JhZHVhdGVfdHVpdGlvbikpICsgZ2VvbV9wb2ludCgpDQoNCmludGVybmF0aW9uYWxfZ3JhZHVhdGUgJT4lIA0KICBhcnJhbmdlKGludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbikgJT4lIA0KICBnZ3Bsb3QoYWVzKHg9VW5pdmVyc2l0eSwgeSA9IGludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbikpICsgZ2VvbV9wb2ludCgpDQpgYGANCg0KDQojIyMjIFNob3dzIERvbWVzdGljIHZzLiBJbnRlcm5hdGlvbmFsICh1c2VkIExFRlQgSk9JTikNCmBgYHtyfQ0KZG9tZXN0aWNfaW50ZXJuYXRpb25hbF9ncmFkdWF0ZSA9IA0KICBsZWZ0X2pvaW4oZG9tZXN0aWNfZ3JhZHVhdGUsIGludGVybmF0aW9uYWxfZ3JhZHVhdGUsIGJ5ID0gIlVuaXZlcnNpdHkiKQ0KDQpkb21lc3RpY19pbnRlcm5hdGlvbmFsX2dyYWR1YXRlICU+JSANCiAgZ2dwbG90KGFlcyh4ID0gVW5pdmVyc2l0eSwgeSA9IFR1aXRpb24sIGNvbG9yID0gVHlwZU9mU3R1ZGVudCkpICsgDQogIGdlb21fcG9pbnQoYWVzKHkgPSBkb21lc3RpY19ncmFkdWF0ZV90dWl0aW9uLCBjb2wgPSAiRG9tZXN0aWMiKSkgKyANCiAgZ2VvbV9wb2ludChhZXMoeSA9IGludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbiwgY29sID0gIkludGVybmF0aW9uYWwiKSkNCmBgYA0KDQojIyMjIFEzOiBHZXQgYSBtYXN0ZXJzIGltbWVkaWF0ZWx5IGFmdGVyIGEgYmFjaGVsb3IncyB2cy4gYWZ0ZXIgYSBmZXcgeWVhcnMNCg0KQXNzdW1lIHRoZXJlIGlzIGZvdXIgeWVhcnMgb2YgdW5kZXJncmFkdWF0ZSBzdHVkeSBhbmQgMiB5ZWFycyBvZiBncmFkdWF0ZSBzdHVkeS4gVGhlIHRhYmxlIHNob3duIGJlbG93IHJlcHJlc2VudHMgdGhlIHRvdGFsIHR1aXRpb24gZmVlcyBmb3IgYSBkb21lc3RpYyBzdHVkZW50IGFuZCBhbiBpbnRlcm5hdGlvbmFsIHN0dWRlbnQgaGF2ZSB0byBwYXkgaWYgaGUvc2hlIGlzIGRlY2lkaW5nIHRvIGNvbXBsZXRlIGEgbWFzdGVyIGRlZ3JlZS4NCmBgYHtyfQ0KZG9tZXN0aWNfc3VtID0gbGVmdF9qb2luKGRvLCBkb2csIGJ5ID0gInN1bSIpICU+JSBtdXRhdGUoc3VtX3R1aXRpb24gPSA0KmRvbWVzdGljX3VuZGVyZ3JhZHVhdGVfdHVpdGlvbiArIDIqZG9tZXN0aWNfZ3JhZHVhdGVfdHVpdGlvbikgJT4lIHNlbGVjdChzdW1fdHVpdGlvbikNCmRvbWVzdGljX3N1bQ0KaW50ZXJuYXRpb25hbF9zdW0gPSBsZWZ0X2pvaW4oaW50ZXIsIGludGVyZywgYnkgPSAic3VtIikgJT4lIG11dGF0ZShzdW1fdHVpdGlvbiA9IDQqaW50ZXJuYXRpb25hbF91bmRlcmdyYWR1YXRlX3R1aXRpb24gKyAyKmludGVybmF0aW9uYWxfZ3JhZHVhdGVfdHVpdGlvbikgJT4lIHNlbGVjdChzdW1fdHVpdGlvbikNCmludGVybmF0aW9uYWxfc3VtDQoNCmBgYA0KDQpUbyBmaW5kIHRoZSBwcm9wb3J0aW9uIG9mIGEgc3R1ZGVudCB3aG8gc3R1ZHkgZm9yIG1hc3RlciBpbW1lZGlhdGVseSB2cyB0aGUgcHJvcG9ydGlvbiBvZiBhIHN0dWRlbnQgd2hvIHN0dWR5IGZvciBtYXN0ZXIgYWZ0ZXIgZmV3IHllYXJzLiBXZSBmaWx0ZXJlZCB0aGUgc3R1ZGVudCB3aG8gdG9vayBzY2hvb2wgcmVjZW50bHkgYWZ0ZXIgZ2V0dGluZyB0aGUgYmFjaGVsb3IgZGVncmVlLiBXZSBhbHNvIGZpbHRlcmVkIHRoZSBzdHVkZW50IHdobyBkb2VzIG5vdCB0b29rIHNjaG9vbCByZWNlbnRseSBhZnRlciBnZXR0aW5nIHRoZSBiYWNoZWxvciBkZWdyZWUuIEFmdGVyIHdlIHN1bW1hcmlzZWQgcGVvcGxlIHdobyBnZXQgYmFjaGVsb3IgZGVncmVlIGFuZCB1c2UgZWFjaCBncm91cCBvZiBwZW9wbGUod2hvIGlzIHRha2luZyBtYXN0ZXIgcmVjZW50bHkgYW5kIG5vdClkaXZpZGUgYnkgYWxsIGJhY2hlbG9yIGRlZ3JlZSBzdHVkZW50cy4gV2UgZmluZCBvdXQgdGhhdCBwZW9wbGUgd2hvIHRha2UgbWFzdGVyIGltbWVkaWF0ZWx5IGFmdGVyIGhlL3NoZSBoYXMgZ290IHRoZSBiYWNoZWxvciBkZWdyZWUgaXMganVzdCBhcm91bmQgOCUsIG9uIHRoZSBvdGhlciBoYW5kLCBwZW9wbGUgaXMgc3RpbGwgbm90IHRha2UgdGhlIG1hc3RlciB5ZXQgYWZ0ZXIgZ290IHRoZSBiYWNoZWxvciBkZWdyZWUgaXMgYWxtb3N0IDkyJS4NCmBgYHtyfQ0KbmdzID0gcmVhZC5jc3YoIi4uL2RhdGEvbmdzLmNzdiIpDQpkYXRhID0gbmdzICU+JSBzZWxlY3QoZWRiZWZvciwgbGZfcTAxKQ0KbWFzdGVyX2ltbWVkaWF0ZSA9IGRhdGEgJT4lIGZpbHRlcihsZl9xMDEgPT0gMSApICU+JSBmaWx0ZXIoZWRiZWZvciA9PSA1KSAlPiUgc3VtbWFyaXNlKG51bSA9IG4oKSkNCm1hc3Rlcl9pbW1lZGlhdGUNCm1hc3Rlcl9ub3RfaW1tZSA9ICBkYXRhICU+JSBmaWx0ZXIobGZfcTAxID09IDIgKSAlPiUgZmlsdGVyKGVkYmVmb3IgPT0gNSkgJT4lIHN1bW1hcmlzZShudW0gPSBuKCkpDQptYXN0ZXJfbm90X2ltbWUNCnN1bV9tYXN0ZXIgPSBtYXN0ZXJfaW1tZWRpYXRlICU+JSBwdWxsKCkgKyBtYXN0ZXJfbm90X2ltbWUgJT4lIHB1bGwoKQ0KcHJvX21hc3RlcmkgPSBtYXN0ZXJfaW1tZWRpYXRlL3N1bV9tYXN0ZXINCnByb19tYXN0ZXJpDQpwcm9fbWFzdGVybm8gPSBtYXN0ZXJfbm90X2ltbWUvc3VtX21hc3Rlcg0KcHJvX21hc3Rlcm5vDQpgYGANCg0KIyMjIyBRNDogTW9zdCB3b3J0aCBpdCBmaWVsZCBvZiBzdHVkeS4gKGZvciB1bmRlcmdyYWR1YXRlIGFuZCBncmFkdWF0ZSwgZm9yIGludGVybmF0aW9uYWwgYW5kIGRvbWVzdGljKQ0KDQpUaGUgZGF0YSB3ZSB1c2UgaXMgY29tZSBmcm9tIHRoYXQgbGluazoNCmh0dHBzOi8vd3d3MTIuc3RhdGNhbi5nYy5jYS9jZW5zdXMtcmVjZW5zZW1lbnQvMjAxNi9kcC1wZC9kdC10ZC9ScC1lbmcuY2ZtP1RBQklEPTImTEFORz1FJkE9UiZBUEFUSD0zJkRFVEFJTD0wJkRJTT0wJkZMPUEmRlJFRT0wJkdDPTM1JkdMPS0xJkdJRD0xMzQxNjg1JkdLPTEmR1JQPTEmTz1EJlBJRD0xMTE4MzkmUFJJRD0xMCZQVFlQRT0xMDk0NDUmUz0wJlNIT1dBTEw9MCZTVUI9MCZUZW1wb3JhbD0yMDE3JlRIRU1FPTEyMyZWSUQ9MCZWTkFNRUU9JlZOQU1FRj0mRDE9MCZEMj0wJkQzPTAmRDQ9MCZENT0wJkQ2PTAmZmJjbGlkPUl3QVIyVWlENVpjQ3dtb0J1OWc3WmVJa3Zad1FEM0gxdUlKdldZdXNVN3p1MHNlaDl3amRZODlIMGtqRm8NCnVuZGVyZ3JkdWF0ZToNCmBgYHtyfQ0KaW5jb21lID0gcmVhZC5jc3YoIi4uL2RhdGEvaW5jb21lNi5DU1YiKQ0KYGBgDQoNCmBgYHtyfQ0KYSA9IGluY29tZSAlPiUgYXJyYW5nZShkZXNjKE1lZGlhbi5hZnRlci50YXguaW5jb21lLi4uLikpDQphDQpjID0gaW5jb21lICU+JSBhcnJhbmdlKGRlc2MoQXZlcmFnZS5lbXBsb3ltZW50LmluY29tZS4uLi4pKQ0KYw0KYGBgDQoNCjUuIExlYXN0IHdvcnRoIGl0IGZpZWxkIG9mIHN0dWR5LiAoZm9yIHVuZGVyZ3JhZHVhdGUgYW5kIGdyYWR1YXRlLCBmb3IgaW50ZXJuYXRpb25hbCBhbmQgZG9tZXN0aWMpDQo2LiBDb21tZW50IG9uIHVuZW1wbG95bWVudA0KDQoNCg0KIyMgU3VtbWFyeSANCg0KKCpSZWNhcCBvZiB5b3VyIGZpbmRpbmdzIGFuZCBjb25jbHVzaW9ucyopDQoNCg0KDQoqKiogIA0KDQojIyBBcHBlbmRpeCANCg0KKCpFdmVyeXRoaW5nIGhlcmUgZG9lcyBub3QgY291bnQgdG93YXJkcyBwYWdlIGxpbWl0KikNCg0KDQo=</div>
 
 
 
