@@ -6,7 +6,11 @@ output: html_notebook
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ## echo=FALSE stops the code chunk from appearing in the html document
 ## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
+knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(rvest)
+library(stringr)
+library(ggplot2)
 ```
 
 
@@ -60,17 +64,11 @@ Income data:
 http://sda.chass.utoronto.ca/sdaweb/html/lfs.htm
 http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt <-- codebook
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(rvest)
-library(stringr)
-```
-
 #### Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
 ```{r}
 URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
 page = read_html(url(URL))
+
 univcan_data =   
   page %>% 
   html_nodes(xpath = '//*[@id="data_table"]') %>%
@@ -85,44 +83,47 @@ univcan_data
 domestic_undergraduate =
   univcan_data %>% 
   mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
-  select(domestic_undergraduate_tuition) %>% na.omit()
+  select(University, domestic_undergraduate_tuition) %>% na.omit()
+
 domestic_undergraduate$domestic_undergraduate_tuition =
   as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
+
 domestic_undergraduate
-do = domestic_undergraduate %>% mutate(sum = n()-1)
-do
 ######################################################################################################################
 international_undergraduate =
   univcan_data %>% 
   mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(international_undergraduate_tuition) %>% na.omit()
+  select(University, international_undergraduate_tuition) %>% na.omit()
+
 international_undergraduate$international_undergraduate_tuition = 
   as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
+
 international_undergraduate
-inter = international_undergraduate %>% mutate(sum = n())
-inter
 ######################################################################################################################
 domestic_graduate =
   univcan_data %>% 
   mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
-  select(domestic_graduate_tuition) %>% na.omit()
+  select(University, domestic_graduate_tuition) %>% na.omit()
+
 domestic_graduate$domestic_graduate_tuition = 
   as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
+
 domestic_graduate
-dog = domestic_graduate %>% mutate(sum = n()+17)
-dog
 ######################################################################################################################
 international_graduate =
   univcan_data %>% 
   mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(international_graduate_tuition) %>% na.omit()
+  select(University, international_graduate_tuition) %>% na.omit()
+
 international_graduate$international_graduate_tuition = 
   as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
+
 international_graduate
-interg = international_graduate %>% mutate(sum = n()+18)
-interg
 ```
+
+
 #### DATA ANAYLSIS
+
 #### Q1: Get a bachelor's tuition (international vs. domestic)
 ```{r}
 domestic_undergraduate %>% 
