@@ -99,8 +99,8 @@ domestic_undergraduate =
 domestic_undergraduate$domestic_undergraduate_tuition =
   as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
 domestic_undergraduate
-do = domestic_undergraduate %>% mutate(sum = n()-1)
-do
+join_domestic_undergrad = domestic_undergraduate %>% mutate(sum = n()-1)
+join_domestic_undergrad
 ######################################################################################################################
 international_undergraduate =
   univcan_data %>% 
@@ -109,8 +109,8 @@ international_undergraduate =
 international_undergraduate$international_undergraduate_tuition = 
   as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
 international_undergraduate
-inter = international_undergraduate %>% mutate(sum = n())
-inter
+join_international_undergrad = international_undergraduate %>% mutate(sum = n())
+join_international_undergrad
 ######################################################################################################################
 domestic_graduate =
   univcan_data %>% 
@@ -119,8 +119,8 @@ domestic_graduate =
 domestic_graduate$domestic_graduate_tuition = 
   as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
 domestic_graduate
-dog = domestic_graduate %>% mutate(sum = n()+17)
-dog
+join_domestic_grad = domestic_graduate %>% mutate(sum = n()+17)
+join_domestic_grad
 ######################################################################################################################
 international_graduate =
   univcan_data %>% 
@@ -129,12 +129,12 @@ international_graduate =
 international_graduate$international_graduate_tuition = 
   as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
 international_graduate
-interg = international_graduate %>% mutate(sum = n()+18)
-interg
+join_international_grad = international_graduate %>% mutate(sum = n()+18)
+join_international_grad
 
-domestic_sum = left_join(do, dog, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
+domestic_sum = left_join(join_domestic_undergrad, join_domestic_grad, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
 domestic_sum
-international_sum = left_join(inter, interg, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
+international_sum = left_join(join_international_undergrad, join_international_grad, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
 international_sum
 
 ```
