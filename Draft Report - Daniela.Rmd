@@ -34,10 +34,9 @@ Since tuition expenses show great variance depending on factors such as national
 
 1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
 2. Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
-3. Is it worth it to get a masters degree immediately after getting a bachelors degree or is it better to invest in a masters degree after a few years?
-4. What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-5. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-6. Who has a bigger rate of unemployment? Bachelor degrees or master degrees?
+3. What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+4. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+5. Who has a bigger rate of unemployment? Bachelor degrees or master degrees?
 
 ## Data 
 
