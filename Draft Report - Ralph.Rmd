@@ -8,6 +8,7 @@ output: html_notebook
 ## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(coin)
 ```
 
 
@@ -45,7 +46,7 @@ Instructions:
 
 Read Labour force survey, 2018, based to 2011 census population
 ```{r}
-
+lfs_toronto = read_csv("data/LFS_Toronto.csv")
 ```
 
 # Levels of Education
@@ -57,7 +58,7 @@ Read Labour force survey, 2018, based to 2011 census population
 
 ```{r}
 # joblessness of Unemployed individuals by education tiers
-lfs_sub %>% 
+lfs_toronto %>% 
   filter(lfsstat %in% 3 & educ %in% 2:6 & !is.na(durunemp)) %>% 
   mutate(educ = factor(educ)) %>%
   group_by(educ) %>% 
@@ -74,7 +75,7 @@ lfs_sub %>%
 ```
 Is the difference seen above statistically significant, specifically does the duration of unemployment depend on education?
 ```{r}
-lfs_sub %>% 
+lfs_toronto %>% 
   filter(lfsstat %in% 3 & educ %in% 2:6) %>% 
   mutate(educ = factor(educ)) %>% 
   independence_test( durunemp ~ educ, data = ., distribution = "approx" )
@@ -88,7 +89,7 @@ Then is there a significant improvement in having a univeristy degree instead of
 5: University: bachelors degree
 6: University: graduate degree
 ```{r}
-lfs.aov=lfs_sub %>% 
+lfs.aov=lfs_toronto %>% 
   filter(lfsstat %in% 3 & educ %in% 4:6) %>%
   mutate(educ=factor(educ)) %>% 
   aov(durunemp ~ educ, data=.)
