@@ -1,6 +1,6 @@
 ---
 title: "STAA57 Final Project Report "
-author: "Team 10 (Daniela Venturo Esaine, Reizwan Chodhury, Ralph Samson Lal, Xiaotong Ye)"
+author: "Team 10 (Daniela Venturo Esaine, Reizwanul Karim Chowdhury, Ralph Samson Lal, Xiaotong Ye)"
 output: html_notebook
 ---
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -170,64 +170,3 @@ domestic_international_graduate %>%
   geom_point(aes(y = domestic_graduate_tuition, col = "Domestic")) + 
   geom_point(aes(y = international_graduate_tuition, col = "International"))
 ```
-
-#### Q3: Get a masters immediately after a bachelor's vs. after a few years
-
-Assume there is four years of undergraduate study and 2 years of graduate study. The table shown below represents the total tuition fees for a domestic student and an international student have to pay if he/she is deciding to complete a master degree.
-```{r}
-domestic_sum = left_join(do, dog, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
-domestic_sum
-international_sum = left_join(inter, interg, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
-international_sum
-
-```
-
-To find the proportion of a student who study for master immediately vs the proportion of a student who study for master after few years. We filtered the student who took school recently after getting the bachelor degree. We also filtered the student who does not took school recently after getting the bachelor degree. After we summarised people who get bachelor degree and use each group of people(who is taking master recently and not)divide by all bachelor degree students. We find out that people who take master immediately after he/she has got the bachelor degree is just around 8%, on the other hand, people is still not take the master yet after got the bachelor degree is almost 92%.
-```{r}
-ngs = read.csv("../data/ngs.csv")
-data = ngs %>% select(edbefor, lf_q01)
-master_immediate = data %>% filter(lf_q01 == 1 ) %>% filter(edbefor == 5) %>% summarise(num = n())
-master_immediate
-master_not_imme =  data %>% filter(lf_q01 == 2 ) %>% filter(edbefor == 5) %>% summarise(num = n())
-master_not_imme
-sum_master = master_immediate %>% pull() + master_not_imme %>% pull()
-pro_masteri = master_immediate/sum_master
-pro_masteri
-pro_masterno = master_not_imme/sum_master
-pro_masterno
-```
-
-#### Q4: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
-
-The data we use is come from that link:
-https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&LANG=E&A=R&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=35&GL=-1&GID=1341685&GK=1&GRP=1&O=D&PID=111839&PRID=10&PTYPE=109445&S=0&SHOWALL=0&SUB=0&Temporal=2017&THEME=123&VID=0&VNAMEE=&VNAMEF=&D1=0&D2=0&D3=0&D4=0&D5=0&D6=0&fbclid=IwAR2UiD5ZcCwmoBu9g7ZeIkvZwQD3H1uIJvWYusU7zu0seh9wjdY89H0kjFo
-undergrduate:
-```{r}
-income = read.csv("../data/income6.CSV")
-```
-
-```{r}
-a = income %>% arrange(desc(Median.after.tax.income....))
-a
-c = income %>% arrange(desc(Average.employment.income....))
-c
-```
-
-5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
-6. Comment on unemployment
-
-
-
-## Summary 
-
-(*Recap of your findings and conclusions*)
-
-
-
-***  
-
-## Appendix 
-
-(*Everything here does not count towards page limit*)
-
-
