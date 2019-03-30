@@ -175,6 +175,46 @@ domestic_international_graduate %>%
 
 Assume there is four years of undergraduate study and 2 years of graduate study. The table shown below represents the total tuition fees for a domestic student and an international student have to pay if he/she is deciding to complete a master degree.
 ```{r}
+domestic_undergraduate =
+  univcan_data %>% 
+  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
+  select(domestic_undergraduate_tuition) %>% na.omit()
+domestic_undergraduate$domestic_undergraduate_tuition =
+  as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
+domestic_undergraduate
+do = domestic_undergraduate %>% mutate(sum = n()-1)
+do
+######################################################################################################################
+international_undergraduate =
+  univcan_data %>% 
+  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
+  select(international_undergraduate_tuition) %>% na.omit()
+international_undergraduate$international_undergraduate_tuition = 
+  as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
+international_undergraduate
+inter = international_undergraduate %>% mutate(sum = n())
+inter
+######################################################################################################################
+domestic_graduate =
+  univcan_data %>% 
+  mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
+  select(domestic_graduate_tuition) %>% na.omit()
+domestic_graduate$domestic_graduate_tuition = 
+  as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
+domestic_graduate
+dog = domestic_graduate %>% mutate(sum = n()+17)
+dog
+######################################################################################################################
+international_graduate =
+  univcan_data %>% 
+  mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
+  select(international_graduate_tuition) %>% na.omit()
+international_graduate$international_graduate_tuition = 
+  as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
+international_graduate
+interg = international_graduate %>% mutate(sum = n()+18)
+interg
+
 domestic_sum = left_join(do, dog, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
 domestic_sum
 international_sum = left_join(inter, interg, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
