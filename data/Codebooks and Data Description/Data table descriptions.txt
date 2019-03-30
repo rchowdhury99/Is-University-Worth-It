@@ -1,0 +1,74 @@
+===3710000301-eng :===
+Canadian undergraduate tuition fees by field of study 1 2 3 4 5 6 7 8					
+Annual					
+Table: 37-10-0003-01 (formerly CANSIM 477-0021)					
+Geography: Canada, Province or territory
+
+Footnotes:	
+1	Data for 2018/2019 are preliminary.
+2	The national and provincial tuition fee averages are weighted with the latest enrolment data (2015). If the number of enrolments
+	 is unknown for a given program, that program is excluded from the averages. The same enrolment data are used for the weighting of
+	 both years, 2017/2018 and 2018/2019, thereby permitting the comparison of changes in the tuition fees only.
+3	As the distribution of enrolment varies from period to period, caution must be exercised when making long-term historical comparisons.
+4	For Quebec (since 1998/1999) and Nova Scotia (since 2007/2008), the weighted averages take into account the different fees paid by 'in province'
+	 and 'out of province' Canadian students.
+5	It is important to note that tuition fee increases are generally regulated by provincial policies. However, some programs may be exempted from 
+	these policies resulting in possible increases that exceed provincial limits.
+6	Data in this release do not take into account financial assistance or tax rebates provided to students. Tuition fees and additional compulsory 
+	fees represent only a portion of all costs incurred for attending university.
+7	The fields of study are adapted from the 2011 Classification of Instructional Programs (CIP), Statistics Canada's standard for the 
+	classification of instructional programs.
+8	For 2018/2019, Newfoundland and Labrador undergraduate and graduate tuition fees were frozen for all Canadian students except for
+	 new out-of-province students who incurred a 30% increase. These students represent approximately 10% of the domestic student population. This increase is not reflected in the preliminary 2018/2019 data.
+	
+How to cite: Statistics Canada. Table 37-10-0003-01 Canadian undergraduate tuition fees by field of study	
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301	
+
+
+===t003b-eng:===
+https://www150.statcan.gc.ca/n1/daily-quotidien/170906/t003b-eng.htm
+Table 3 – Weighted average undergraduate tuition fees for Canadian full-time students, by province and selected fields of study, 2017/2018				
+Humanities Social and behavioural sciences, and legal studies	 
+Business, management and public administration	 Physical and life sciences and technologies
+current dollars	current dollars	current dollars	current dollars
+Source(s):
+CANSIM table 477-0021.
+
+===Tables_1-7_2017-2018_final:===
+http://odesi2.scholarsportal.info/documentation/TLAC/tlac9310-tables.html
+Tuition and Living Accommodation Costs for Full-time Students at Canadian Degree-granting Institutions, 1993-2019 [Excel]
+2017-2018 - Tables 1-7
+he objective of this survey is to gather information on tuition fees, living accommodation costs at residences/housing and 
+additional compulsory fees paid by full-time university students at Canadian universities. Data are collected annually by 
+questionnaire through the Registrar or the Business Office of universities. Survey results are available at the end of August.
+Data for undergraduate programs are available by institution, by province, by program and by type of students (Canadian or Foreign).
+
+Data for graduate programs are available by institution, by province and by type of students (Canadian or Foreign). Additional
+compulsory fees are available by institution, by province and by type (athletics, health services, student association, and other).
+Living accommodation costs at residence/housing are available by institution, by type of students (single or married) and 
+by type of costs (room, meal plan,or both).
+
+For current TLAC data refer to Statistics Canada.
+
+This product is covered under the Statistics Canada Open Licence Agreement. You may use this data without restrictions on
+sharing and redistribution, for commercial or non-commercial purposes. By using the data, you are accepting all the terms 
+and conditions of the Open Licence. For more information on terms and conditions, see http://www.statcan.gc.ca/eng/reference/licence-eng.
+
+===AACMrjTt:===
+National Graduates Survey (NGS)
+see AAM28lAQ codebook for variable specifications
+link in STAA57H3 Project Description Pdf
+
+===AAs9iA2i:===
+Student Financial Survey (SFS)
+see AAs9iA2i codebook for variable specifications
+link in STAA57H3 Project Description Pdf
+
+===Labour Force Survey (LFS)===
+use file provided in class:
+download original complete files here: http://sda.chass.utoronto.ca/cgi-bin/sda/hsda?harcsda4+lfs2018v6
+
+
+===PayScale:===
+Data for the salary for each degree from the University of Toronto
+Webscrape from https://www.payscale.com/research/CA/School=University_of_Toronto/Salary/by_Degree#by_Job
