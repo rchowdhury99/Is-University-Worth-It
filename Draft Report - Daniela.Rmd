@@ -3,15 +3,6 @@ title: "STAA57 Final Project Report "
 author: "Team 10 (Daniela Venturo Esaine, Reizwan Chodhury, Ralph Samson Lal, Xiaotong Ye)"
 output: html_notebook
 ---
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-## echo=FALSE stops the code chunk from appearing in the html document
-## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(rvest)
-library(stringr)
-library(ggplot2)
-```
 
 
 ***
