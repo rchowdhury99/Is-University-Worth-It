@@ -8,9 +8,6 @@ output: html_notebook
 ## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-library(rvest)
-library(stringr)
-library(ggplot2)
 ```
 
 
@@ -37,191 +34,77 @@ Instructions:
 
 ## Introduction 
 
-"Is university worth it?" is one of the hardest questions to answer. University is a very different experience from person to person depending on various factors. One of the main worries of most people is the heavy economical investment university takes. This skews the question towards the idea of measuring worth by future economical gain that cancels out the original investment. Therefore, to investigate if university is worth it, it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada.
-
-Since tuition expenses show great variance depending on factors such as nationality, type of degree, or field of study, to have a relevant conclusion it is necessary to answer the following questions:
-
-1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
-2. Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
-3. Is it worth it to get a masters degree immediately after getting a bachelors degree or is it better to invest in a masters degree after a few years?
-4. What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-5. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-6. Who has a bigger rate of unemployment? Bachelor degrees or master degrees?
-
 ## Data 
-
-To answer the questions stated above it is required to get the mean income for each level of study (undergraduate and graduate) from the LFS data and then use those numbers to compare them against the tuition costs from the Univcan and statcan data.
-
-The original sources for the data are:
-Tuition data:
-https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
-Provides graduate and undergraduate data for domestic and international students.
-
-https://www150.statcan.gc.ca/n1/en/daily-quotidien/180905/dq180905b-eng.pdf?st=KKHzDvP6
-Provides graduate and undergraduate data based on field of study.
-
-Income data:
-http://sda.chass.utoronto.ca/sdaweb/html/lfs.htm
-http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt <-- codebook
-
-#### Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
-```{r}
-URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
-page = read_html(url(URL))
-
-univcan_data =   
-  page %>% 
-  html_nodes(xpath = '//*[@id="data_table"]') %>%
-  html_table(fill = TRUE) %>% 
-  as.data.frame()
-univcan_data = univcan_data[-1,]
-univcan_data
-```
-
-#### Setting up the data in interest
-```{r}
-domestic_undergraduate =
-  univcan_data %>% 
-  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
-  select(University, domestic_undergraduate_tuition) %>% na.omit()
-
-domestic_undergraduate$domestic_undergraduate_tuition =
-  as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
-
-domestic_undergraduate
-######################################################################################################################
-international_undergraduate =
-  univcan_data %>% 
-  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(University, international_undergraduate_tuition) %>% na.omit()
-
-international_undergraduate$international_undergraduate_tuition = 
-  as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
-
-international_undergraduate
-######################################################################################################################
-domestic_graduate =
-  univcan_data %>% 
-  mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
-  select(University, domestic_graduate_tuition) %>% na.omit()
-
-domestic_graduate$domestic_graduate_tuition = 
-  as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
-
-domestic_graduate
-######################################################################################################################
-international_graduate =
-  univcan_data %>% 
-  mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(University, international_graduate_tuition) %>% na.omit()
-
-international_graduate$international_graduate_tuition = 
-  as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
-
-international_graduate
-```
 
 
 #### DATA ANAYLSIS
 
-#### Q1: Get a bachelor's tuition (international vs. domestic)
-```{r}
-domestic_undergraduate %>% 
-  arrange(domestic_undergraduate_tuition) %>% 
-  ggplot(aes(x=University, y = domestic_undergraduate_tuition)) + geom_point()
-
-international_undergraduate %>% 
-  arrange(international_undergraduate_tuition) %>% 
-  ggplot(aes(x=University, y = international_undergraduate_tuition)) + geom_point()
-```
-
-
-#### Shows Domestic vs. International (used LEFT JOIN)
-```{r}
-domestic_international_undergraduate = 
-  left_join(domestic_undergraduate, international_undergraduate, by = "University")
-
-domestic_international_undergraduate %>% 
-  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
-  geom_point(aes(y = domestic_undergraduate_tuition, col = "Domestic")) + 
-  geom_point(aes(y = international_undergraduate_tuition, col = "International"))
-```
-
-
-#### Q2: Get a masters (international vs. domestic)
-```{r}
-domestic_graduate %>% 
-  arrange(domestic_graduate_tuition) %>% 
-  ggplot(aes(x=University, y = domestic_graduate_tuition)) + geom_point()
-
-international_graduate %>% 
-  arrange(international_graduate_tuition) %>% 
-  ggplot(aes(x=University, y = international_graduate_tuition)) + geom_point()
-```
-
-
-#### Shows Domestic vs. International (used LEFT JOIN)
-```{r}
-domestic_international_graduate = 
-  left_join(domestic_graduate, international_graduate, by = "University")
-
-domestic_international_graduate %>% 
-  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
-  geom_point(aes(y = domestic_graduate_tuition, col = "Domestic")) + 
-  geom_point(aes(y = international_graduate_tuition, col = "International"))
-```
-
-#### Q3: Get a masters immediately after a bachelor's vs. after a few years
-
-Assume there is four years of undergraduate study and 2 years of graduate study. The table shown below represents the total tuition fees for a domestic student and an international student have to pay if he/she is deciding to complete a master degree.
-```{r}
-domestic_sum = left_join(do, dog, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
-domestic_sum
-international_sum = left_join(inter, interg, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
-international_sum
-
-```
-
-To find the proportion of a student who study for master immediately vs the proportion of a student who study for master after few years. We filtered the student who took school recently after getting the bachelor degree. We also filtered the student who does not took school recently after getting the bachelor degree. After we summarised people who get bachelor degree and use each group of people(who is taking master recently and not)divide by all bachelor degree students. We find out that people who take master immediately after he/she has got the bachelor degree is just around 8%, on the other hand, people is still not take the master yet after got the bachelor degree is almost 92%.
-```{r}
-ngs = read.csv("../data/ngs.csv")
-data = ngs %>% select(edbefor, lf_q01)
-master_immediate = data %>% filter(lf_q01 == 1 ) %>% filter(edbefor == 5) %>% summarise(num = n())
-master_immediate
-master_not_imme =  data %>% filter(lf_q01 == 2 ) %>% filter(edbefor == 5) %>% summarise(num = n())
-master_not_imme
-sum_master = master_immediate %>% pull() + master_not_imme %>% pull()
-pro_masteri = master_immediate/sum_master
-pro_masteri
-pro_masterno = master_not_imme/sum_master
-pro_masterno
-```
-
-#### Q4: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
-
-The data we use is come from that link:
-https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&LANG=E&A=R&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=35&GL=-1&GID=1341685&GK=1&GRP=1&O=D&PID=111839&PRID=10&PTYPE=109445&S=0&SHOWALL=0&SUB=0&Temporal=2017&THEME=123&VID=0&VNAMEE=&VNAMEF=&D1=0&D2=0&D3=0&D4=0&D5=0&D6=0&fbclid=IwAR2UiD5ZcCwmoBu9g7ZeIkvZwQD3H1uIJvWYusU7zu0seh9wjdY89H0kjFo
-undergrduate:
-```{r}
-income = read.csv("../data/income6.CSV")
-```
-
-```{r}
-a = income %>% arrange(desc(Median.after.tax.income....))
-a
-c = income %>% arrange(desc(Average.employment.income....))
-c
-```
-
-5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
+=====================================================================
 6. Comment on unemployment
 
 
+Read Labour force survey, 2018, based to 2011 census population
+```{r}
+
+```
+
+# Levels of Education
+2: Gr 11 to 13, graduate
+3: Some post secondary
+4: Post secondary certificate or diploma
+5: University: bachelors degree
+6: University: graduate degree
+
+```{r}
+# joblessness of Unemployed individuals by education tiers
+lfs_sub %>% 
+  filter(lfsstat %in% 3 & educ %in% 2:6 & !is.na(durunemp)) %>% 
+  mutate(educ = factor(educ)) %>%
+  group_by(educ) %>% 
+  select(educ, durunemp) %>% 
+  mutate(durunemp_in_years = round(durunemp/52)) %>% #since Duration of unemployment in weeks
+  count(durunemp_in_years) %>% 
+  arrange(desc(durunemp_in_years)) %>%
+  mutate(durunemp_in_years = factor(durunemp_in_years)) %>% 
+  mutate(number_of_individuals = n) %>% 
+  ggplot(aes(x=durunemp_in_years, y=number_of_individuals, fill = durunemp_in_years))+
+  geom_bar(stat = "identity")+
+  facet_wrap(facets = ~educ)+
+  ggtitle("Duration of Unemployment for different Education levels")
+```
+Is the difference seen above statistically significant, specifically does the duration of unemployment depend on education?
+```{r}
+lfs_sub %>% 
+  filter(lfsstat %in% 3 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ)) %>% 
+  independence_test( durunemp ~ educ, data = ., distribution = "approx" )
+```
+Conclusion: The P-value is extremely small, so there is overwhelming evidence that education affects Duration of unemployment  
+
+Then is there a significant improvement in having a univeristy degree instead of regular Highschool education? Lets perform a TukeyTest
+
+# Levels of Education
+4: Post secondary certificate or diploma
+5: University: bachelors degree
+6: University: graduate degree
+```{r}
+lfs.aov=lfs_sub %>% 
+  filter(lfsstat %in% 3 & educ %in% 4:6) %>%
+  mutate(educ=factor(educ)) %>% 
+  aov(durunemp ~ educ, data=.)
+TukeyHSD(lfs.aov)
+```
+As evident from the Tukey test, Duration of unemployment in weeks is NOT vastly different from University: bachelors degree to Post secondary certificate/diploma (p>0.05).
+But an University: graduate degree to Post secondary certificate/diploma has a very significant difference in duration of unemployment(p<0.05).
+Also its significant to note that Duration of unemployment is significantly different between a graduate degree and a bachelors aswell.
+
+From this we can conclude based on duration of unemployment, that is assuming that a area of education is "worth-it" given great reduction in unemployment. One should consider getting a graduates degree to greatly reduce change of unemployment. but getting a bachelors only provides a much lesser benifit in comparison to a graduates degree.
+
+Therefore using this critera, yes a University degree is worthit Especially a Graduates Degree!!!.
+=====================================================================
+
 
 ## Summary 
-
-(*Recap of your findings and conclusions*)
-
 
 
 ***  
