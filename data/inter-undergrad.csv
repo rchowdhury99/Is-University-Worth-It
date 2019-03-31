@@ -1,0 +1,39 @@
+﻿International undergraduate tuition fees by field of study 1 2 3 4 5 6
+"Annual"
+"Table: null (formerly CANSIM 477-0023)"
+"Geography: Canada, Province or territory"
+
+"","Canada",,,,
+"Field of study","2014 / 2015","2015 / 2016","2016 / 2017","2017 / 2018","2018 / 2019"
+"Total, field of study","20,593","22,346","23,677","25,549","27,159"
+"Education","15,703","16,712","17,821","18,486","19,461"
+"Visual and performing arts, and communications technologies","18,388","19,766","20,863","21,863","22,950"
+"Humanities","19,300","21,021","22,746","24,619","26,175"
+"Social and behavioural sciences, and legal studies","18,436","20,644","21,832","23,378","24,808"
+"Law","25,245","25,864","29,100","28,099","29,756"
+"Business, management and public administration","20,787","22,340","23,230","25,065","26,395"
+"Physical and life sciences and technologies","20,933","22,954","24,389","26,997","29,067"
+"Mathematics, computer and information sciences","21,879","23,643","25,452","28,095","30,187"
+"Engineering","23,443","25,112","27,002","28,682","30,742"
+"Architecture","19,868","21,033","22,080","23,449","24,654"
+"Agriculture, natural resources and conservation","17,876","19,327","21,057","22,706","24,101"
+"Dentistry","48,990","50,646","52,257","53,483","55,802"
+"Medicine","29,440","31,881","31,534","29,223","29,905"
+"Nursing","16,704","18,152","18,620","19,538","20,354"
+"Pharmacy","33,434","30,997","32,510","32,693","34,726"
+"Veterinary medicine","51,815","54,326","58,359","59,132","60,458"
+"Other health, parks, recreation and fitness","17,767","19,269","20,297","21,862","23,192"
+"Personal, protective and transportation services","..","..","19,104","19,941","20,453"
+
+.. : not available for a specific reference period,
+
+Footnotes:
+1,Data for 2018/2019are preliminary.
+2,"The national and provincial tuition fee averages are weighted with the latest enrolment data (2015). If the number of enrolments is unknown for a given program, that program is excluded from the averages. The same enrolment data are used for the weighting of both years, 2017/2018 and 2018/2019, thereby permitting the comparison of changes in the tuition fees only."
+3,"As the distribution of enrolment varies from period to period, caution must be exercised when making long-term historical comparisons."
+4,"It is important to note that tuition fee increases are generally regulated by provincial policies. However, some programs may be exempted from these policies resulting in possible increases that exceed provincial limits."
+5,Data in this release do not take into account financial assistance or tax rebates provided to students. Tuition fees and additional compulsory fees represent only a portion of all costs incurred for attending university.
+6,"The fields of study are adapted from the 2011 Classification of Instructional Programs (CIP), Statistics Canada's standard for the classification of instructional programs."
+
+"How to cite: Statistics Canada. Table null International undergraduate tuition fees by field of study"
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000501
