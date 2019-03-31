@@ -43,6 +43,12 @@ Instructions:
 =====================================================================
 6. Comment on unemployment
 
+Considering that we wanted to focus on time-to-amortize-degree as a criterion for being "worth-it", It is obvious that one of the greatest affectors of this is employment or equivalently unemployment. Therefore we suggest Unemployment as a seconday criterion for being "worth-it", we define the criterion as follows:
+"The Degree level (BSc, MSC, Highschool, College) that shows lowest level of unemployment is the most worth-it and would contribute to a faster amortization of degree cost".
+
+The First part of our analysis will focus on graphically presenting unemployment rates among individuals in 6 levels of education as defined in the lfs dataset.
+
+The Second part will run a tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
 
 Read Labour force survey, 2018, based to 2011 census population
 ```{r}
