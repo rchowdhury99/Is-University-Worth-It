@@ -65,111 +65,28 @@ http://sda.chass.utoronto.ca/sdaweb/html/lfs.htm
 http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt <-- codebook
 
 #### Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
-```{r}
-URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
-page = read_html(url(URL))
 
-univcan_data =   
-  page %>% 
-  html_nodes(xpath = '//*[@id="data_table"]') %>%
-  html_table(fill = TRUE) %>% 
-  as.data.frame()
-univcan_data = univcan_data[-1,]
-univcan_data
-```
 
 #### Setting up the data in interest
-```{r}
-domestic_undergraduate =
-  univcan_data %>% 
-  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
-  select(University, domestic_undergraduate_tuition) %>% na.omit()
 
-domestic_undergraduate$domestic_undergraduate_tuition =
-  as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
-
-domestic_undergraduate
-######################################################################################################################
-international_undergraduate =
-  univcan_data %>% 
-  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(University, international_undergraduate_tuition) %>% na.omit()
-
-international_undergraduate$international_undergraduate_tuition = 
-  as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
-
-international_undergraduate
-######################################################################################################################
-domestic_graduate =
-  univcan_data %>% 
-  mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
-  select(University, domestic_graduate_tuition) %>% na.omit()
-
-domestic_graduate$domestic_graduate_tuition = 
-  as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
-
-domestic_graduate
-######################################################################################################################
-international_graduate =
-  univcan_data %>% 
-  mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(University, international_graduate_tuition) %>% na.omit()
-
-international_graduate$international_graduate_tuition = 
-  as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
-
-international_graduate
-```
 
 
 #### DATA ANAYLSIS
 
 #### Q1: Get a bachelor's tuition (international vs. domestic)
-```{r}
-domestic_undergraduate %>% 
-  arrange(domestic_undergraduate_tuition) %>% 
-  ggplot(aes(x=University, y = domestic_undergraduate_tuition)) + geom_point()
 
-international_undergraduate %>% 
-  arrange(international_undergraduate_tuition) %>% 
-  ggplot(aes(x=University, y = international_undergraduate_tuition)) + geom_point()
-```
 
 
 #### Shows Domestic vs. International (used LEFT JOIN)
-```{r}
-domestic_international_undergraduate = 
-  left_join(domestic_undergraduate, international_undergraduate, by = "University")
 
-domestic_international_undergraduate %>% 
-  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
-  geom_point(aes(y = domestic_undergraduate_tuition, col = "Domestic")) + 
-  geom_point(aes(y = international_undergraduate_tuition, col = "International"))
-```
 
 
 #### Q2: Get a masters (international vs. domestic)
-```{r}
-domestic_graduate %>% 
-  arrange(domestic_graduate_tuition) %>% 
-  ggplot(aes(x=University, y = domestic_graduate_tuition)) + geom_point()
 
-international_graduate %>% 
-  arrange(international_graduate_tuition) %>% 
-  ggplot(aes(x=University, y = international_graduate_tuition)) + geom_point()
-```
 
 
 #### Shows Domestic vs. International (used LEFT JOIN)
-```{r}
-domestic_international_graduate = 
-  left_join(domestic_graduate, international_graduate, by = "University")
 
-domestic_international_graduate %>% 
-  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
-  geom_point(aes(y = domestic_graduate_tuition, col = "Domestic")) + 
-  geom_point(aes(y = international_graduate_tuition, col = "International"))
-```
 
 #### Q3: Get a masters immediately after a bachelor's vs. after a few years
 
@@ -182,8 +99,8 @@ domestic_undergraduate =
 domestic_undergraduate$domestic_undergraduate_tuition =
   as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
 domestic_undergraduate
-do = domestic_undergraduate %>% mutate(sum = n()-1)
-do
+join_domestic_undergrad = domestic_undergraduate %>% mutate(sum = n()-1)
+join_domestic_undergrad
 ######################################################################################################################
 international_undergraduate =
   univcan_data %>% 
@@ -192,8 +109,8 @@ international_undergraduate =
 international_undergraduate$international_undergraduate_tuition = 
   as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
 international_undergraduate
-inter = international_undergraduate %>% mutate(sum = n())
-inter
+join_international_undergrad = international_undergraduate %>% mutate(sum = n())
+join_international_undergrad
 ######################################################################################################################
 domestic_graduate =
   univcan_data %>% 
@@ -202,8 +119,8 @@ domestic_graduate =
 domestic_graduate$domestic_graduate_tuition = 
   as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
 domestic_graduate
-dog = domestic_graduate %>% mutate(sum = n()+17)
-dog
+join_domestic_grad = domestic_graduate %>% mutate(sum = n()+17)
+join_domestic_grad
 ######################################################################################################################
 international_graduate =
   univcan_data %>% 
@@ -212,12 +129,12 @@ international_graduate =
 international_graduate$international_graduate_tuition = 
   as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
 international_graduate
-interg = international_graduate %>% mutate(sum = n()+18)
-interg
+join_international_grad = international_graduate %>% mutate(sum = n()+18)
+join_international_grad
 
-domestic_sum = left_join(do, dog, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
+domestic_sum = left_join(join_domestic_undergrad, join_domestic_grad, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
 domestic_sum
-international_sum = left_join(inter, interg, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
+international_sum = left_join(join_international_undergrad, join_international_grad, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
 international_sum
 
 ```
@@ -254,6 +171,9 @@ c
 ```
 
 5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
+```{r}
+
+```
 6. Comment on unemployment
 
 
