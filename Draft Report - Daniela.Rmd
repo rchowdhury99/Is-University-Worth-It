@@ -48,13 +48,17 @@ To answer the questions stated above it is required to get tuition costs dependi
 
 #### Q2: Get a masters (international vs. domestic)
 
-#### Q3: Get a masters immediately after a bachelor's vs. after a few yearS
+#### Q3: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
 
-#### Q4: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
+#### Q4: Least worth it field of study. (for undergraduate and graduate, for international and domestic)
+```{r}
+can-undergrad = read_csv("data/can-undergrad.csv")
+can-grad = read_csv("data/can-grad.csv")
+inter-undergrad = read_csv("data/inter-undergrad.csv")
+inter-grad = read_csv("data/inter-grad.csv")
+```
 
-#### Q5: Least worth it field of study. (for undergraduate and graduate, for international and domestic)
-
-#### Q6: Comment on unemployment
+#### Q4: Comment on unemployment
 
 ## Summary 
 

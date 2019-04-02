@@ -1,0 +1,47 @@
+﻿Canadian graduate tuition fees by field of study 1 2 3 4 5 6 7 8 9 10
+"Annual"
+"Table: null (formerly CANSIM 477-0022)"
+"Geography: Canada, Province or territory"
+
+"","Canada",,,,
+"Field of study","2014 / 2015","2015 / 2016","2016 / 2017","2017 / 2018","2018 / 2019"
+"","Dollars",,,,
+"Total, field of study","6,295","6,537","6,784","6,920","7,086"
+"Education","5,674","5,697","5,866","6,050","6,189"
+"Visual and performing arts, and communications technologies","4,818","5,202","5,069","5,388","5,506"
+"Humanities","4,624","4,619","4,674","4,724","4,791"
+"Social and behavioural sciences, and legal studies ","5,325","5,460","5,829","5,977","6,111"
+"Law","5,758","6,148","5,757","5,681","5,840"
+"Business, management and public administration","10,378","10,703","11,140","10,979","11,323"
+"Executive MBA","39,413","47,394","50,830","49,087","49,798"
+"Regular MBA","26,989","26,532","28,532","29,588","30,570"
+"Physical and life sciences and technologies","6,100","6,350","6,455","6,753","6,905"
+"Mathematics, computer and information sciences","6,039","6,123","7,727","8,010","8,390"
+"Engineering","6,388","6,777","7,077","7,219","7,222"
+"Architecture","5,704","5,807","6,117","6,471","6,657"
+"Agriculture, natural resources and conservation","5,431","5,377","5,429","5,499","5,635"
+"Dentistry","12,135","12,276","12,239","12,872","13,343"
+"Medicine","F","..","..","..",".."
+"Nursing","6,076","7,321","7,622","7,764","7,881"
+"Pharmacy","6,248","6,044","5,922","4,114","4,161"
+"Veterinary medicine","3,686","3,358","3,687","3,941","4,064"
+"Other health, parks, recreation and fitness","7,868","8,158","8,040","8,285","8,561"
+"Personal, protective and transportation services","..","..","3,987","6,513","6,643"
+
+F : too unreliable to be published.,
+.. : not available for a specific reference period,
+
+Footnotes:
+1,Data for 2018/2019 are preliminary.
+2,"The national and provincial tuition fee averages are weighted with the latest enrolment data (2015). If the number of enrolments is unknown for a given program, that program is excluded from the averages. The same enrolment data are used for the weighting of both years, 2017/2018 and 2018/2019, thereby permitting the comparison of changes in the tuition fees only."
+3,"As the distribution of enrolment varies from period to period, caution must be exercised when making long-term historical comparisons."
+4,"For Quebec (since 1998/1999) and Nova Scotia (since 2007/2008), the weighted averages take into account the different fees paid by 'in province' and 'out of province' Canadian students."
+5,"Since 2010/2011, Regular and Executive MBA (master of business administration programs) have been excluded from the national and provincial weighted averages due to their high costs and their effect on the overall tuition fee average. Dental, medical and veterinary residency programs offered in teaching hospitals and similar locations that may lead to advanced professional certification have also been excluded."
+6,"It is important to note that tuition fee increases are generally regulated by provincial policies. However, some programs may be exempted from these policies resulting in possible increases that exceed provincial limits."
+7,Data in this release do not take into account financial assistance or tax rebates provided to students. Tuition fees and additional compulsory fees represent only a portion of all costs incurred for attending university.
+8,Graduate tuition fee averages reflect combinations of 8- and 12-month reporting periods.
+9,"The fields of study are adapted from the 2011 Classification of Instructional Programs (CIP), Statistics Canada's standard for the classification of instructional programs."
+10,"For 2018/2019, Newfoundland and Labrador undergraduate and graduate tuition fees were frozen for all Canadian students except for new out-of-province students who incurred a 30% increase. These students represent approximately 10% of the domestic student population. This increase is not reflected in the preliminary 2018/2019 data."
+
+"How to cite: Statistics Canada. Table null Canadian graduate tuition fees by field of study"
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000401
