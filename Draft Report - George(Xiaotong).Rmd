@@ -153,7 +153,12 @@ pro_masteri
 pro_masterno = master_not_imme/sum_master
 pro_masterno
 ```
-
+```{r}
+average_domestic = domestic_sum %>% summarise(average = mean(sum_tuition)) %>% pull()
+average_domestic
+average_international = international_sum %>% summarise(average = mean(sum_tuition)) %>% pull()
+average_international
+```
 #### Q4: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
 
 The data we use is come from that link:
@@ -164,10 +169,14 @@ income = read.csv("../data/income6.CSV")
 ```
 
 ```{r}
-a = income %>% arrange(desc(Median.after.tax.income....))
-a
-c = income %>% arrange(desc(Average.employment.income....))
-c
+Median_after_tax_income = income %>% arrange(desc(Median.after.tax.income....))
+time_ammortize_domestic = Median_after_tax_income %>% mutate(year =average_domestic/Median.after.tax.income....)
+time_ammortize_domestic %>% arrange(year)
+Average_employment_income = income %>% arrange(desc(Average.employment.income....))
+time_ammortize_international = Average_employment_income %>% mutate(year =average_international/Average.employment.income....) 
+time_ammortize_international %>% arrange(year)
+ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Median.after.tax.income....), data = income)+geom_point()
+ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Average.employment.income....), data = income)+geom_point()
 ```
 
 5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
