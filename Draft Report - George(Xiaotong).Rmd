@@ -95,41 +95,41 @@ Assume there is four years of undergraduate study and 2 years of graduate study.
 domestic_undergraduate =
   univcan_data %>% 
   mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
-  select(domestic_undergraduate_tuition) %>% na.omit()
+  select(University, Province, domestic_undergraduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
 domestic_undergraduate$domestic_undergraduate_tuition =
   as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
-domestic_undergraduate
-join_domestic_undergrad = domestic_undergraduate %>% mutate(sum = n()-1)
+join_domestic_undergrad = domestic_undergraduate %>% mutate(sum = n())
 join_domestic_undergrad
 ######################################################################################################################
 international_undergraduate =
   univcan_data %>% 
   mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(international_undergraduate_tuition) %>% na.omit()
+  select(University, Province, international_undergraduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
 international_undergraduate$international_undergraduate_tuition = 
   as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
-international_undergraduate
 join_international_undergrad = international_undergraduate %>% mutate(sum = n())
 join_international_undergrad
 ######################################################################################################################
 domestic_graduate =
   univcan_data %>% 
   mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
-  select(domestic_graduate_tuition) %>% na.omit()
+  select(University, Province, domestic_graduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
 domestic_graduate$domestic_graduate_tuition = 
   as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
-domestic_graduate
-join_domestic_grad = domestic_graduate %>% mutate(sum = n()+17)
+join_domestic_grad = domestic_graduate %>% mutate(sum = n()+5)
 join_domestic_grad
 ######################################################################################################################
 international_graduate =
   univcan_data %>% 
   mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(international_graduate_tuition) %>% na.omit()
+  select(University, Province, international_graduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
 international_graduate$international_graduate_tuition = 
   as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
-international_graduate
-join_international_grad = international_graduate %>% mutate(sum = n()+18)
+join_international_grad = international_graduate %>% mutate(sum = n()+4)
 join_international_grad
 
 domestic_sum = left_join(join_domestic_undergrad, join_domestic_grad, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)

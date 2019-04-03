@@ -3,7 +3,20 @@ title: "STAA57 Final Project Report "
 author: "Team 10 (Daniela Venturo Esaine, Reizwan Chodhury, Ralph Samson Lal, Xiaotong Ye)"
 output: html_notebook
 ---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+## echo=FALSE stops the code chunk from appearing in the html document
+## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(ggplot2)
 
+timeToAmortize <- function(yearEarning, tuition){
+  time = (tuition*4)/yearEarning
+  return(time)
+}
+```
 
 ***
 
@@ -49,22 +62,58 @@ To answer the questions stated above it is required to get tuition costs dependi
 #### Q2: Get a masters (international vs. domestic)
 
 #### Q3: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
-
-#### Q4: Least worth it field of study. (for undergraduate and graduate, for international and domestic)
 ```{r}
-can-undergrad = read_csv("data/can-undergrad.csv")
-can-grad = read_csv("data/can-grad.csv")
-inter-undergrad = read_csv("data/inter-undergrad.csv")
-inter-grad = read_csv("data/inter-grad.csv")
+# loading data sets
+canUndergrad = read_csv("data/can-undergrad.csv")
+canGrad = read_csv("data/can-grad.csv")
+interUndergrad = read_csv("data/inter-undergrad.csv")
+interGrad = read_csv("data/inter-grad.csv")
+income = read_csv("data/income6.csv")
+
+income = group_by(income, CorrespondingTo) %>% summarise(avgIncome = mean(`Average after-tax income ($)`)) %>% rename(Field_of_study = 'CorrespondingTo')
+
+mostWorthIt <- function(dat){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition)) %>% arrange(amortizeTime) %>% head(1)
+  return(dat)
+}
+
+leastWorthIt <- function(dat){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition)) %>% arrange(desc(amortizeTime)) %>% head(1)
+  return(dat)
+}
 ```
 
-#### Q4: Comment on unemployment
+#### Q4: Least worth it field of study. (for undergraduate and graduate, for international and domestic)
+
+To find the least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average tuition fees accross 5 years and then based on income per field of study calculate the time to amortize said tuition. The longest time will correspond to the "least worth it" field of study. 
+
+The income will be drawn from canadian income datasets since we assume all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
+
+Least worth it field for Canadian Undergraduate:
+```{r}
+leastWorthIt(canUndergrad)
+```
+
+Least worth it field for International Undergraduate:
+```{r}
+leastWorthIt(interUndergrad)
+```
+
+Least worth it field for Canadian Graduate:
+```{r}
+leastWorthIt(canGrad)
+```
+
+Least worth it field for International Graduate:
+```{r}
+leastWorthIt(interGrad)
+```
+
+#### Q5: Comment on unemployment
 
 ## Summary 
 
 Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
-
-According to the answers to question 3, if one does not get a job right after completing an undergraduate degree, it is recommendable to take a masters right after completion of a bachelors because the cost of living is paid during that time. However, if one is employed and has a constant source of income, the difference is not significant, in which case one can choose freely if to take the masters degree now or wait a few years.
 
 Moving on, based on the results for questions 4 and 5 we find the most worth it field of study is Dental, medical and veterinary residency programs, with law in second place. This means it will have the highest payout out of all other degrees. The "least worth it" field of study is. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
 

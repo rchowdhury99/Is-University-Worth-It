@@ -9,6 +9,7 @@ output: html_notebook
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(coin)
+library(broom)
 ```
 
 
@@ -41,12 +42,13 @@ Instructions:
 #### DATA ANAYLSIS
 
 =====================================================================
-6. Comment on unemployment
+6.
+UNEMPLOYMENT RATE COMPARISON BETWEEN EDUCATION LEVELS IN THE LABOUR FORCE SURVEY
 
 Considering that we wanted to focus on time-to-amortize-degree as a criterion for being "worth-it", It is obvious that one of the greatest affectors of this is employment or equivalently unemployment. Therefore we suggest Unemployment as a seconday criterion for being "worth-it", we define the criterion as follows:
-"The Degree level (BSc, MSC, Highschool, College) that shows lowest level of unemployment is the most worth-it and would contribute to a faster amortization of degree cost".
+"The Degree level (BSc, MSC, Highschool, College) that shows lowest level of unemployment rate is the most worth-it and would contribute to a faster amortization of degree cost".
 
-The First part of our analysis will focus on graphically presenting unemployment rates among individuals in 6 levels of education as defined in the lfs dataset.
+The First part of our analysis will focus on graphically presenting unemployment rate among individuals in 6 levels of education as defined in the lfs dataset.
 
 The Second part will run a tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
 
@@ -64,41 +66,126 @@ lfs_toronto = read_csv("data/LFS_Toronto.csv")
 
 ```{r}
 # joblessness of Unemployed individuals by education tiers
-lfs_toronto %>% 
-  filter(lfsstat %in% 3 & educ %in% 2:6 & !is.na(durunemp)) %>% 
-  mutate(educ = factor(educ)) %>%
+# lfs_toronto %>% 
+#   filter(lfsstat %in% 3 & educ %in% 2:6 & !is.na(durunemp)) %>% 
+#   mutate(educ = factor(educ)) %>%
+#   group_by(educ) %>% 
+#   select(educ, durunemp) %>% 
+#   mutate(durunemp_in_years = round(durunemp/52)) %>% #since Duration of unemployment in weeks
+#   count(durunemp_in_years) %>% 
+#   arrange(desc(durunemp_in_years)) %>%
+#   mutate(durunemp_in_years = factor(durunemp_in_years)) %>% 
+#   mutate(number_of_individuals = n) %>% 
+#   ggplot(aes(x=durunemp_in_years, y=number_of_individuals, fill = durunemp_in_years))+
+#   geom_bar(stat = "identity")+
+#   facet_wrap(facets = ~educ)+
+#   ggtitle("Duration of Unemployment for different Education levels")
+
+# lfs_toronto %>% 
+#   filter(educ %in% 2:6, lfsstat == 3) %>% # lfsstat == 3  unemployed
+#   mutate(educ = factor(educ)) %>% 
+#   select(CASEID, educ) %>% 
+#   group_by(educ) %>% 
+#   count(educ) %>% 
+#   transmute(individuals_unemployed = n)
+
+(toronto_unemplrate = lfs_toronto %>% 
+  summarise(UNEMPL = sum(lfsstat == 3)/sum(lfsstat!=4)) %>% pull())
+
+lfs_toronto %>%
+  filter(educ %in% 2:6) %>% # lfsstat == 3  unemployed
+  mutate(educ = factor(educ)) %>% 
   group_by(educ) %>% 
-  select(educ, durunemp) %>% 
-  mutate(durunemp_in_years = round(durunemp/52)) %>% #since Duration of unemployment in weeks
-  count(durunemp_in_years) %>% 
-  arrange(desc(durunemp_in_years)) %>%
-  mutate(durunemp_in_years = factor(durunemp_in_years)) %>% 
-  mutate(number_of_individuals = n) %>% 
-  ggplot(aes(x=durunemp_in_years, y=number_of_individuals, fill = durunemp_in_years))+
-  geom_bar(stat = "identity")+
-  facet_wrap(facets = ~educ)+
-  ggtitle("Duration of Unemployment for different Education levels")
+  summarise(UNEMPLrate = sum(lfsstat == 3)/sum(lfsstat != 4)) %>% 
+  arrange(UNEMPLrate) %>% 
+  mutate(diff_from_aggregate = UNEMPLrate - toronto_unemplrate)
+  
 ```
-Is the difference seen above statistically significant, specifically does the duration of unemployment depend on education?
+In the above comparison with the Toronto unemployment rate, we see educ levels 6,4 and 5 are below the Toronto unemployment rate, and educ level 2 and 3 are above it. This shows that any post secondary education is worth-it in comparison to not having a post secondar education.
+
+But when focusing on "is university worth it", we found a surprising result, the unemployment rate for individuals with a bachelors degree is higher ever so much than one with a non-bachelors Post secondary certificate/diploma. So just based off of this result a Post secondary certificate/diploma is more worth it to that of a bachelors degree, this is even more affirmed by the fact that a Post secondary certificate/diploma cost less than a University bachelors degree meaning that the combined influence of lower cost education plus lower unemployment rate makes University not worth-it, in atleast this comparison. This result can be easily verfied for the employment rate aswell[see apendix]
+
+But the redeeming result comes from the fact that having a University graduate degree puts an individual in the category with the lowest unemployment rate, and it is common knowlege that one needs a bachelors before moving into graduate studies. Therefore overall a University degree is indeed worth-it to not having a university Degree in regard to unemployment.
+
+
+
+
+
+
+
+
+
+Is the difference in status of unemployment statistically significant, specifically does the status of employment/unemployment depend on education?
+here we consider only lfsstat level 1 and 3. Employed-at-work and Unemployed respectively. We ignore lfsstat level 2 given they are also employed but absent from work. We focus only on the status of being unemployed vs employed.
 ```{r}
 lfs_toronto %>% 
-  filter(lfsstat %in% 3 & educ %in% 2:6) %>% 
+  filter(lfsstat %in% c(1,3) & educ %in% 2:6) %>% 
   mutate(educ = factor(educ)) %>% 
-  independence_test( durunemp ~ educ, data = ., distribution = "approx" )
+  independence_test( lfsstat ~ educ, data = ., distribution = "approx" )
 ```
-Conclusion: The P-value is extremely small, so there is overwhelming evidence that education affects Duration of unemployment  
+Conclusion: The P-value is extremely small, showing that the null hypothesis of unemployment status being independent of education level is very unlikely, therefore there is overwhelming evidence that education affects unemployment.
+```{r}
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>% 
+  ggplot(aes(x=educ, fill=unempl))+
+  geom_bar(position = "fill")
+
+# Does educ level affect unemployment significantly in any regard
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% 4:6) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+
+# Is there a statistically significant difference in affect on
+# unemployment between educ level 5 and 6
+# 5: University: bachelors degree
+# 6: University: graduate degree
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(5,6)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+
+# Is there a statistically significant difference in affect on
+# unemployment between educ level 4 and 5
+# 4: Post secondary certificate or diploma
+# 5: University: bachelors degree
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(4,5)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+
+# Is there a statistically significant difference in affect on
+# unemployment between educ level 4 and 6
+# 4: Post secondary certificate or diploma
+# 6: University: graduate degree
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(4,6)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+
+
+
 
 Then is there a significant improvement in having a univeristy degree instead of regular Highschool education? Lets perform a TukeyTest
 
 # Levels of Education
+2: Gr 11 to 13, graduate
+3: Some post secondary
 4: Post secondary certificate or diploma
 5: University: bachelors degree
 6: University: graduate degree
 ```{r}
-lfs.aov=lfs_toronto %>% 
-  filter(lfsstat %in% 3 & educ %in% 4:6) %>%
-  mutate(educ=factor(educ)) %>% 
-  aov(durunemp ~ educ, data=.)
+lfs.aov=lfs_toronto %>%
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>%
+  aov(flowunem ~ educ, data=.)
+TukeyHSD(lfs.aov)
+
+lfs.aov=lfs_toronto %>%
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), empl = (lfsstat != 3)) %>%
+  aov(empl ~ educ, data=.)
 TukeyHSD(lfs.aov)
 ```
 As evident from the Tukey test, Duration of unemployment in weeks is NOT vastly different from University: bachelors degree to Post secondary certificate/diploma (p>0.05).
@@ -119,5 +206,17 @@ Therefore using this critera, yes a University degree is worthit Especially a Gr
 ## Appendix 
 
 (*Everything here does not count towards page limit*)
+EMPLOYMENT RATE COMPARISON BETWEEN EDUCATION LEVELS IN THE LABOUR FORCE SURVEY
+```{r}
+(toronto_emplrate = lfs_toronto %>% 
+  summarise(EMPL = sum(lfsstat %in% c(1,2))/sum(lfsstat!=4)) %>% pull())
 
+lfs_toronto %>%
+  filter(educ %in% 2:6) %>% # lfsstat == 3  unemployed
+  mutate(educ = factor(educ)) %>% 
+  group_by(educ) %>% 
+  summarise(EMPLrate = sum(lfsstat %in% c(1,2))/sum(lfsstat != 4)) %>% 
+  arrange(EMPLrate) %>% 
+  mutate(diff_from_aggregate = EMPLrate - toronto_emplrate)
+```
 
