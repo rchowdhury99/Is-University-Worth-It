@@ -115,7 +115,7 @@ leastWorthIt(interGrad)
 
 Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
 
-Moving on, based on the results for questions 4 and 5 we find the most worth it field of study is Dental, medical and veterinary residency programs, with law in second place. This means it will have the highest payout out of all other degrees. The "least worth it" field of study is. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
+Based on the results of q4 the least worth it field of study for Canadian Undergraduates is Dentistry as it takes the longest to pay off tuition. The least worth it for International Undergraduate is Visual and performing arts, and communications technologies. For Canadian and International Graduate the least worth it field is Business, management and public administration. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
 
 To comment on unemployment, the degree of your study does affect greatly on the chances of being unemployed as the difference in the duration of unemployment is very significant between the two. Therefore it is recommendable to get a masters degree.
 
