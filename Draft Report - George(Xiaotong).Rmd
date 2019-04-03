@@ -179,6 +179,8 @@ ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..
 ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Average.employment.income....), data = income)+geom_point()
 ```
 
+Tuition fees in fields of study: http://odesi1.scholarsportal.info/documentation/TLAC/2017-2018/Tables_1-7_2017-2018_final.xlsx
+$$This link contains of all tuition fees informations include graduate and undergraduate study for both domestic and international students. However, this data needs to be cleaned. For each of field of study, there is lower and upper value for tuition fees, we have to find the mean value between them so we can find the exactly the value of tuition fees for this field of study.$$
 5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
 ```{r}
 
