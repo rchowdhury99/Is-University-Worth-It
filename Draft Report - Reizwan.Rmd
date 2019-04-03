@@ -117,24 +117,37 @@ international_graduate$international_graduate_tuition =
 international_graduate
 ```
 
+#### Setting up the income data using the LFS dataset
+```{r}
+lfs = read_csv("data/LFS_Toronto.csv")
+
+hours_per_year = 8 * 5 * 4 * 12
+
+avg_annual_income_undergraduate =
+  lfs %>% 
+  filter(educ == 5) %>% 
+  select(hrlyearn) %>% 
+  mutate(annual_income = hrlyearn * hours_per_year) %>% na.omit() %>% 
+  summarise(avg_annual_income_undergraduate = mean(annual_income)) %>% 
+  pull()
+
+avg_annual_income_undergraduate
+##################################################################################
+avg_annual_income_graduate =
+  lfs %>% 
+  filter(educ == 6) %>% 
+  select(hrlyearn) %>%
+  mutate(annual_income = hrlyearn * hours_per_year) %>% na.omit() %>% 
+  summarise(avg_annual_income_graduate = mean(annual_income)) %>% 
+  pull()
+
+avg_annual_income_graduate
+```
+
 
 #### DATA ANAYLSIS
 
 #### Q1: Get a bachelor's tuition (international vs. domestic)
-```{r}
-domestic_undergraduate %>% 
-  arrange(domestic_undergraduate_tuition) %>% 
-  ggplot(aes(x=University, y = domestic_undergraduate_tuition)) + 
-  geom_point() +
-  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
-
-international_undergraduate %>% 
-  arrange(international_undergraduate_tuition) %>% 
-  ggplot(aes(x=University, y = international_undergraduate_tuition)) + 
-  geom_point() +
-  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
-```
-
 
 #### Shows Domestic vs. International (used LEFT JOIN)
 ```{r}
@@ -148,22 +161,24 @@ domestic_international_undergraduate %>%
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
 ```
 
-
-#### Q2: Get a masters (international vs. domestic)
+#### TIME TO AMORTIZE AS AN UNDERGRADUATE
 ```{r}
-domestic_graduate %>% 
-  arrange(domestic_graduate_tuition) %>% 
-  ggplot(aes(x=University, y = domestic_graduate_tuition)) + 
-  geom_point() +
-  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+domestic_international_undergraduate =
+  domestic_international_undergraduate %>% 
+  mutate(time_to_amortize_domestic = domestic_international_undergraduate$domestic_undergraduate_tuition*4/avg_annual_income_undergraduate,
+         time_to_amortize_international = domestic_international_undergraduate$international_undergraduate_tuition*4/avg_annual_income_undergraduate) %>% 
+  select(University, domestic_undergraduate_tuition, time_to_amortize_domestic, international_undergraduate_tuition, time_to_amortize_international)
 
-international_graduate %>% 
-  arrange(international_graduate_tuition) %>% 
-  ggplot(aes(x=University, y = international_graduate_tuition)) + 
-  geom_point() +
+domestic_international_undergraduate
+
+domestic_international_undergraduate %>% 
+  ggplot(aes(x = University, y = Time_To_Amortize, color = TypeOfStudent)) + 
+  geom_point(aes(y = time_to_amortize_domestic, col = "Domestic")) + 
+  geom_point(aes(y = time_to_amortize_international, col = "International")) +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
 ```
 
+#### Q2: Get a masters (international vs. domestic)
 
 #### Shows Domestic vs. International (used LEFT JOIN)
 ```{r}
@@ -175,3 +190,34 @@ domestic_international_graduate %>%
   geom_point(aes(y = international_graduate_tuition, col = "International")) + 
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
 ```
+
+
+#### TIME TO AMORTIZE AS A GRADUATE
+```{r}
+domestic_international_graduate = 
+  domestic_international_graduate %>% 
+  mutate(time_to_amortize_domestic = domestic_international_graduate$domestic_graduate_tuition*4/avg_annual_income_graduate,
+         time_to_amortize_international = domestic_international_graduate$international_graduate_tuition*4/avg_annual_income_graduate) %>% 
+  select(University, domestic_graduate_tuition, time_to_amortize_domestic, international_graduate_tuition, time_to_amortize_international)
+
+domestic_international_graduate
+
+domestic_international_graduate %>% 
+  ggplot(aes(x = University, y = Time_To_Amortize, color = TypeOfStudent)) + 
+  geom_point(aes(y = time_to_amortize_domestic, col = "Domestic")) + 
+  geom_point(aes(y = time_to_amortize_international, col = "International")) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+```
+###############################################################################################################
+
+#### CONCLUSION FOR Q1 and Q2
+All the conclusions are based on universities inside of Ontario
+
+#### Q1:
+According to the data, when comparing the tuition of undergraduates, we see that there is a big difference between domestic and international students. We can also see that domestic tuition of the universities in Ontario stay around the same, while the international tuition varies from university to university (a lot of variance). The time it takes to amortize for a domestic student stays around the same as well, while for international students, it takes 1-3 years.
+
+#### Q2:
+According to the data, when comparing the tuition of graduates, we see that there is a big difference between domestic and international students. We can also see that domestic tuition of the universities in Ontario also vary from university to university just like the international tuition. The time it takes to amortize for a domestic student stays around the same as well (less than a year), while for international students, it takes around 1 year.
+
+#### Summary:
+International undergraduate tuitions were a lot larger than domestic tuition but according to Q2 although a graduate international degree is more than the domestic it's not as big of a margin as an undergraduate degree. The time to amortize as a graduate is less than the time to amortize as an undergraduate, therefore, it's better to do graduate studies than undergrad studies as a international student.
