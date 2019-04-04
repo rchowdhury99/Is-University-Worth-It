@@ -149,6 +149,8 @@ avg_annual_income_graduate
 
 #### Q1: Get a bachelor's tuition (international vs. domestic)
 
+The following diagram shows the tuition of each university in Ontario as an undergraduate student, both domestic and international.
+
 #### Shows Domestic vs. International (used LEFT JOIN)
 ```{r}
 domestic_international_undergraduate = 
@@ -162,6 +164,9 @@ domestic_international_undergraduate %>%
 ```
 
 #### TIME TO AMORTIZE AS AN UNDERGRADUATE
+
+The following diagram shows the average time it takes to amortize as an undergraduate student from each university in Ontario, both domestic and international.
+
 ```{r}
 domestic_international_undergraduate =
   domestic_international_undergraduate %>% 
@@ -180,6 +185,8 @@ domestic_international_undergraduate %>%
 
 #### Q2: Get a masters (international vs. domestic)
 
+The following diagram shows the tuition of each university in Ontario as a graduate student, both domestic and international.
+
 #### Shows Domestic vs. International (used LEFT JOIN)
 ```{r}
 domestic_international_graduate = 
@@ -193,6 +200,9 @@ domestic_international_graduate %>%
 
 
 #### TIME TO AMORTIZE AS A GRADUATE
+
+The following diagram shows the average time it takes to amortize as a graduate student from each university in Ontario, both domestic and international.
+
 ```{r}
 domestic_international_graduate = 
   domestic_international_graduate %>% 
