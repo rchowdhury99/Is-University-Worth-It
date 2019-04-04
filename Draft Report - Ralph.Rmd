@@ -1,7 +1,10 @@
 ---
-title: "STAA57 Final Project Report "
-author: "Team 10 (Daniela Venturo Esaine, Reizwan Chodhury, Ralph Samson Lal, Xiaotong Ye)"
-output: html_notebook
+title: 'STAA57 Final Project Report '
+author: Team 10 (Daniela Venturo Esaine, Reizwan Chodhury, Ralph Samson Lal, Xiaotong
+  Ye)
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ## echo=FALSE stops the code chunk from appearing in the html document
@@ -45,52 +48,50 @@ Instructions:
 6.
 UNEMPLOYMENT RATE COMPARISON BETWEEN EDUCATION LEVELS IN THE LABOUR FORCE SURVEY
 
-Considering that we wanted to focus on time-to-amortize-degree as a criterion for being "worth-it", It is obvious that one of the greatest affectors of this is employment or equivalently unemployment. Therefore we suggest Unemployment as a seconday criterion for being "worth-it", we define the criterion as follows:
-"The Degree level (BSc, MSC, Highschool, College) that shows lowest level of unemployment rate is the most worth-it and would contribute to a faster amortization of degree cost".
+Considering that we wanted to focus on time-to-amortize-degree as a criterion for being "worth-it", It is obvious that one of the greatest affectors of this is employment or equivalently unemployment. Therefore we suggest Unemployment as a secondary criterion for being "worth-it", we define the criterion as follows:
+"The Degree level (BSc, MSC, High school, College) that shows lowest level of unemployment rate is the most worth-it and would contribute to a faster amortization of degree cost".
 
-The First part of our analysis will focus on graphically presenting unemployment rate among individuals in 6 levels of education as defined in the lfs dataset.
+The First part of our analysis will focus on graphically presenting unemployment rate among individuals in 6 levels of education as defined in the lfs data set.
 
-The Second part will run a tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
+The Second part will conduct Pearson's chi-square tests of independence on unemployment rate for each education level of interest and run a Tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
 
-Read Labour force survey, 2018, based to 2011 census population
-```{r}
+Using Labor force survey, 2018, based to 2011 census population
+```{r echo=FALSE, include=FALSE}
+# f_path = file.choose()
+# lfs_toronto = read_csv(f_path) #%>% filter(prov==35) #for Ontario
 lfs_toronto = read_csv("data/LFS_Toronto.csv")
 ```
 
 # Levels of Education
+
 2: Gr 11 to 13, graduate
+
 3: Some post secondary
+
 4: Post secondary certificate or diploma
+
 5: University: bachelors degree
+
 6: University: graduate degree
 
-```{r}
-# joblessness of Unemployed individuals by education tiers
-# lfs_toronto %>% 
-#   filter(lfsstat %in% 3 & educ %in% 2:6 & !is.na(durunemp)) %>% 
-#   mutate(educ = factor(educ)) %>%
-#   group_by(educ) %>% 
-#   select(educ, durunemp) %>% 
-#   mutate(durunemp_in_years = round(durunemp/52)) %>% #since Duration of unemployment in weeks
-#   count(durunemp_in_years) %>% 
-#   arrange(desc(durunemp_in_years)) %>%
-#   mutate(durunemp_in_years = factor(durunemp_in_years)) %>% 
-#   mutate(number_of_individuals = n) %>% 
-#   ggplot(aes(x=durunemp_in_years, y=number_of_individuals, fill = durunemp_in_years))+
-#   geom_bar(stat = "identity")+
-#   facet_wrap(facets = ~educ)+
-#   ggtitle("Duration of Unemployment for different Education levels")
+First lets plot proportional unemployment rates for each education category to get an idea of what the data states at face value
 
-# lfs_toronto %>% 
-#   filter(educ %in% 2:6, lfsstat == 3) %>% # lfsstat == 3  unemployed
-#   mutate(educ = factor(educ)) %>% 
-#   select(CASEID, educ) %>% 
-#   group_by(educ) %>% 
-#   count(educ) %>% 
-#   transmute(individuals_unemployed = n)
+```{r echo=FALSE}
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>% 
+  ggplot(aes(x=educ, fill=unempl))+
+  geom_bar(position = "fill")+
+  xlab("Educational attainment")+
+  labs(fill="Unemployed")
+```
+We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between
+the Post Secondary Certificate/Diploma, University Bachelors and University Graduate degree education levels, lets explore this further
 
-(toronto_unemplrate = lfs_toronto %>% 
-  summarise(UNEMPL = sum(lfsstat == 3)/sum(lfsstat!=4)) %>% pull())
+
+Toronto Employment rate and unemployment rates for each education level, and difference from Toronto Employment rate.
+```{r echo=FALSE}
+toronto_unemplrate = lfs_toronto %>% 
+  summarise(UNEMPL = sum(lfsstat == 3)/sum(lfsstat!=4)) %>% pull()
 
 lfs_toronto %>%
   filter(educ %in% 2:6) %>% # lfsstat == 3  unemployed
@@ -98,103 +99,74 @@ lfs_toronto %>%
   group_by(educ) %>% 
   summarise(UNEMPLrate = sum(lfsstat == 3)/sum(lfsstat != 4)) %>% 
   arrange(UNEMPLrate) %>% 
-  mutate(diff_from_aggregate = UNEMPLrate - toronto_unemplrate)
+  mutate(Difference_from_Toronto_UNEMPLrate = UNEMPLrate - toronto_unemplrate)
   
 ```
-In the above comparison with the Toronto unemployment rate, we see educ levels 6,4 and 5 are below the Toronto unemployment rate, and educ level 2 and 3 are above it. This shows that any post secondary education is worth-it in comparison to not having a post secondar education.
+In the above comparison with the Toronto unemployment rate, we see unemployment rate for "graduate degree","Post secondary certificate/diploma" and "bachelors degree" are below the Toronto unemployment rate, and "Gr 11 to 13, graduate" and "Some post secondary" are above it. Only considering the values, this shows that any post secondary education is worth-it in comparison to not having a post secondary education.
 
-But when focusing on "is university worth it", we found a surprising result, the unemployment rate for individuals with a bachelors degree is higher ever so much than one with a non-bachelors Post secondary certificate/diploma. So just based off of this result a Post secondary certificate/diploma is more worth it to that of a bachelors degree, this is even more affirmed by the fact that a Post secondary certificate/diploma cost less than a University bachelors degree meaning that the combined influence of lower cost education plus lower unemployment rate makes University not worth-it, in atleast this comparison. This result can be easily verfied for the employment rate aswell[see apendix]
+Is the above observation statistically sound?
+Is the difference in status of unemployment among education levels statistically significant, specifically does the status of unemployment depend on education?
 
-But the redeeming result comes from the fact that having a University graduate degree puts an individual in the category with the lowest unemployment rate, and it is common knowlege that one needs a bachelors before moving into graduate studies. Therefore overall a University degree is indeed worth-it to not having a university Degree in regard to unemployment.
+We will run Pearson's Chi-square tests of independence to answer the above questions
 
-
-
-
-
-
-
-
-
-Is the difference in status of unemployment statistically significant, specifically does the status of employment/unemployment depend on education?
-here we consider only lfsstat level 1 and 3. Employed-at-work and Unemployed respectively. We ignore lfsstat level 2 given they are also employed but absent from work. We focus only on the status of being unemployed vs employed.
-```{r}
-lfs_toronto %>% 
-  filter(lfsstat %in% c(1,3) & educ %in% 2:6) %>% 
-  mutate(educ = factor(educ)) %>% 
-  independence_test( lfsstat ~ educ, data = ., distribution = "approx" )
-```
-Conclusion: The P-value is extremely small, showing that the null hypothesis of unemployment status being independent of education level is very unlikely, therefore there is overwhelming evidence that education affects unemployment.
-```{r}
-lfs_toronto %>% filter(lfsstat !=4 & educ %in% 2:6) %>% 
-  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>% 
-  ggplot(aes(x=educ, fill=unempl))+
-  geom_bar(position = "fill")
-
-# Does educ level affect unemployment significantly in any regard
-lfs_toronto %>% filter(lfsstat !=4 & educ %in% 4:6) %>% 
+Is unemployment rates significantly different among all selected education levels?
+```{r echo=FALSE}
+lfs_toronto %>% select(lfsstat, educ) %>% 
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
   chisq_test(unempl ~ educ, data = .,
              distribution = "approx")
+```
+There does seem to be a significant difference in unemployment rates among all education levels from "Gr 11 to 13, graduate" to university graduate degree. unemployment rate is dependent on an individuals educational attainment.
 
-# Is there a statistically significant difference in affect on
-# unemployment between educ level 5 and 6
-# 5: University: bachelors degree
-# 6: University: graduate degree
+
+To answer our main question "is a University Degree worth it", let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
+
+Is there a significant difference in unemployment rates between individuals holding a bachelors degree vs graduates degree?
+```{r echo=FALSE}
 lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(5,6)) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
   chisq_test(unempl ~ educ, data = .,
              distribution = "approx")
+```
+The result states that there is moderate evidence for unemployment rate being dependent on these two educational groups.
 
-# Is there a statistically significant difference in affect on
-# unemployment between educ level 4 and 5
-# 4: Post secondary certificate or diploma
-# 5: University: bachelors degree
-lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(4,5)) %>% 
-  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
-  chisq_test(unempl ~ educ, data = .,
-             distribution = "approx")
-
-# Is there a statistically significant difference in affect on
-# unemployment between educ level 4 and 6
-# 4: Post secondary certificate or diploma
-# 6: University: graduate degree
+Is there a significant difference in unemployment rates between individuals holding a Post secondary certificate/diploma vs graduates degree ?
+```{r echo=FALSE}
 lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(4,6)) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
   chisq_test(unempl ~ educ, data = .,
              distribution = "approx")
 ```
+Surprisingly the result states that unemployment rate is independent of these education levels, that is any difference is negligible. 
+
+And the most crucial test to answer our question to conclude if a university degree is worth it or not based on unemployment,
+Is there a significant difference in unemployment rates between individuals holding a Post secondary Non-University certificate/diploma vs University Bachelors degree i.e entry level university degree ?
+```{r echo=FALSE}
+lfs_toronto %>% filter(lfsstat !=4 & educ %in% c(4,5)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+This result also states that unemployment rate is independent of these two education levels, that is again any difference is negligible, the employability of individuals in these education levels are more or less the same. So one can not state that a university degree is worth it or not worth it in comparison to a non university education based off of unemployment rate alone. 
+Therefore unemployment rate is not a strong indicator of being worth it or not worth it.
+
+Note: However like in our other analyses we did notice a graduate degree being more worth it to that of a bachelors, so we would suggest a person taking a bachelors to aim for a graduates degree.
 
 
+To clinch the above result let us run a Tukey test to see across the board how different are unemployment rates between all education levels. 
 
-
-Then is there a significant improvement in having a univeristy degree instead of regular Highschool education? Lets perform a TukeyTest
-
-# Levels of Education
-2: Gr 11 to 13, graduate
-3: Some post secondary
-4: Post secondary certificate or diploma
-5: University: bachelors degree
-6: University: graduate degree
-```{r}
+```{r echo=FALSE}
 lfs.aov=lfs_toronto %>%
   filter(lfsstat !=4 & educ %in% 2:6) %>% 
   mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>%
-  aov(flowunem ~ educ, data=.)
-TukeyHSD(lfs.aov)
-
-lfs.aov=lfs_toronto %>%
-  filter(lfsstat !=4 & educ %in% 2:6) %>% 
-  mutate(educ = factor(educ), empl = (lfsstat != 3)) %>%
-  aov(empl ~ educ, data=.)
+  aov(unempl ~ educ, data=.)
 TukeyHSD(lfs.aov)
 ```
-As evident from the Tukey test, Duration of unemployment in weeks is NOT vastly different from University: bachelors degree to Post secondary certificate/diploma (p>0.05).
-But an University: graduate degree to Post secondary certificate/diploma has a very significant difference in duration of unemployment(p<0.05).
-Also its significant to note that Duration of unemployment is significantly different between a graduate degree and a bachelors aswell.
+As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves they are more or less the same in regards to employability.
 
-From this we can conclude based on duration of unemployment, that is assuming that a area of education is "worth-it" given great reduction in unemployment. One should consider getting a graduates degree to greatly reduce change of unemployment. but getting a bachelors only provides a much lesser benifit in comparison to a graduates degree.
+Now considering that employment rate does not greatly differ between post secondary education levels, it is when we additionally consider the income or in the case of the lfs data hourly pay-rate that we do see that University degree holders have a edge on non-university degree holders even though this advantage is not visible at the employment rate level.
 
-Therefore using this critera, yes a University degree is worthit Especially a Graduates Degree!!!.
 =====================================================================
 
 
@@ -206,17 +178,5 @@ Therefore using this critera, yes a University degree is worthit Especially a Gr
 ## Appendix 
 
 (*Everything here does not count towards page limit*)
-EMPLOYMENT RATE COMPARISON BETWEEN EDUCATION LEVELS IN THE LABOUR FORCE SURVEY
-```{r}
-(toronto_emplrate = lfs_toronto %>% 
-  summarise(EMPL = sum(lfsstat %in% c(1,2))/sum(lfsstat!=4)) %>% pull())
 
-lfs_toronto %>%
-  filter(educ %in% 2:6) %>% # lfsstat == 3  unemployed
-  mutate(educ = factor(educ)) %>% 
-  group_by(educ) %>% 
-  summarise(EMPLrate = sum(lfsstat %in% c(1,2))/sum(lfsstat != 4)) %>% 
-  arrange(EMPLrate) %>% 
-  mutate(diff_from_aggregate = EMPLrate - toronto_emplrate)
-```
 
