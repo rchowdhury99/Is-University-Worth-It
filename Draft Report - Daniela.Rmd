@@ -41,19 +41,19 @@ Instructions:
 
 ## Introduction 
 
-"Is university worth it?" is one of the hardest questions to answer. University is a very different experience from person to person depending on various factors. One of the main worries of most people is the heavy economical investment university takes. This skews the question towards the idea of measuring worth by future economical gain that cancels out the original investment. Therefore, to investigate if university is worth it, it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada.
+"Is university worth it?" is one of the hardest questions to answer. University is a very different experience from person to person depending on various factors. One of the main worries of most people is the heavy economical investment university requires. This skews the question towards the idea of measuring worth by future economical gain that cancels out the original investment. Therefore, to investigate if university is worth it, it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada, and factors that affect the amortization process.
 
-Since tuition expenses show great variance depending on factors such as nationality, type of degree, or field of study, to have a relevant conclusion it is necessary to answer the following questions:
+Since tuition expenses show great variance depending on factors such as nationality(immigration status?), type of degree, or field of study, to have a relevant conclusion it is necessary to answer the following questions:
 
 1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
 2. Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
 3. What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
 4. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-5. Who has a bigger rate of unemployment? Bachelor degrees or master degrees?
+5. Is unemployment vastly different between individuals having Non-University education and University Degree?
 
 ## Data 
 
-To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study. Unemployment and income data will be processed from csv files obtained from census data from CFS and LFS. 
+To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study. Unemployment and income data will be processed from csv files obtained from census data from LFS(and CFS?). 
 
 #### DATA ANAYLSIS
 
@@ -62,7 +62,7 @@ To answer the questions stated above it is required to get tuition costs dependi
 #### Q2: Get a masters (international vs. domestic)
 
 #### Q3: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
-```{r}
+```{r echo=FALSE}
 # loading data sets
 canUndergrad = read_csv("data/can-undergrad.csv")
 canGrad = read_csv("data/can-grad.csv")
@@ -88,6 +88,8 @@ leastWorthIt <- function(dat){
 To find the least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average tuition fees accross 5 years and then based on income per field of study calculate the time to amortize said tuition. The longest time will correspond to the "least worth it" field of study. 
 
 The income will be drawn from canadian income datasets since we assume all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
+
+Time in Year?Months?
 
 Least worth it field for Canadian Undergraduate:
 ```{r}
@@ -117,7 +119,8 @@ Based on the results from question 1 and 2, it is safe to conclude that Internat
 
 Based on the results of q4 the least worth it field of study for Canadian Undergraduates is Dentistry as it takes the longest to pay off tuition. The least worth it for International Undergraduate is Visual and performing arts, and communications technologies. For Canadian and International Graduate the least worth it field is Business, management and public administration. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
 
-To comment on unemployment, the degree of your study does affect greatly on the chances of being unemployed as the difference in the duration of unemployment is very significant between the two. Therefore it is recommendable to get a masters degree.
+==can be replaced by conclusion in q5==
+(To comment on unemployment, the degree of your study does affect greatly on the chances of being unemployed as the difference in the duration of unemployment is very significant between the two. Therefore it is recommendable to get a masters degree.) 
 
 
 ***  
