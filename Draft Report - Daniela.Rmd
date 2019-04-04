@@ -84,11 +84,9 @@ leastWorthIt <- function(dat, yearsOfStudy){
 }
 ```
 
-To find the most and least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average tuition fees across 5 years and then based on income per field of study calculate the time to amortize said tuition. The longest time will correspond to the "least worth it" field of study. 
+To find the most and least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition. The longest time will correspond to the "least worth it" field of study. 
 
-The income will be drawn from canadian income datasets since we assume all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
-
-Take time in years.
+The income will be drawn from Canadian income datasets since we assume all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
 
 Most worth it field for Canadian Undergraduate:
 ```{r}
@@ -134,15 +132,17 @@ leastWorthIt(interGrad, 2)
 
 In these questions, we created two functions to find the necessary time to amortize based on income and tuition fees for different fields of study in graduate and undergraduate students. After we applied this function into the data frame of tuition fees for domestic undergraduate, domestic graduate, international undergraduate, and international graduate. The way we evaluate the most worth field of study is based on the least time to amortize, that is, the time to pay all of the tuition fees back if he/she find the job immediately.
 
+
+
 #### Q5: Comment on unemployment
 
 ## Summary 
 
-Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
+Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
 
-Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have education as the most worth it field of study. For Canadian graduate it is law and or International Graduates it is Dentistry.
+Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have education as the most worth it field of study. For Canadian Graduate, it is law and or International Graduates it is Dentistry.
 
-Surprisingly, for domestic undergraduate students, Dentistry is the least worth it field of study since it has the highest time to amortize. For domestic graduate students, Business, management and public administration is the least worth of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worth of study since it has lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
+Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
 
 ==can be replaced by conclusion in q5==
 (To comment on unemployment, the degree of your study does affect greatly on the chances of being unemployed as the difference in the duration of unemployment is very significant between the two. Therefore it is recommendable to get a masters degree.) 
