@@ -57,6 +57,8 @@ The Second part will conduct Pearson's chi-square tests of independence on unemp
 
 Using Labor force survey, 2018, based to 2011 census population
 ```{r echo=FALSE, include=FALSE}
+# f_path = file.choose()
+# lfs_toronto = read_csv(f_path) #%>% filter(prov==35) #for Ontario
 lfs_toronto = read_csv("data/LFS_Toronto.csv")
 ```
 
@@ -109,7 +111,8 @@ We will run Pearson's Chi-square tests of independence to answer the above quest
 
 Is unemployment rates significantly different among all selected education levels?
 ```{r echo=FALSE}
-lfs_toronto %>% filter(lfsstat !=4 & educ %in% 2:6) %>% 
+lfs_toronto %>% select(lfsstat, educ) %>% 
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
   chisq_test(unempl ~ educ, data = .,
              distribution = "approx")

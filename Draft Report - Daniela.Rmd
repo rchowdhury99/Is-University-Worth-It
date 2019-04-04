@@ -72,6 +72,7 @@ income = read_csv("data/income6.csv")
 
 income = group_by(income, CorrespondingTo) %>% summarise(avgIncome = mean(`Average after-tax income ($)`)) %>% rename(Field_of_study = 'CorrespondingTo')
 
+#indent function to show implementation clearer
 mostWorthIt <- function(dat){
   dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition)) %>% arrange(amortizeTime) %>% head(1)
   return(dat)
