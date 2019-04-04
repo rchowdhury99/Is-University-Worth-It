@@ -1,0 +1,79 @@
+---
+title: "STAA57 Final Project Report "
+author: "Team G?? (member names)"
+output: html_notebook
+---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+## echo=FALSE stops the code chunk from appearing in the html document
+## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
+library(tidyverse)
+```
+
+
+***
+
+<!-- 
+(everything below in here is an .html comment)
+
+Instructions: 
+- Use typical structure of data analysis report, w/ sections:
+    + Introduction
+    + Data
+    + Analysis
+    + Summary
+    + Appendix (optional)
+- Report should be 5 pages MAX (when compiled/knit as pdf)
+- Appendix does not count towards page limit
+- Put all your data in a separate "./data/" sub-folder 
+- Submit compressed project folder 
+- You submissions should be reproducible (i.e. I should be able to   
+  re-compile your report with a click of the Preview/Knit button) 
+
+-->
+
+## Introduction 
+
+(*Description of questions that are being investigated*)
+
+## Data 
+
+(*Description of data used to answer the questions*)
+
+## Analysis 
+
+(*Main body of analysis, containing data summaries (tables/plots),  statistical analyses (estimations, tests), and modelling (regression, classification) *)
+
+### Some Subsection Title
+
+<!-- You can organize content in subsections -->
+
+(*Plots should be created in R, and not imported from file*)
+
+
+#### Some Subsubsection Title
+
+(*R output tables can be converted to .html with* `knitr::kable()`) 
+
+```{r, echo = FALSE}
+tibble( X = c("this", "is"), 
+        Y = c("my", "table") ) %>% 
+  knitr::kable()
+```
+<!-- 
+for more help on RMarkdown see: https://rmarkdown.rstudio.com/lesson-15.html 
+-->
+
+
+## Summary 
+
+(*Recap of your findings and conclusions*)
+
+
+
+***  
+
+## Appendix 
+
+(*Everything here does not count towards page limit*)
+
+
