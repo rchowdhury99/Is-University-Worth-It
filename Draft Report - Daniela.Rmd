@@ -55,7 +55,7 @@ Since tuition expenses show great variance depending on factors such as national
 
 To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study and income6.csv will indicate income based on fields of study. Unemployment and income data will be processed from csv files obtained from census data from LFS.
 
-#### DATA ANAYLSIS
+## Data analysis
 
 #### Q1: Get a bachelor's tuition (international vs. domestic)
 
@@ -74,12 +74,12 @@ income = group_by(income, CorrespondingTo) %>% summarise(avgIncome = mean(`Avera
 
 #indent function to show implementation clearer
 mostWorthIt <- function(dat, yearsOfStudy){
-  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition, yearsOfStudy)) %>% arrange(amortizeTime) %>% head(1)
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition, yearsOfStudy)) %>% arrange(amortizeTime) %>% head(1) %>% select(Field_of_study, avgTuition, avgIncome, amortizeTime)
   return(dat)
 }
 
 leastWorthIt <- function(dat, yearsOfStudy){
-  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition, yearsOfStudy)) %>% arrange(desc(amortizeTime)) %>% head(1)
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition, yearsOfStudy)) %>% arrange(desc(amortizeTime)) %>% head(1) %>% select(Field_of_study, avgTuition, avgIncome, amortizeTime)
   return(dat)
 }
 ```
