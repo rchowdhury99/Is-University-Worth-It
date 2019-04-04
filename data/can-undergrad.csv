@@ -1,42 +1,20 @@
-﻿Canadian undergraduate tuition fees by field of study 1 2 3 4 5 6 7 8
-"Annual"
-"Table: null (formerly CANSIM 477-0021)"
-"Geography: Canada, Province or territory"
-
-"","Canada",,,,
-"Field of study","2014 / 2015","2015 / 2016","2016 / 2017","2017 / 2018","2018 / 2019"
-"","Dollars",,,,
+﻿Field_of_study,2014-2015,2015-2016,2016-2017,2017-2018,2018-2019
 "Total, field of study","5,998","6,201","6,375","6,618","6,838"
-"Education","4,482","4,514","4,571","4,423","4,538"
+Education,"4,482","4,514","4,571","4,423","4,538"
 "Visual and performing arts, and communications technologies","5,211","5,464","5,680","5,857","6,034"
-"Humanities","5,230","5,346","5,460","5,619","5,773"
+Humanities,"5,230","5,346","5,460","5,619","5,773"
 "Social and behavioural sciences, and legal studies","5,294","5,424","5,573","5,739","5,893"
-"Law","10,563","10,928","13,115","12,807","13,332"
+Law,"10,563","10,928","13,115","12,807","13,332"
 "Business, management and public administration","6,366","6,542","6,810","7,143","7,409"
-"Physical and life sciences and technologies","5,701","5,884","6,022","6,206","6,395"
+Physical and life sciences and technologies,"5,701","5,884","6,022","6,206","6,395"
 "Mathematics, computer and information sciences","6,565","6,753","6,911","7,157","7,408"
-"Engineering","7,153","7,511","7,827","8,106","8,466"
-"Architecture","5,985","6,346","6,810","6,610","6,881"
+Engineering,"7,153","7,511","7,827","8,106","8,466"
+Architecture,"5,985","6,346","6,810","6,610","6,881"
 "Agriculture, natural resources and conservation","5,371","5,487","5,438","5,665","5,846"
-"Dentistry","18,118","20,156","21,464","22,569","23,474"
-"Medicine","12,987","13,409","13,911","14,274","14,780"
-"Nursing","5,308","5,401","5,507","5,636","5,788"
-"Pharmacy","11,273","11,928","9,962","10,367","10,746"
-"Veterinary medicine","6,917","7,196","7,450","7,647","7,924"
+Dentistry,"18,118","20,156","21,464","22,569","23,474"
+Medicine,"12,987","13,409","13,911","14,274","14,780"
+Nursing,"5,308","5,401","5,507","5,636","5,788"
+Pharmacy,"11,273","11,928","9,962","10,367","10,746"
+Veterinary medicine,"6,917","7,196","7,450","7,647","7,924"
 "Other health, parks, recreation and fitness","5,757","5,964","6,085","6,287","6,478"
-"Personal, protective and transportation services","..","..","5,989","6,044","6,261"
-
-.. : not available for a specific reference period,
-
-Footnotes:
-1,Data for 2018/2019 are preliminary.
-2,"The national and provincial tuition fee averages are weighted with the latest enrolment data (2015). If the number of enrolments is unknown for a given program, that program is excluded from the averages. The same enrolment data are used for the weighting of both years, 2017/2018 and 2018/2019, thereby permitting the comparison of changes in the tuition fees only."
-3,"As the distribution of enrolment varies from period to period, caution must be exercised when making long-term historical comparisons."
-4,"For Quebec (since 1998/1999) and Nova Scotia (since 2007/2008), the weighted averages take into account the different fees paid by 'in province' and 'out of province' Canadian students."
-5,"It is important to note that tuition fee increases are generally regulated by provincial policies. However, some programs may be exempted from these policies resulting in possible increases that exceed provincial limits."
-6,Data in this release do not take into account financial assistance or tax rebates provided to students. Tuition fees and additional compulsory fees represent only a portion of all costs incurred for attending university.
-7,"The fields of study are adapted from the 2011 Classification of Instructional Programs (CIP), Statistics Canada's standard for the classification of instructional programs."
-8,"For 2018/2019, Newfoundland and Labrador undergraduate and graduate tuition fees were frozen for all Canadian students except for new out-of-province students who incurred a 30% increase. These students represent approximately 10% of the domestic student population. This increase is not reflected in the preliminary 2018/2019 data."
-
-"How to cite: Statistics Canada. Table null Canadian undergraduate tuition fees by field of study"
-https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301
+"Personal, protective and transportation services",,,"5,989","6,044","6,261"

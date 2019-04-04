@@ -1,44 +1,22 @@
-﻿International graduate tuition fees by field of study 1 2 3 4 5 6 7 8
-"Annual"
-"Table: null (formerly CANSIM 477-0024)"
-"Geography: Canada, Province or territory"
-
-"","Canada",,,,
-"Field of study","2014 / 2015","2015 / 2016","2016 / 2017","2017 / 2018","2018 / 2019"
+﻿Field_of_study,2014-2015,2015-2016,2016-2017,2017-2018,2018-2019
 "Total, field of study","13,909","14,520","15,422","16,326","16,497"
-"Education","12,908","13,407","14,437","15,447","15,236"
+Education,"12,908","13,407","14,437","15,447","15,236"
 "Visual and performing arts, and communications technologies","12,305","13,056","13,105","14,212","14,144"
-"Humanities","12,663","13,154","13,504","14,078","13,520"
+Humanities,"12,663","13,154","13,504","14,078","13,520"
 "Social and behavioural sciences, and legal studies","12,650","13,053","13,568","14,276","14,304"
-"Law","15,071","16,230","16,309","15,779","15,941"
+Law,"15,071","16,230","16,309","15,779","15,941"
 "Business, management and public administration","18,960","19,619","21,387","22,190","22,442"
-"Executive MBA","41,127","55,014","59,972","55,348","56,282"
-"Regular MBA","34,597","32,486","35,125","36,259","37,697"
-"Physical and life sciences and technologies","12,978","13,393","13,816","14,624","14,664"
+Executive MBA,"41,127","55,014","59,972","55,348","56,282"
+Regular MBA,"34,597","32,486","35,125","36,259","37,697"
+Physical and life sciences and technologies,"12,978","13,393","13,816","14,624","14,664"
 "Mathematics, computer and information sciences","12,479","12,799","14,311","15,245","15,553"
-"Engineering","14,534","15,281","16,299","17,465","17,753"
-"Architecture","16,133","17,240","20,556","22,383","24,178"
+Engineering,"14,534","15,281","16,299","17,465","17,753"
+Architecture,"16,133","17,240","20,556","22,383","24,178"
 "Agriculture, natural resources and conservation","11,772","12,135","12,100","13,692","14,016"
-"Dentistry","19,711","19,858","20,982","21,534","21,635"
-"Medicine","F","..","..","..",".."
-"Nursing","12,055","11,877","12,081","13,566","13,713"
-"Pharmacy","13,261","14,178","10,835","11,856","11,642"
-"Veterinary medicine","9,472","8,483","8,598","8,814","9,088"
+Dentistry,"19,711","19,858","20,982","21,534","21,635"
+Medicine,,,,,
+Nursing,"12,055","11,877","12,081","13,566","13,713"
+Pharmacy,"13,261","14,178","10,835","11,856","11,642"
+Veterinary medicine,"9,472","8,483","8,598","8,814","9,088"
 "Other health, parks, recreation and fitness","14,909","15,573","15,603","16,384","16,590"
-"Personal, protective and transportation services","..","..","12,275","13,796","13,948"
-
-F : too unreliable to be published.,
-.. : not available for a specific reference period,
-
-Footnotes:
-1,Data for 2018/2019 are preliminary.
-2,"The national and provincial tuition fee averages are weighted with the latest enrolment data (2015). If the number of enrolments is unknown for a given program, that program is excluded from the averages. The same enrolment data are used for the weighting of both years, 2017/2018 and 2018/2019, thereby permitting the comparison of changes in the tuition fees only."
-3,"As the distribution of enrolment varies from period to period, caution must be exercised when making long-term historical comparisons."
-4,"Since 2010/2011, Regular and Executive MBA (master of business administration programs) have been excluded from the national and provincial weighted averages due to their high costs and their effect on the overall tuition fee average. Dental, medical and veterinary residency programs offered in teaching hospitals and similar locations that may lead to advanced professional certification have also been excluded."
-5,"It is important to note that tuition fee increases are generally regulated by provincial policies. However, some programs may be exempted from these policies resulting in possible increases that exceed provincial limits."
-6,Data in this release do not take into account financial assistance or tax rebates provided to students. Tuition fees and additional compulsory fees represent only a portion of all costs incurred for attending university.
-7,Graduate tuition fee averages reflect combinations of 8- and 12-month reporting periods.
-8,"The fields of study are adapted from the 2011 Classification of Instructional Programs (CIP), Statistics Canada's standard for the classification of instructional programs."
-
-"How to cite: Statistics Canada. Table null International graduate tuition fees by field of study"
-https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000601
+"Personal, protective and transportation services",,,"12,275","13,796","13,948"

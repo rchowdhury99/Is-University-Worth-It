@@ -24,6 +24,14 @@ Footnotes:
 How to cite: Statistics Canada. Table 37-10-0003-01 Canadian undergraduate tuition fees by field of study	
 https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000301	
 
+How to cite: Statistics Canada. Table null Canadian graduate tuition fees by field of study
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000401
+
+How to cite: Statistics Canada. Table null International graduate tuition fees by field of study
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000601
+
+How to cite: Statistics Canada. Table null International undergraduate tuition fees by field of study
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710000501
 
 ===t003b-eng:===
 https://www150.statcan.gc.ca/n1/daily-quotidien/170906/t003b-eng.htm
