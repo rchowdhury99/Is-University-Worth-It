@@ -88,102 +88,81 @@ http://sda.chass.utoronto.ca/sdaweb/tmpdir/AAkQ0GVH.txt <-- codebook
 #### Shows Domestic vs. International (used LEFT JOIN)
 
 
-#### Q3: Get a masters immediately after a bachelor's vs. after a few years
 
-Assume there is four years of undergraduate study and 2 years of graduate study. The table shown below represents the total tuition fees for a domestic student and an international student have to pay if he/she is deciding to complete a master degree.
-```{r}
-domestic_undergraduate =
-  univcan_data %>% 
-  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
-  select(University, Province, domestic_undergraduate_tuition) %>% 
-  filter(Province == "Ontario") %>% na.omit()
-domestic_undergraduate$domestic_undergraduate_tuition =
-  as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
-join_domestic_undergrad = domestic_undergraduate %>% mutate(sum = n())
-join_domestic_undergrad
-######################################################################################################################
-international_undergraduate =
-  univcan_data %>% 
-  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(University, Province, international_undergraduate_tuition) %>% 
-  filter(Province == "Ontario") %>% na.omit()
-international_undergraduate$international_undergraduate_tuition = 
-  as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
-join_international_undergrad = international_undergraduate %>% mutate(sum = n())
-join_international_undergrad
-######################################################################################################################
-domestic_graduate =
-  univcan_data %>% 
-  mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
-  select(University, Province, domestic_graduate_tuition) %>% 
-  filter(Province == "Ontario") %>% na.omit()
-domestic_graduate$domestic_graduate_tuition = 
-  as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
-join_domestic_grad = domestic_graduate %>% mutate(sum = n()+5)
-join_domestic_grad
-######################################################################################################################
-international_graduate =
-  univcan_data %>% 
-  mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
-  select(University, Province, international_graduate_tuition) %>% 
-  filter(Province == "Ontario") %>% na.omit()
-international_graduate$international_graduate_tuition = 
-  as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
-join_international_grad = international_graduate %>% mutate(sum = n()+4)
-join_international_grad
 
-domestic_sum = left_join(join_domestic_undergrad, join_domestic_grad, by = "sum") %>% mutate(sum_tuition = 4*domestic_undergraduate_tuition + 2*domestic_graduate_tuition) %>% select(sum_tuition)
-domestic_sum
-international_sum = left_join(join_international_undergrad, join_international_grad, by = "sum") %>% mutate(sum_tuition = 4*international_undergraduate_tuition + 2*international_graduate_tuition) %>% select(sum_tuition)
-international_sum
 
-```
-
-To find the proportion of a student who study for master immediately vs the proportion of a student who study for master after few years. We filtered the student who took school recently after getting the bachelor degree. We also filtered the student who does not took school recently after getting the bachelor degree. After we summarised people who get bachelor degree and use each group of people(who is taking master recently and not)divide by all bachelor degree students. We find out that people who take master immediately after he/she has got the bachelor degree is just around 8%, on the other hand, people is still not take the master yet after got the bachelor degree is almost 92%.
-```{r}
-ngs = read.csv("../data/ngs.csv")
-data = ngs %>% select(edbefor, lf_q01)
-master_immediate = data %>% filter(lf_q01 == 1 ) %>% filter(edbefor == 5) %>% summarise(num = n())
-master_immediate
-master_not_imme =  data %>% filter(lf_q01 == 2 ) %>% filter(edbefor == 5) %>% summarise(num = n())
-master_not_imme
-sum_master = master_immediate %>% pull() + master_not_imme %>% pull()
-pro_masteri = master_immediate/sum_master
-pro_masteri
-pro_masterno = master_not_imme/sum_master
-pro_masterno
-```
-```{r}
-average_domestic = domestic_sum %>% summarise(average = mean(sum_tuition)) %>% pull()
-average_domestic
-average_international = international_sum %>% summarise(average = mean(sum_tuition)) %>% pull()
-average_international
-```
 #### Q4: Most worth it field of study. (for undergraduate and graduate, for international and domestic)
 
 The data we use is come from that link:
 https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&LANG=E&A=R&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=35&GL=-1&GID=1341685&GK=1&GRP=1&O=D&PID=111839&PRID=10&PTYPE=109445&S=0&SHOWALL=0&SUB=0&Temporal=2017&THEME=123&VID=0&VNAMEE=&VNAMEF=&D1=0&D2=0&D3=0&D4=0&D5=0&D6=0&fbclid=IwAR2UiD5ZcCwmoBu9g7ZeIkvZwQD3H1uIJvWYusU7zu0seh9wjdY89H0kjFo
 undergrduate:
 ```{r}
-income = read.csv("../data/income6.CSV")
+income_new = read.csv("../data/Is-University-Worth-It/incomeNew.csv")
+income_new
 ```
 
+
+In this question, we created two functions to find the least time to ammortize based on income and tuition fees for different fields of study in graduate and undergraduate students in general. Inside this function, we also implemented a new sub function to represent the time to ammortize for graduate and undergraduate students. After we applied this function into the data frame of tuition fees for domestic undergraduate, domestic graduate, international undergraduate, and international graduate. The way we evaluate the most worth field of study is based on the least time to ammortize, that is, the time to pay all of the tuition fees back if he/she find the job immediately.
+
+For undergraduate students(for both domestic and international), education study is the most worth field of study. So it is better to invest study in education during studying in undergraduate school. For graduate domestic students, law is the most worth field of study. Finally, for graduate international students, dentistry is the most worth field of study. By looking from their income, thos field of study are always have very high average income.
 ```{r}
-Median_after_tax_income = income %>% arrange(desc(Median.after.tax.income....))
-time_ammortize_domestic = Median_after_tax_income %>% mutate(year =average_domestic/Median.after.tax.income....)
-time_ammortize_domestic %>% arrange(year)
-Average_employment_income = income %>% arrange(desc(Average.employment.income....))
-time_ammortize_international = Average_employment_income %>% mutate(year =average_international/Average.employment.income....) 
-time_ammortize_international %>% arrange(year)
-ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Median.after.tax.income....), data = income)+geom_point()
-ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Average.employment.income....), data = income)+geom_point()
+Avg_income = income %>% arrange(desc(avgIncome))
+Avg_income
+#ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Average.employment.income.... ), data = income)+geom_bar(stat = "identity")
+#ggplot(aes(x = Major.field.of.study...Classification.of.Instructional.Programs..CIP..2016..43., y = Average.employment.income....), data = income)+geom_bar()
 ```
-
+```{r}
+timeToAmortizeUnder <- function(yearEarning, tuition){
+  time = (tuition*4)/yearEarning
+  return(time)
+}
+timeToAmortizeGrad <- function(yearEarning, tuition){
+  time = (tuition*2)/yearEarning
+  return(time)
+}
+income = group_by(income_new, CorrespondingTo) %>% summarise(avgIncome = mean(`Average.after.tax.income....`)) %>% rename(Field_of_study = 'CorrespondingTo')
+can_under = read_csv("../data/Is-University-Worth-It/can-undergrad.csv")
+can_grad = read_csv("../data/Is-University-Worth-It/can-grad.csv")
+inter_under = read_csv("../data/Is-University-Worth-It/inter-undergrad.csv")
+inter_grad = read_csv("../data/Is-University-Worth-It/inter-grad.csv")
+mostWorthItUnder <- function(dat){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortizeUnder(avgIncome, avgTuition)) %>% arrange(amortizeTime) %>% head(1)
+  return(dat)
+}
+mostWorthItGrad <- function(dat){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortizeGrad(avgIncome, avgTuition)) %>% arrange(amortizeTime) %>% head(1)
+  return(dat)
+}
+mostWorthItUnder(can_under)
+mostWorthItGrad(can_grad)
+mostWorthItUnder(inter_under)
+mostWorthItGrad(inter_grad)
+can_under %>% arrange(desc(`2018-2019`))
+```
 Tuition fees in fields of study: http://odesi1.scholarsportal.info/documentation/TLAC/2017-2018/Tables_1-7_2017-2018_final.xlsx
 $$This link contains of all tuition fees informations include graduate and undergraduate study for both domestic and international students. However, this data needs to be cleaned. For each of field of study, there is lower and upper value for tuition fees, we have to find the mean value between them so we can find the exactly the value of tuition fees for this field of study.$$
 5. Least worth it field of study. (for undergraduate and graduate, for international and domestic)
+
+
+In this question, we created two functions to find the least time to ammortize based on income and tuition fees for different fields of study in graduate and undergraduate students in general. Inside this function, we also implemented a new sub function to represent the time to ammortize for graduate and undergraduate students. After we applied this function into the data frame of tuition fees for domestic undergraduate, domestic graduate, international undergraduate, and international graduate. The way we evaluate the most worth field of study is based on the most time to ammortize, that is, the time to pay all of the tuition fees back if he/she find the job immediately.
+
+Surprisingly, for domestic undergraduate students, Dentistry is the least worth of study since it has highest tuition for them. For domestic graduate students, Business, management and public administration is the least worth of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worth of study since it has lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. Seems like it is not worth it to study business in graduate school. 
 ```{r}
 
+Avg_income_new = income %>% arrange(avgIncome)
+Avg_income_new
+LeastWorthItUnder <- function(dat){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortizeUnder(avgIncome, avgTuition)) %>% arrange(desc(amortizeTime) )%>% head(1)
+  return(dat)
+}
+LeastWorthItGrad <- function(dat){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>% mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>% right_join(income, by = "Field_of_study") %>% mutate(amortizeTime = timeToAmortizeGrad(avgIncome, avgTuition)) %>% arrange(desc(amortizeTime) )%>% head(1)
+  return(dat)
+}
+LeastWorthItUnder(can_under)
+LeastWorthItGrad(can_grad)
+LeastWorthItUnder(inter_under)
+LeastWorthItGrad(inter_grad)
 ```
 6. Comment on unemployment
 
