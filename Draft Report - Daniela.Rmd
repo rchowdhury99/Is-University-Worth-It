@@ -94,22 +94,22 @@ Time in Year?Months?
 
 Least worth it field for Canadian Undergraduate:
 ```{r}
-leastWorthIt(canUndergrad)
+leastWorthIt(canUndergrad, 4)
 ```
 
 Least worth it field for International Undergraduate:
 ```{r}
-leastWorthIt(interUndergrad)
+leastWorthIt(interUndergrad, 4)
 ```
 
 Least worth it field for Canadian Graduate:
 ```{r}
-leastWorthIt(canGrad)
+leastWorthIt(canGrad, 2)
 ```
 
 Least worth it field for International Graduate:
 ```{r}
-leastWorthIt(interGrad)
+leastWorthIt(interGrad, 2)
 ```
 
 #### Q5: Comment on unemployment
