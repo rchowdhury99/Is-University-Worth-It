@@ -53,7 +53,7 @@ Since tuition expenses show great variance depending on factors such as national
 
 ## Data 
 
-To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study. Unemployment and income data will be processed from csv files obtained from census data from LFS(and CFS?). 
+To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study and income6.csv will indicate income based on fields of study. Unemployment and income data will be processed from csv files obtained from census data from LFS.
 
 #### DATA ANAYLSIS
 
