@@ -9,6 +9,7 @@ output:
 ## echo=FALSE stops the code chunk from appearing in the html document
 ## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.height = 2, fig.width = 4, fig.align='left')
 library(tidyverse)
 library(rvest)
 library(stringr)
@@ -44,11 +45,7 @@ Instructions:
 
 "Is university worth it?" is one of the hardest questions to answer because of its broad nature. University is a very different experience from person to person depending on various factors. One of the main concerns of most people is the heavy economical investment university requires. This skews the question towards the idea of measuring worth by future economical gain that pays out the original investment. Therefore, to investigate if university is "worth-it", it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada, and factors that affect the amortization process.
 
-To answer this broad question with focus on amortization time, we consider three areas:
-  a. A students immigration status
-  b. Degree specifications
-  c. Employability after graduation
-Since tuition expenses show great variance depending on these factors.
+To answer this broad question with focus on amortization time, we consider three areas: a. A students immigration status, b. Degree specifications, c. Employability after graduation, Since tuition expenses show great variance depending on these factors.
 
 To analyse the affect of the above mentioned factors on amortization time, we ask the following questions.
 1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
@@ -57,13 +54,12 @@ To analyse the affect of the above mentioned factors on amortization time, we as
 4. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
 5. Is unemployment vastly different between individuals having Non-University education and University Degree?
 
-## Data 
+## Data Descriptions
 
 To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study and income6.csv will indicate income based on fields of study. To analyse Unemployment we will focus on the Labour Force Survey data set.
 
-
-#### Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
 ```{r, echo=FALSE}
+# Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
 URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
 page = read_html(url(URL))
 
@@ -75,8 +71,9 @@ univcan_data =
 univcan_data = univcan_data[-1,]
 ```
 
-# Setting up the data in interest
 ```{r, echo=FALSE}
+# Setting up the data in interest
+
 domestic_undergraduate =
   univcan_data %>% 
   mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
@@ -114,8 +111,9 @@ international_graduate$international_graduate_tuition =
 
 ```
 
-# Setting up important income variables using the LFS dataset
+
 ```{r, echo=FALSE, include=FALSE}
+# Setting up important income variables using the LFS dataset
 f_path = file.choose()
 lfs = read_csv(f_path)
 lfs_ontario = lfs %>% filter(prov==35) #for Ontario
@@ -142,8 +140,9 @@ avg_annual_income_graduate =
 
 ```
 
-# setup variables and function to evaluate degree value differences between Undergrads and Grads with repect to their immigration status
+
 ```{r echo=FALSE, include=FALSE}
+# setup variables and function to evaluate degree value differences between Undergrads and Grads with repect to their immigration status
 # define function to calculate time to amortize degree, given yearly earnings, tutioncost and yearsOfStudy
 timeToAmortize <- function(yearEarning, tuition, yearsOfStudy){
   time = (tuition*yearsOfStudy)/yearEarning
@@ -183,8 +182,7 @@ leastWorthIt <- function(dat, yearsOfStudy){
 }
 ```
 
-
-#### DATA ANAYLSIS
+## DATA ANAYLSIS
 
 For our main analysis for question 1 and question 2 we will focus on the overall differences that student type and degree level has on amortization time for students in Ontario.
 
@@ -210,7 +208,7 @@ Since tutition cost is one of if not the greatest factor in time taken to amorti
 
 Lets move onto question 2 to get a better over all picture and also answer question 1.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 domestic_international_undergraduate =
   domestic_international_undergraduate %>% 
   mutate(time_to_amortize_domestic = domestic_international_undergraduate$domestic_undergraduate_tuition*4/avg_annual_income_undergraduate,
@@ -228,7 +226,7 @@ domestic_international_undergraduate =
 
 #### Q2: Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 # Shows Domestic vs. International (used LEFT JOIN)
 domestic_international_graduate = 
   left_join(domestic_graduate, international_graduate, by = "University")
@@ -239,7 +237,7 @@ domestic_international_graduate =
 #   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 # TIME TO AMORTIZE AS A GRADUATE
 # The following diagram shows the average time it takes to amortize as a graduate student from each university in Ontario, both domestic and international.
 domestic_international_graduate = 
@@ -257,7 +255,7 @@ domestic_international_graduate =
 ```
 
 This following bar plot shows the average time to amortize a graduate vs. undergraduate degree  as a domestic vs. international student
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 # Undergraduate
 avg_time_to_amortize_domestic_undergraduate = 
   domestic_international_undergraduate %>% 
@@ -306,7 +304,10 @@ Another important detail we notices is that the time to amortize undergradute de
 
 
 #### Q3: What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-To find the most and least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition. The fastest time will correspond to the "Most worth it" field of study. [Our Amortization times are denoted in years, and Tuition and Income in CAD]
+
+For this, we created two functions to find the necessary time to amortize based on income and tuition fees for different fields of study in graduate and undergraduate students. We assume for this part of the analysis that a student gets a job immediatly after graduation to start paying off degree cost.
+
+To find the most and least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition using our function. The fastest time will correspond to the "Most worth it" field of study. [Our Amortization times are denoted in years, and Tuition and Income in CAD].
 
 The income will be drawn from Canadian income data sets since we assume students in all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
 
@@ -354,14 +355,7 @@ Least worth it field for International Graduate:
 leastWorthIt(interGrad, 2)
 ```
 
-In these questions, we created two functions to find the necessary time to amortize based on income and tuition fees for different fields of study in graduate and undergraduate students. After that we applied this function into the data frame of tuition fees for domestic undergraduate, domestic graduate, international undergraduate, and international graduate. The way we evaluate the most worth field of study is based on the least time to amortize, that is, the time to pay all of the tuition fees back if he/she find the job immediately.
-
-
-
 #### Q5:  Is unemployment vastly different between individuals having Non-University education and University Degree?
-Considering that we wanted to focus on time-to-amortize-degree as a criterion for being "worth-it", It is obvious that one of the greatest affectors of this is employment or equivalently unemployment. Therefore we suggest Unemployment as a secondary criterion for being "worth-it", we define the criterion as follows:
-"The Degree level (BSc, MSC, High school, College) that shows lowest level of unemployment rate is the most worth-it and would contribute to a faster amortization of degree cost".
-
 The First part of our analysis will focus on graphically presenting unemployment rate among individuals in 6 levels of education as defined in the lfs data set.
 
 The Second part will conduct Pearson's chi-square tests of independence on unemployment rate for each education level of interest and run a Tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
@@ -376,15 +370,7 @@ Using Labor force survey, 2018, based to 2011 census population
 
 # Levels of Education
 
-2: Gr 11 to 13, graduate
-
-3: Some post secondary
-
-4: Post secondary certificate or diploma
-
-5: University: bachelors degree
-
-6: University: graduate degree
+2: Gr 11 to 13, graduate, 3: Some post secondary, 4: Post secondary certificate or diploma, 5: University: bachelors degree, 6: University: graduate degree
 
 First lets plot proportional unemployment rates for each education category to get an idea of what the data states at face value
 
@@ -396,42 +382,9 @@ lfs_ontario %>% filter(lfsstat !=4 & educ %in% 2:6) %>%
   xlab("Educational attainment")+
   labs(fill="Unemployed")
 ```
-We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary Certificate/Diploma, University Bachelors and University Graduate degree education levels. Let us explore this further.
+We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary Certificate/Diploma, University Bachelors and University Graduate degree education levels. Let us explore this further. Is the above observation statistically sound? Is the difference in status of unemployment among education levels statistically significant, specifically does the status of unemployment depend on education?
 
-
-Ontario unmployment rate and unemployment rates for each education level, and difference from Ontario Employment rate.
-```{r echo=FALSE}
-ontario_unemplrate = lfs_ontario %>% 
-  summarise(UNEMPL = sum(lfsstat == 3)/sum(lfsstat!=4)) %>% pull()
-
-lfs_ontario %>%
-  filter(educ %in% 2:6) %>% # lfsstat == 3  unemployed
-  mutate(educ = factor(educ)) %>% 
-  group_by(educ) %>% 
-  summarise(UNEMPLrate = sum(lfsstat == 3)/sum(lfsstat != 4)) %>% 
-  arrange(UNEMPLrate) %>% 
-  mutate(Difference_from_Ontario_UNEMPLrate = UNEMPLrate - ontario_unemplrate)
-  
-```
-In the above comparison with the Ontario unemployment rate, we see unemployment rate for "graduate degree","Post secondary certificate/diploma" and "bachelors degree" are below the Ontario unemployment rate, and "Gr 11 to 13, graduate" and "Some post secondary" are above it. Only considering the values, this shows that any post secondary education is worth-it in comparison to not having a post secondary education.
-
-Is the above observation statistically sound?
-Is the difference in status of unemployment among education levels statistically significant, specifically does the status of unemployment depend on education?
-
-We will run Pearson's Chi-square tests of independence to answer the above questions
-
-Is unemployment rates significantly different among all selected education levels?
-```{r echo=FALSE}
-lfs_ontario %>% select(lfsstat, educ) %>% 
-  filter(lfsstat !=4 & educ %in% 2:6) %>% 
-  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
-  chisq_test(unempl ~ educ, data = .,
-             distribution = "approx")
-```
-Yes, there does seem to be a significant difference in unemployment rates among all education levels from "Gr 11 to 13, graduate" to university graduate degree. unemployment rate is dependent on an individuals educational attainment.
-
-
-To answer our main question "is a University Degree worth it", let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
+We will run Pearson's Chi-square tests of independence to answer the above questions, further To answer our main question "is a University Degree worth it", let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
 
 Is there a significant difference in unemployment rates between individuals holding a bachelors degree vs graduates degree in ontario?
 ```{r echo=FALSE}
@@ -451,8 +404,7 @@ lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(4,6)) %>%
 ```
 As expected here also we note that unemployment rate is significantly different between these two educational levels. There is strong evidence for it.
 
-And the most crucial test to answer our question to conclude if a university degree is worth it or not based on unemployment,
-Is there a significant difference in unemployment rates between individuals holding a Post secondary Non-University certificate/diploma vs University Bachelors degree i.e entry level university degree ?
+And the most crucial test to answer our question to conclude if a university degree is worth it or not based on unemployment, Is there a significant difference in unemployment rates between individuals holding a Post secondary Non-University certificate/diploma vs University Bachelors degree i.e entry level university degree ?
 ```{r echo=FALSE}
 lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(4,5)) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
@@ -463,7 +415,6 @@ Surprisingly this result states that unemployment rate is independent of these t
 Therefore unemployment rate is not a strong indicator of being worth it or not worth it when considering post secondary education.
 
 Note: However like in our other analyses we did notice a graduate degree being more worth it to that of a bachelors, so we would suggest a person taking a bachelors to aim for a graduates degree.
-
 
 To clinch the above result let us run a Tukey test to see across the board how different are unemployment rates between all education levels. 
 
@@ -476,22 +427,12 @@ TukeyHSD(lfs.ontario.aov)
 ```
 As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves we see that a graduates degree has a significant improvment to unemployment compared to all other post secondary education levels.
 
-Significantly when comparing A bachelors degree to a post secondary certificate/diploma we found no significant imporvement to employability. In Ontario if an individuals focus is employability we suggest going for a Post secondary Certificate/Diploma if program cost is of greater importance, but if cost is not a great concern a University Degree is worth it in all regard. 
-
-#### Summary:
-International undergraduate tuitions were a lot larger than domestic tuition but according to Q2 although a graduate international degree is more than the domestic it's not as big of a margin as an undergraduate degree. The time to amortize as a graduate is less than the time to amortize as an undergraduate, therefore, it's better to do graduate studies than undergrad studies as an international student.
-
 ## Summary 
-
-
 Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
 
-Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have education as the most worth it field of study. For Canadian Graduate, it is law and or International Graduates it is Dentistry.
+Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have Education as the most worth it field of study. For Canadian Graduate, it is law and or International Graduates it is Dentistry. Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
 
-Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
-
-==can be replaced by conclusion in q5==
-(To comment on unemployment, the degree of your study does affect greatly on the chances of being unemployed as the difference in the duration of unemployment is very significant between the two. Therefore it is recommendable to get a masters degree.)
+Finally when comparing A bachelors degree to a post secondary certificate/diploma we found no significant imporvement to employability. In Ontario if an individuals focus is employability we suggest going for a Post secondary Certificate/Diploma if program cost is of greater importance, but if cost is not a great concern a University Degree is worth it in all regard. 
 ***  
 
 ## Appendix 
@@ -553,3 +494,14 @@ domestic_international_graduate %>%
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
   ylab("Time to Amortize in years")
 ```
+
+
+Is unemployment rates significantly different among all selected education levels?
+```{r echo=FALSE}
+lfs_ontario %>% select(lfsstat, educ) %>% 
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+Yes, there does seem to be a significant difference in unemployment rates among all education levels from "Gr 11 to 13, graduate" to university graduate degree. unemployment rate is dependent on an individuals educational attainment.
