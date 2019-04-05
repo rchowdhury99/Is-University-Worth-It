@@ -1,0 +1,507 @@
+---
+title: 'STAA57 Final Project Report '
+author: "Team G?? (member names)"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+## echo=FALSE stops the code chunk from appearing in the html document
+## warning=FALSE / message=FALSE stop R warnings/messages from appearing in the knit document
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.height = 2, fig.width = 4, fig.align='left')
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(ggplot2)
+library(coin)
+library(broom)
+
+```
+
+
+***
+
+<!-- 
+(everything below in here is an .html comment)
+
+Instructions: 
+- Use typical structure of data analysis report, w/ sections:
+    + Introduction
+    + Data
+    + Analysis
+    + Summary
+    + Appendix (optional)
+- Report should be 5 pages MAX (when compiled/knit as pdf)
+- Appendix does not count towards page limit
+- Put all your data in a separate "./data/" sub-folder 
+- Submit compressed project folder 
+- You submissions should be reproducible (i.e. I should be able to   
+  re-compile your report with a click of the Preview/Knit button) 
+
+-->
+
+## Introduction 
+
+"Is university worth it?" is one of the hardest questions to answer because of its broad nature. University is a very different experience from person to person depending on various factors. One of the main concerns of most people is the heavy economical investment university requires. This skews the question towards the idea of measuring worth by future economical gain that pays out the original investment. Therefore, to investigate if university is "worth-it", it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada, and factors that affect the amortization process.
+
+To answer this broad question with focus on amortization time, we consider three areas: a. A students immigration status, b. Degree specifications, c. Employability after graduation, Since tuition expenses show great variance depending on these factors.
+
+To analyse the affect of the above mentioned factors on amortization time, we ask the following questions.
+1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
+2. Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
+3. What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+4. What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+5. Is unemployment vastly different between individuals having Non-University education and University Degree?
+
+## Data Descriptions
+
+To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study and income6.csv will indicate income based on fields of study. To analyse Unemployment we will focus on the Labour Force Survey data set.
+
+```{r, echo=FALSE}
+# Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
+URL = 'https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/'
+page = read_html(url(URL))
+
+univcan_data =   
+  page %>% 
+  html_nodes(xpath = '//*[@id="data_table"]') %>%
+  html_table(fill = TRUE) %>% 
+  as.data.frame()
+univcan_data = univcan_data[-1,]
+```
+
+```{r, echo=FALSE}
+# Setting up the data in interest
+
+domestic_undergraduate =
+  univcan_data %>% 
+  mutate(domestic_undergraduate_tuition = str_extract(Undergraduate, "(\\d+)[^-*]*$")) %>% 
+  select(University, Province, domestic_undergraduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
+domestic_undergraduate$domestic_undergraduate_tuition =
+  as.numeric(gsub(",","",domestic_undergraduate$domestic_undergraduate_tuition))
+
+######################################################################################################################
+international_undergraduate =
+  univcan_data %>% 
+  mutate(international_undergraduate_tuition = str_extract(Undergraduate.1, "(\\d+)[^-*]*$")) %>% 
+  select(University, Province, international_undergraduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
+international_undergraduate$international_undergraduate_tuition = 
+  as.numeric(gsub(",","", international_undergraduate$international_undergraduate_tuition))
+
+######################################################################################################################
+domestic_graduate =
+  univcan_data %>% 
+  mutate(domestic_graduate_tuition = str_extract(Graduate, "(\\d+)[^-*]*$")) %>% 
+  select(University, Province, domestic_graduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
+domestic_graduate$domestic_graduate_tuition = 
+  as.numeric(gsub(",", "", domestic_graduate$domestic_graduate_tuition))
+
+######################################################################################################################
+international_graduate =
+  univcan_data %>% 
+  mutate(international_graduate_tuition = str_extract(Graduate.1, "(\\d+)[^-*]*$")) %>% 
+  select(University, Province, international_graduate_tuition) %>% 
+  filter(Province == "Ontario") %>% na.omit()
+international_graduate$international_graduate_tuition = 
+  as.numeric(gsub(",","", international_graduate$international_graduate_tuition))
+
+```
+
+
+```{r, echo=FALSE, include=FALSE}
+# Setting up important income variables using the LFS dataset
+f_path = file.choose()
+lfs = read_csv(f_path)
+lfs_ontario = lfs %>% filter(prov==35) #for Ontario
+# lfs_toronto = read_csv("data/LFS_Toronto.csv")
+
+hours_per_year = 8 * 5 * 4 * 12
+
+avg_annual_income_undergraduate =
+  lfs_ontario %>% 
+  filter(educ == 5) %>% 
+  select(hrlyearn) %>% 
+  mutate(annual_income = hrlyearn * hours_per_year) %>% na.omit() %>% 
+  summarise(avg_annual_income_undergraduate = mean(annual_income)) %>% 
+  pull()
+
+##################################################################################
+avg_annual_income_graduate =
+  lfs_ontario %>% 
+  filter(educ == 6) %>% 
+  select(hrlyearn) %>%
+  mutate(annual_income = hrlyearn * hours_per_year) %>% na.omit() %>% 
+  summarise(avg_annual_income_graduate = mean(annual_income)) %>% 
+  pull()
+
+```
+
+
+```{r echo=FALSE, include=FALSE}
+# setup variables and function to evaluate degree value differences between Undergrads and Grads with repect to their immigration status
+# define function to calculate time to amortize degree, given yearly earnings, tutioncost and yearsOfStudy
+timeToAmortize <- function(yearEarning, tuition, yearsOfStudy){
+  time = (tuition*yearsOfStudy)/yearEarning
+  return(time)
+}
+
+# loading data sets
+canUndergrad = read_csv("data/can-undergrad.csv")
+canGrad = read_csv("data/can-grad.csv")
+interUndergrad = read_csv("data/inter-undergrad.csv")
+interGrad = read_csv("data/inter-grad.csv")
+income = read_csv("data/income6.csv")
+
+income = group_by(income, CorrespondingTo) %>%
+  summarise(avgIncome = mean(`Average after-tax income ($)`)) %>%
+  rename(Field_of_study = 'CorrespondingTo')
+
+#indent function to show implementation clearer
+mostWorthIt <- function(dat, yearsOfStudy){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>%
+    mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>%
+    right_join(income, by = "Field_of_study") %>%
+    mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition, yearsOfStudy)) %>%
+    arrange(amortizeTime) %>% head(1) %>%
+    select(Field_of_study, avgTuition, avgIncome, amortizeTime)
+  return(dat)
+}
+
+leastWorthIt <- function(dat, yearsOfStudy){
+  dat = dat %>% rename(y1 = '2014-2015', y2 = '2015-2016', y3 = '2016-2017', y4 = '2017-2018', y5 = '2018-2019') %>%
+    mutate(avgTuition = (`y1` + `y2` + `y3` + `y4` + `y5`)/5) %>%
+    right_join(income, by = "Field_of_study") %>%
+    mutate(amortizeTime = timeToAmortize(avgIncome, avgTuition, yearsOfStudy)) %>%
+    arrange(desc(amortizeTime)) %>% head(1) %>%
+    select(Field_of_study, avgTuition, avgIncome, amortizeTime)
+  return(dat)
+}
+```
+
+## DATA ANAYLSIS
+
+For our main analysis for question 1 and question 2 we will focus on the overall differences that student type and degree level has on amortization time for students in Ontario.
+
+#### Q1: Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
+
+The following plot shows the tuition of each university in Ontario as an undergraduate student, both domestic and international.
+
+#### Shows Domestic vs. International (used LEFT JOIN)
+```{r echo=FALSE}
+domestic_international_undergraduate = 
+  left_join(domestic_undergraduate, international_undergraduate, by = "University")
+
+domestic_international_undergraduate %>% 
+  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
+  geom_point(aes(y = domestic_undergraduate_tuition, col = "Domestic")) + 
+  geom_point(aes(y = international_undergraduate_tuition, col = "International")) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
+  geom_hline(yintercept = 10000, linetype="dashed", color = "blue")
+```
+From the above plot we can clearly see the stark clustering between the tuition costs given the type of student i.e immigration status of student. We can see that domestic tuitions of the universities in Ontario stay around the same, while the international student tuition varies from university to university greatly while being vastly greater than domestic tuition fees. We also notice that the bound for tution cost between Domestic and International students across all ontario universities is about $10,000.
+
+Since tutition cost is one of if not the greatest factor in time taken to amortize i.e larger cost longer amortization time, lower cost faster amortization time, the above seperation between domestic and international students caries forward into duration of ammortization as well both for undergraduate studies and graduate studies. [this is explored further graphically in the appendix part 1]
+
+Lets move onto question 2 to get a better over all picture and also answer question 1.
+
+```{r, echo=FALSE, warning=FALSE}
+domestic_international_undergraduate =
+  domestic_international_undergraduate %>% 
+  mutate(time_to_amortize_domestic = domestic_international_undergraduate$domestic_undergraduate_tuition*4/avg_annual_income_undergraduate,
+         time_to_amortize_international = domestic_international_undergraduate$international_undergraduate_tuition*4/avg_annual_income_undergraduate) %>% 
+  select(University, domestic_undergraduate_tuition, time_to_amortize_domestic, international_undergraduate_tuition, time_to_amortize_international) %>% na.omit()
+
+# domestic_international_undergraduate %>% 
+#   ggplot(aes(x = University, y = Time_To_Amortize, color = TypeOfStudent)) + 
+#   geom_point(aes(y = time_to_amortize_domestic, col = "Domestic")) + 
+#   geom_point(aes(y = time_to_amortize_international, col = "International")) +
+#   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+#   ylab("Time to Amortize in years")
+```
+
+
+#### Q2: Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
+
+```{r, echo=FALSE, warning=FALSE}
+# Shows Domestic vs. International (used LEFT JOIN)
+domestic_international_graduate = 
+  left_join(domestic_graduate, international_graduate, by = "University")
+# domestic_international_graduate %>% 
+#   ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
+#   geom_point(aes(y = domestic_graduate_tuition, col = "Domestic")) + 
+#   geom_point(aes(y = international_graduate_tuition, col = "International")) + 
+#   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+```
+
+```{r, echo=FALSE, warning=FALSE}
+# TIME TO AMORTIZE AS A GRADUATE
+# The following diagram shows the average time it takes to amortize as a graduate student from each university in Ontario, both domestic and international.
+domestic_international_graduate = 
+  domestic_international_graduate %>% 
+  mutate(time_to_amortize_domestic = domestic_international_graduate$domestic_graduate_tuition*2/avg_annual_income_graduate,
+         time_to_amortize_international = domestic_international_graduate$international_graduate_tuition*2/avg_annual_income_graduate) %>% 
+  select(University, domestic_graduate_tuition, time_to_amortize_domestic, international_graduate_tuition, time_to_amortize_international)
+
+# domestic_international_graduate %>% 
+#   ggplot(aes(x = University, y = Time_To_Amortize, color = TypeOfStudent)) + 
+#   geom_point(aes(y = time_to_amortize_domestic, col = "Domestic")) + 
+#   geom_point(aes(y = time_to_amortize_international, col = "International")) +
+#   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+#   ylab("Time to Amortize in years")
+```
+
+This following bar plot shows the average time to amortize a graduate vs. undergraduate degree  as a domestic vs. international student
+```{r, echo=FALSE, warning=FALSE}
+# Undergraduate
+avg_time_to_amortize_domestic_undergraduate = 
+  domestic_international_undergraduate %>% 
+  summarise(avg_time_to_amortize_domestic = mean(domestic_international_undergraduate$time_to_amortize_domestic)) %>% 
+  pull()
+
+avg_time_to_amortize_international_undergraduate = 
+  domestic_international_undergraduate %>% 
+  summarise(avg_time_to_amortize_international = mean(domestic_international_undergraduate$time_to_amortize_international)) %>% 
+  pull()
+# Graduate
+avg_time_to_amortize_domestic_graduate = 
+  domestic_international_graduate %>% 
+  summarise(avg_time_to_amortize_domestic = mean(domestic_international_graduate$time_to_amortize_domestic)) %>% 
+  pull()
+
+avg_time_to_amortize_international_graduate = 
+  domestic_international_graduate %>% 
+  summarise(avg_time_to_amortize_international = mean(domestic_international_graduate$time_to_amortize_international)) %>% 
+  pull()
+
+amortize_table = 
+  data_frame(Amortize_Time = c(avg_time_to_amortize_domestic_undergraduate, 
+                               avg_time_to_amortize_international_undergraduate,
+                               avg_time_to_amortize_domestic_graduate, 
+                               avg_time_to_amortize_international_graduate),
+                   Student_type = c("Domestic", "International", "Domestic", "International"),
+                   Degree_type = c("Undergraduate", "Undergraduate", "Graduate", "Graduate"))
+
+amortize_table %>% 
+  ggplot(aes(fill=Student_type, y=Amortize_Time, x=Degree_type)) + 
+    geom_bar(position="dodge", stat="identity") +
+  xlab("Degree") +
+  ylab("Time to Amortize in years")
+```
+
+## Conclusion for question 1 Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?:
+Most definitly yes, there is considerable difference in time to amortize degree cost between domestic and international student for undergrad. Seeing the above plot we would say it is more worth it to a domestic student to do undergrad than for a international student. But this does not mean its completely not worth it for an international students as we explain below.
+
+## Conclusion for question 2 Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?:
+According to the result above again its is more worth to get a graduates degree as a domestic student than being a international students, but the difference is not as great as in the undergrad comparison.
+
+International undergraduate tuitions are a lot larger than domestic tuition, but according to Q2 analysis, although a graduate degree for international students takes longer to amortize than the domestic it's not as big of a margin as in the undergraduate degree case as we saw in Q1. Therefore considering amortization time inspite of tuition costs we suggest, it's better to do graduate studies than undergrad studies as an international student if time to amortize is a concern. Especailly if a international student is currently doing undergrad they must consider continuing into graduate studies to gain more benifit.
+
+Another important detail we notices is that the time to amortize undergradute degree cost as a domestic students is similar to time to amortize graduate degree cost as an international students. Finally we note that overall a graduates level degree takes less time to amortize in comparison to undergrad so we suggest to both types of students to pursue graduate studies, but especially for international students.
+
+
+#### Q3: What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+
+For this, we created two functions to find the necessary time to amortize based on income and tuition fees for different fields of study in graduate and undergraduate students. We assume for this part of the analysis that a student gets a job immediatly after graduation to start paying off degree cost.
+
+To find the most and least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition using our function. The fastest time will correspond to the "Most worth it" field of study. [Our Amortization times are denoted in years, and Tuition and Income in CAD].
+
+The income will be drawn from Canadian income data sets since we assume students in all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
+
+Most worth it field for Canadian Undergraduate:
+```{r}
+mostWorthIt(canUndergrad, 4)
+```
+
+Most worth it field for International Undergraduate:
+```{r}
+mostWorthIt(interUndergrad, 4)
+```
+
+Most worth it field for Canadian Graduate:
+```{r}
+mostWorthIt(canGrad, 2)
+```
+
+Most worth it field for International Graduate:
+```{r}
+mostWorthIt(interGrad, 2)
+```
+
+#### Q4: What is the least "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
+
+We follow the same process as in Q3 but define the program with the longest time to be the "least worth it" field of study. 
+
+Least worth it field for Canadian Undergraduate:
+```{r}
+leastWorthIt(canUndergrad, 4)
+```
+
+Least worth it field for International Undergraduate:
+```{r}
+leastWorthIt(interUndergrad, 4)
+```
+
+Least worth it field for Canadian Graduate:
+```{r}
+leastWorthIt(canGrad, 2)
+```
+
+Least worth it field for International Graduate:
+```{r}
+leastWorthIt(interGrad, 2)
+```
+
+#### Q5:  Is unemployment vastly different between individuals having Non-University education and University Degree?
+The First part of our analysis will focus on graphically presenting unemployment rate among individuals in 6 levels of education as defined in the lfs data set.
+
+The Second part will conduct Pearson's chi-square tests of independence on unemployment rate for each education level of interest and run a Tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
+
+Using Labor force survey, 2018, based to 2011 census population
+# ```{r echo=FALSE, include=FALSE}
+# f_path = file.choose()
+# lfs = read_csv(f_path)
+# lfs_ontario = lfs %>% filter(prov==35) #for Ontario
+# # lfs_toronto = read_csv("data/LFS_Toronto.csv")
+# ```
+
+# Levels of Education
+
+2: Gr 11 to 13, graduate, 3: Some post secondary, 4: Post secondary certificate or diploma, 5: University: bachelors degree, 6: University: graduate degree
+
+First lets plot proportional unemployment rates for each education category to get an idea of what the data states at face value
+
+```{r echo=FALSE}
+lfs_ontario %>% filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>% 
+  ggplot(aes(x=educ, fill=unempl))+
+  geom_bar(position = "fill")+
+  xlab("Educational attainment")+
+  labs(fill="Unemployed")
+```
+We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary Certificate/Diploma, University Bachelors and University Graduate degree education levels. Let us explore this further. Is the above observation statistically sound? Is the difference in status of unemployment among education levels statistically significant, specifically does the status of unemployment depend on education?
+
+We will run Pearson's Chi-square tests of independence to answer the above questions, further To answer our main question "is a University Degree worth it", let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
+
+Is there a significant difference in unemployment rates between individuals holding a bachelors degree vs graduates degree in ontario?
+```{r echo=FALSE}
+lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(5,6)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+The result states that there is strong evidence for unemployment rate being dependent on these two educational groups. The difference is statistically significant.
+
+Is there a significant difference in unemployment rates between individuals holding a Post secondary certificate/diploma vs graduates degree ?
+```{r echo=FALSE}
+lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(4,6)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+As expected here also we note that unemployment rate is significantly different between these two educational levels. There is strong evidence for it.
+
+And the most crucial test to answer our question to conclude if a university degree is worth it or not based on unemployment, Is there a significant difference in unemployment rates between individuals holding a Post secondary Non-University certificate/diploma vs University Bachelors degree i.e entry level university degree ?
+```{r echo=FALSE}
+lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(4,5)) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+Surprisingly this result states that unemployment rate is independent of these two education levels, that is again any difference is negligible, the employability of individuals in these education levels are more or less the same. So one can not state that a university degree is worth it or not worth it in comparison to a non university education based off of unemployment rate alone when focusing on Ontario. [When considering all of Canada the differences are significant across the board, see appendix]
+Therefore unemployment rate is not a strong indicator of being worth it or not worth it when considering post secondary education.
+
+Note: However like in our other analyses we did notice a graduate degree being more worth it to that of a bachelors, so we would suggest a person taking a bachelors to aim for a graduates degree.
+
+To clinch the above result let us run a Tukey test to see across the board how different are unemployment rates between all education levels. 
+
+```{r echo=FALSE}
+lfs.ontario.aov=lfs_ontario %>%
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>%
+  aov(unempl ~ educ, data=.)
+TukeyHSD(lfs.ontario.aov)
+```
+As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves we see that a graduates degree has a significant improvment to unemployment compared to all other post secondary education levels.
+
+## Summary 
+Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
+
+Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have Education as the most worth it field of study. For Canadian Graduate, it is law and or International Graduates it is Dentistry. Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
+
+Finally when comparing A bachelors degree to a post secondary certificate/diploma we found no significant imporvement to employability. In Ontario if an individuals focus is employability we suggest going for a Post secondary Certificate/Diploma if program cost is of greater importance, but if cost is not a great concern a University Degree is worth it in all regard. 
+***  
+
+## Appendix 
+
+(*Everything here does not count towards page limit*)
+
+Appendix part 1:
+
+#### TIME TO AMORTIZE AS AN UNDERGRADUATE
+The following plot shows the average time it takes to amortize as an undergraduate student from each university in Ontario, both domestic and international.
+
+```{r, echo=FALSE}
+# domestic_international_undergraduate =
+#   domestic_international_undergraduate %>% 
+#   mutate(time_to_amortize_domestic = domestic_international_undergraduate$domestic_undergraduate_tuition*4/avg_annual_income_undergraduate,
+#          time_to_amortize_international = domestic_international_undergraduate$international_undergraduate_tuition*4/avg_annual_income_undergraduate) %>% 
+#   select(University, domestic_undergraduate_tuition, time_to_amortize_domestic, international_undergraduate_tuition, time_to_amortize_international) %>% na.omit()
+
+domestic_international_undergraduate %>% 
+  ggplot(aes(x = University, y = Time_To_Amortize, color = TypeOfStudent)) + 
+  geom_point(aes(y = time_to_amortize_domestic, col = "Domestic")) + 
+  geom_point(aes(y = time_to_amortize_international, col = "International")) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  ylab("Time to Amortize in years")
+```
+From the above result we can conclude that the time it takes to amortize for a domestic student stays around the same as well, while for international students, it takes 1-3 years.
+
+#### Q2: Get a masters (international vs. domestic)
+
+The following plot shows the tuition of each university in Ontario as a graduate student, both domestic and international.
+
+#### Shows Domestic vs. International (used LEFT JOIN)
+```{r, echo=FALSE}
+# domestic_international_graduate = 
+#   left_join(domestic_graduate, international_graduate, by = "University")
+domestic_international_graduate %>% 
+  ggplot(aes(x = University, y = Tuition, color = TypeOfStudent)) + 
+  geom_point(aes(y = domestic_graduate_tuition, col = "Domestic")) + 
+  geom_point(aes(y = international_graduate_tuition, col = "International")) + 
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+```
+
+
+#### TIME TO AMORTIZE AS A GRADUATE
+
+The following diagram shows the average time it takes to amortize as a graduate student from each university in Ontario, both domestic and international.
+
+```{r, echo=FALSE}
+# domestic_international_graduate = 
+#   domestic_international_graduate %>% 
+#   mutate(time_to_amortize_domestic = domestic_international_graduate$domestic_graduate_tuition*2/avg_annual_income_graduate,
+#          time_to_amortize_international = domestic_international_graduate$international_graduate_tuition*2/avg_annual_income_graduate) %>% 
+#   select(University, domestic_graduate_tuition, time_to_amortize_domestic, international_graduate_tuition, time_to_amortize_international)
+
+domestic_international_graduate %>% 
+  ggplot(aes(x = University, y = Time_To_Amortize, color = TypeOfStudent)) + 
+  geom_point(aes(y = time_to_amortize_domestic, col = "Domestic")) + 
+  geom_point(aes(y = time_to_amortize_international, col = "International")) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  ylab("Time to Amortize in years")
+```
+
+
+Is unemployment rates significantly different among all selected education levels?
+```{r echo=FALSE}
+lfs_ontario %>% select(lfsstat, educ) %>% 
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
+  chisq_test(unempl ~ educ, data = .,
+             distribution = "approx")
+```
+Yes, there does seem to be a significant difference in unemployment rates among all education levels from "Gr 11 to 13, graduate" to university graduate degree. unemployment rate is dependent on an individuals educational attainment.
