@@ -115,10 +115,8 @@ international_graduate$international_graduate_tuition =
 
 ```{r, echo=FALSE, include=FALSE}
 # Setting up important income variables using the LFS dataset
-f_path = file.choose()
-lfs = read_csv(f_path)
+lfs = read_csv("data/lfs.csv")
 lfs_ontario = lfs %>% filter(prov==35) #for Ontario
-# lfs_toronto = read_csv("data/LFS_Toronto.csv")
 
 hours_per_year = 8 * 5 * 4 * 12
 
@@ -192,8 +190,7 @@ For our main analysis for question 1 and question 2 we will focus on the overall
 
 The following plot shows the tuition of each university in Ontario as an undergraduate student, both domestic and international.
 
-#### Shows Domestic vs. International (used LEFT JOIN)
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 domestic_international_undergraduate = 
   left_join(domestic_undergraduate, international_undergraduate, by = "University")
 
