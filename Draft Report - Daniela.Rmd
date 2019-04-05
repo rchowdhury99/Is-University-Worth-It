@@ -43,7 +43,7 @@ Instructions:
 
 "Is university worth it?" is one of the hardest questions to answer. University is a very different experience from person to person depending on various factors. One of the main worries of most people is the heavy economical investment university requires. This skews the question towards the idea of measuring worth by future economical gain that cancels out the original investment. Therefore, to investigate if university is worth it, it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada, and factors that affect the amortization process.
 
-Since tuition expenses show great variance depending on factors such as nationality(immigration status?), type of degree, or field of study, to have a relevant conclusion it is necessary to answer the following questions:
+Since tuition expenses show great variance depending on factors such as nationality (immigration status?), type of degree, or field of study, to have a relevant conclusion it is necessary to answer the following questions:
 
 1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
 2. Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?
