@@ -1,6 +1,7 @@
 ---
 title: 'STAA57 Final Project Report '
-author: "Team G?? (member names)"
+author: Team 10 (Daniela Venturo Esaine, Reizwanul Chowdhury, Ralph Samson Lal, Xiaotong
+  Ye)
 output:
   pdf_document: default
   html_notebook: default
@@ -202,10 +203,7 @@ domestic_international_undergraduate %>%
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
   geom_hline(yintercept = 10000, linetype="dashed", color = "blue")
 ```
-From the above plot we can clearly see the stark clustering between the tuition costs given the type of student i.e immigration status of student. We can see that domestic tuitions of the universities in Ontario stay around the same, while the international student tuition varies from university to university greatly while being vastly greater than domestic tuition fees. We also notice that the bound for tution cost between Domestic and International students across all ontario universities is about $10,000.
-
-Since tutition cost is one of if not the greatest factor in time taken to amortize i.e larger cost longer amortization time, lower cost faster amortization time, the above seperation between domestic and international students caries forward into duration of ammortization as well both for undergraduate studies and graduate studies. [this is explored further graphically in the appendix part 1]
-
+From the above we can see that domestic tuitions of the universities in Ontario stay around the same, while the international student tuition varies from university to university greatly while being greater than domestic tuition fees. Since amortization time is proportional to tuition cost, the above seperation between domestic and international students caries forward into duration of ammortization as well both for undergraduate studies and graduate studies. [this is explored further graphically in the appendix part 1]
 Lets move onto question 2 to get a better over all picture and also answer question 1.
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -297,19 +295,11 @@ Most definitly yes, there is considerable difference in time to amortize degree 
 
 ## Conclusion for question 2 Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?:
 According to the result above again its is more worth to get a graduates degree as a domestic student than being a international students, but the difference is not as great as in the undergrad comparison.
-
-International undergraduate tuitions are a lot larger than domestic tuition, but according to Q2 analysis, although a graduate degree for international students takes longer to amortize than the domestic it's not as big of a margin as in the undergraduate degree case as we saw in Q1. Therefore considering amortization time inspite of tuition costs we suggest, it's better to do graduate studies than undergrad studies as an international student if time to amortize is a concern. Especailly if a international student is currently doing undergrad they must consider continuing into graduate studies to gain more benifit.
-
-Another important detail we notices is that the time to amortize undergradute degree cost as a domestic students is similar to time to amortize graduate degree cost as an international students. Finally we note that overall a graduates level degree takes less time to amortize in comparison to undergrad so we suggest to both types of students to pursue graduate studies, but especially for international students.
+International undergraduate tuitions are a lot larger than domestic tuition, but according to Q2 analysis, although a graduate degree for international students takes longer to amortize than the domestic it's not as big of a margin as in the undergraduate degree case as we saw in Q1.
 
 
 #### Q3: What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-
-For this, we created two functions to find the necessary time to amortize based on income and tuition fees for different fields of study in graduate and undergraduate students. We assume for this part of the analysis that a student gets a job immediatly after graduation to start paying off degree cost.
-
-To find the most and least worth it field of study for each category (undergraduate international or domestic and graduate international or domestic) we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition using our function. The fastest time will correspond to the "Most worth it" field of study. [Our Amortization times are denoted in years, and Tuition and Income in CAD].
-
-The income will be drawn from Canadian income data sets since we assume students in all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study.
+To find the most and least worth it field of study for each category combination we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition. The fastest time will correspond to the "Most worth it" field of study. Our Amortization times are denoted in years, and Tuition and Income in CAD, the income will be drawn from Canadian income data sets since we assume students in all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study. We also assume that a student gets a job immediatly after graduation to start paying off degree cost. 
 
 Most worth it field for Canadian Undergraduate:
 ```{r}
@@ -356,21 +346,7 @@ leastWorthIt(interGrad, 2)
 ```
 
 #### Q5:  Is unemployment vastly different between individuals having Non-University education and University Degree?
-The First part of our analysis will focus on graphically presenting unemployment rate among individuals in 6 levels of education as defined in the lfs data set.
-
-The Second part will conduct Pearson's chi-square tests of independence on unemployment rate for each education level of interest and run a Tukey analysis to statistically prove and answer "is there a significant, unemployment rate difference among the levels of education"
-
-Using Labor force survey, 2018, based to 2011 census population
-# ```{r echo=FALSE, include=FALSE}
-# f_path = file.choose()
-# lfs = read_csv(f_path)
-# lfs_ontario = lfs %>% filter(prov==35) #for Ontario
-# # lfs_toronto = read_csv("data/LFS_Toronto.csv")
-# ```
-
-# Levels of Education
-
-2: Gr 11 to 13, graduate, 3: Some post secondary, 4: Post secondary certificate or diploma, 5: University: bachelors degree, 6: University: graduate degree
+The Levels of Education we consider are 2: Gr 11 to 13, graduate, 3: Some post secondary, 4: Post secondary certificate or diploma, 5: University: bachelors degree, 6: University: graduate degree
 
 First lets plot proportional unemployment rates for each education category to get an idea of what the data states at face value
 
@@ -382,8 +358,7 @@ lfs_ontario %>% filter(lfsstat !=4 & educ %in% 2:6) %>%
   xlab("Educational attainment")+
   labs(fill="Unemployed")
 ```
-We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary Certificate/Diploma, University Bachelors and University Graduate degree education levels. Let us explore this further. Is the above observation statistically sound? Is the difference in status of unemployment among education levels statistically significant, specifically does the status of unemployment depend on education?
-
+We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary education levels. Let us explore this further. Is the above observation statistically sound?
 We will run Pearson's Chi-square tests of independence to answer the above questions, further To answer our main question "is a University Degree worth it", let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
 
 Is there a significant difference in unemployment rates between individuals holding a bachelors degree vs graduates degree in ontario?
@@ -404,17 +379,14 @@ lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(4,6)) %>%
 ```
 As expected here also we note that unemployment rate is significantly different between these two educational levels. There is strong evidence for it.
 
-And the most crucial test to answer our question to conclude if a university degree is worth it or not based on unemployment, Is there a significant difference in unemployment rates between individuals holding a Post secondary Non-University certificate/diploma vs University Bachelors degree i.e entry level university degree ?
+And the most crucial test to answer our question to conclude if a university degree is worth it or not based on unemployment, Is there a significant difference in unemployment rates between individuals holding a Post secondary Non-University certificate/diploma vs University Bachelors degree ?
 ```{r echo=FALSE}
 lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(4,5)) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
   chisq_test(unempl ~ educ, data = .,
              distribution = "approx")
 ```
-Surprisingly this result states that unemployment rate is independent of these two education levels, that is again any difference is negligible, the employability of individuals in these education levels are more or less the same. So one can not state that a university degree is worth it or not worth it in comparison to a non university education based off of unemployment rate alone when focusing on Ontario. [When considering all of Canada the differences are significant across the board, see appendix]
-Therefore unemployment rate is not a strong indicator of being worth it or not worth it when considering post secondary education.
-
-Note: However like in our other analyses we did notice a graduate degree being more worth it to that of a bachelors, so we would suggest a person taking a bachelors to aim for a graduates degree.
+Surprisingly this result states that unemployment rate is independent of these two education levels, that is again any difference is negligible, the employability of individuals in these education levels are more or less the same. So a university degree does not seem to be worth it when comparing to a diploma/certificate.
 
 To clinch the above result let us run a Tukey test to see across the board how different are unemployment rates between all education levels. 
 
@@ -425,14 +397,15 @@ lfs.ontario.aov=lfs_ontario %>%
   aov(unempl ~ educ, data=.)
 TukeyHSD(lfs.ontario.aov)
 ```
-As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves we see that a graduates degree has a significant improvment to unemployment compared to all other post secondary education levels.
+As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves we see that a graduates degree has a significant improvment to unemployment compared to all other post secondary education levels.[for Canada over all see Appendix part 2]
 
 ## Summary 
-Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Domestic student tuition fees are generally lower. In the end, both are worth it.
+Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Therefore considering amortization time inspite of tuition costs we suggest, it's better to do graduate studies than undergrad studies as an international student if time to amortize is a concern. Especailly if a international student is currently doing undergrad they must consider continuing into graduate studies to gain more benifit.
 
 Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have Education as the most worth it field of study. For Canadian Graduate, it is law and or International Graduates it is Dentistry. Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
 
 Finally when comparing A bachelors degree to a post secondary certificate/diploma we found no significant imporvement to employability. In Ontario if an individuals focus is employability we suggest going for a Post secondary Certificate/Diploma if program cost is of greater importance, but if cost is not a great concern a University Degree is worth it in all regard. 
+
 ***  
 
 ## Appendix 
@@ -495,8 +468,9 @@ domestic_international_graduate %>%
   ylab("Time to Amortize in years")
 ```
 
+Appendix part 2:
 
-Is unemployment rates significantly different among all selected education levels?
+#### Is unemployment rates significantly different among all selected education levels across Canada?
 ```{r echo=FALSE}
 lfs_ontario %>% select(lfsstat, educ) %>% 
   filter(lfsstat !=4 & educ %in% 2:6) %>% 
@@ -505,3 +479,12 @@ lfs_ontario %>% select(lfsstat, educ) %>%
              distribution = "approx")
 ```
 Yes, there does seem to be a significant difference in unemployment rates among all education levels from "Gr 11 to 13, graduate" to university graduate degree. unemployment rate is dependent on an individuals educational attainment.
+
+```{r echo=FALSE}
+lfs.canada.aov=lfs %>%
+  filter(lfsstat !=4 & educ %in% 2:6) %>% 
+  mutate(educ = factor(educ), unempl = (lfsstat == 3)) %>%
+  aov(unempl ~ educ, data=.)
+TukeyHSD(lfs.canada.aov)
+```
+When considering all of Canada we see that all educational levels have statistically significant differences in unemployment rates when being compared to each other. Whereas when comparing a Bachelors to a graduates degree there is no significant difference. From this we can conclude that a University education is greatly worth it to non university education when considering employablity.
