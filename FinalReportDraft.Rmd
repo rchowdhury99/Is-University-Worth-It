@@ -57,7 +57,7 @@ To analyse the affect of the above mentioned factors on amortization time, we as
 
 ## Data Descriptions
 
-To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will webscrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from statcan will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study and income6.csv will indicate income based on fields of study. To analyse Unemployment we will focus on the Labour Force Survey data set.
+To answer the questions stated above it is required to get tuition costs depending on graduate and undergraduate levels of study and fields of study. To do that we will web-scrape data from univcan.ca that will let us know the average tuition for graduate and undergraduate degrees. Tables from Statistics Canada will indicate the average tuition for international and domestic students at different fields of study as well as different levels of study and income6.csv will indicate income based on fields of study. To analyse Unemployment we will focus on the Labor Force Survey data set.
 
 ```{r, echo=FALSE}
 # Webscraping https://www.univcan.ca/universities/facts-and-stats/tuition-fees-by-university/
@@ -204,7 +204,7 @@ domestic_international_undergraduate %>%
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())+
   geom_hline(yintercept = 10000, linetype="dashed", color = "blue")
 ```
-From the above we can see that domestic tuitions of the universities in Ontario stay around the same, while the international student tuition varies from university to university greatly while being greater than domestic tuition fees. Since amortization time is proportional to tuition cost, the above seperation between domestic and international students caries forward into duration of ammortization as well both for undergraduate studies and graduate studies. [this is explored further graphically in the appendix part 1]
+From the above we can see that domestic tuition of the universities in Ontario stay around the same, while the international student tuition varies from university to university greatly while being greater than domestic tuition fees. Since amortization time is proportional to tuition cost, the above separation between domestic and international students caries forward into duration of amortization as well both for undergraduate studies and graduate studies. [this is explored further graphically in the appendix part 1]
 Lets move onto question 2 to get a better over all picture and also answer question 1.
 
 ```{r, echo=FALSE, warning=FALSE}
@@ -292,15 +292,14 @@ amortize_table %>%
 ```
 
 ## Conclusion for question 1 Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?:
-Most definitly yes, there is considerable difference in time to amortize degree cost between domestic and international student for undergrad. Seeing the above plot we would say it is more worth it to a domestic student to do undergrad than for a international student. But this does not mean its completely not worth it for an international students as we explain below.
+Most definitely yes, there is considerable difference in time to amortize degree cost between domestic and international student for undergrad. Seeing the above plot we would say it is more worth it to a domestic student to do undergrad than for a international student. But this does not mean its completely not worth it for international students as we explain below.
 
 ## Conclusion for question 2 Is it worth it to get a Masters degree as a Canadian domestic student compared to an international student?:
-According to the result above again its is more worth to get a graduates degree as a domestic student than being a international students, but the difference is not as great as in the undergrad comparison.
-International undergraduate tuitions are a lot larger than domestic tuition, but according to Q2 analysis, although a graduate degree for international students takes longer to amortize than the domestic it's not as big of a margin as in the undergraduate degree case as we saw in Q1.
+According to the result above again its is more worth to get a graduates degree as a domestic student than being a international students. International undergraduate tuition are a lot larger than domestic tuition, but according to Q2 analysis, although a graduate degree for international students takes longer to amortize than the domestic it's not as big of a margin as in the undergraduate degree case as we saw in Q1. So a graduates degree is worth it to both groups of students.
 
 
 #### Q3: What is the most "worth-it" field of study? (for undergraduate and graduate, for international and domestic)
-To find the most and least worth it field of study for each category combination we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition. The fastest time will correspond to the "Most worth it" field of study. Our Amortization times are denoted in years, and Tuition and Income in CAD, the income will be drawn from Canadian income data sets since we assume students in all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study. We also assume that a student gets a job immediatly after graduation to start paying off degree cost. 
+To find the most and least worth it field of study for each category combination we will be calculating the average yearly tuition fees across 5 years and then based on yearly income per field of study calculate the time to amortize said tuition. The fastest time will correspond to the "Most worth it" field of study. Our Amortization times are denoted in years, and Tuition and Income in CAD, the income will be drawn from Canadian income data sets since we assume students in all of the categories will be working in their desired field of study in Canada. We will only be using the average employment income after tax for each field of study. We also assume that a student gets a job immediately after graduation to start paying off degree cost. 
 
 Most worth it field for Canadian Undergraduate:
 ```{r}
@@ -359,10 +358,10 @@ lfs_ontario %>% filter(lfsstat !=4 & educ %in% 2:6) %>%
   xlab("Educational attainment")+
   labs(fill="Unemployed")
 ```
-We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary education levels. Let us explore this further. Is the above observation statistically sound?
-We will run Pearson's Chi-square tests of independence to answer the above questions, further To answer our main question "is a University Degree worth it", let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
+We notice that unemployment rates seem to be different for all levels of education but there does not seem to be considerable difference between the Post Secondary education levels. Is the above observation statistically sound?
+We will run Pearson's Chi-square tests of independence to answer the above questions and to answer our main question "is a University Degree worth it" in regards to unemployment rate, let us focus specifically on the unemployment rate difference between 4:Post secondary certificate/diploma, 5:University: bachelors degree and 6: University: graduate degree
 
-Is there a significant difference in unemployment rates between individuals holding a bachelors degree vs graduates degree in ontario?
+Is there a significant difference in unemployment rates between individuals holding a bachelors degree vs graduates degree in Ontario?
 ```{r echo=FALSE}
 lfs_ontario %>% filter(lfsstat !=4 & educ %in% c(5,6)) %>% 
   mutate(educ = factor(educ), unempl = factor(lfsstat == 3)) %>% 
@@ -398,14 +397,14 @@ lfs.ontario.aov=lfs_ontario %>%
   aov(unempl ~ educ, data=.)
 TukeyHSD(lfs.ontario.aov)
 ```
-As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves we see that a graduates degree has a significant improvment to unemployment compared to all other post secondary education levels.[for Canada over all see Appendix part 2]
+As evident from the Tukey test, we can conclude that any post secondary education is preferable in regards to employability in comparison to non-post secondary education. But when comparing post secondary education levels among themselves we see that a graduates degree has a significant improvement to unemployment compared to all other post secondary education levels.[for Canada over all see Appendix part 2]
 
 ## Summary 
-Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Therefore considering amortization time inspite of tuition costs we suggest, it's better to do graduate studies than undergrad studies as an international student if time to amortize is a concern. Especailly if a international student is currently doing undergrad they must consider continuing into graduate studies to gain more benifit.
+Based on the results from question 1 and 2, it is safe to conclude that International student tuition for any degree is higher than Domestic student tuition. However, the gap between tuition is lessened when going from a bachelor's degree to a masters degree. This means it is easier to pay off a masters degree than a bachelors degree as an international student. Therefore considering amortization time in spite of tuition costs we suggest, it's better to do graduate studies than undergrad studies as an international student if time to amortize is a concern. Especially if a international student is currently doing undergrad they must consider continuing into graduate studies to gain more benefit.
 
-Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have Education as the most worth it field of study. For Canadian Graduate, it is law and or International Graduates it is Dentistry. Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply it is not worth it. Education is an investment, the statistics calculated just implies it is harder to get a good payout from that field.
+Regarding questions 3 and 4: an undergraduate degree, for both Canadian and international students, have Education as the most worth it field of study. For Canadian Graduate, it is law and for International Graduates it is Dentistry. Surprisingly, for domestic undergraduate students, Dentistry is the least worthy field of study since it has the highest time to amortize. For domestic graduate students, Business, management, and public administration is the least worthy of study. For international undergraduate students, visual and performing arts, and communications technologies is the least worthy field of study since it has the lowest average income. For international graduate students, Business, management and public administration is the least worth of study, which is same as domestic graduate students. However, by no means does this imply least worth-it programs are not worth it at all. the statistics calculated just implies it is harder to get a good payout from that field.
 
-Finally when comparing A bachelors degree to a post secondary certificate/diploma we found no significant imporvement to employability. In Ontario if an individuals focus is employability we suggest going for a Post secondary Certificate/Diploma if program cost is of greater importance, but if cost is not a great concern a University Degree is worth it in all regard. 
+Finally when comparing A bachelors degree to a post secondary certificate/diploma we found no significant improvement to employability. In Ontario if an individuals focus is employability we suggest going for a Post secondary Certificate/Diploma if program cost is of greater importance, but if cost is not a great concern a University Degree is worth it in all regard. 
 
 ***  
 
@@ -488,4 +487,4 @@ lfs.canada.aov=lfs %>%
   aov(unempl ~ educ, data=.)
 TukeyHSD(lfs.canada.aov)
 ```
-When considering all of Canada we see that all educational levels have statistically significant differences in unemployment rates when being compared to each other. Whereas when comparing a Bachelors to a graduates degree there is no significant difference. From this we can conclude that a University education is greatly worth it to non university education when considering employablity.
+When considering all of Canada we see that all educational levels have statistically significant differences in unemployment rates when being compared to each other. Whereas when comparing a Bachelors to a graduates degree there is no significant difference. From this we can conclude that a University education is greatly worth it to non university education when considering employability.
