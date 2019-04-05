@@ -46,7 +46,7 @@ Instructions:
 
 "Is university worth it?" is one of the hardest questions to answer because of its broad nature. University is a very different experience from person to person depending on various factors. One of the main concerns of most people is the heavy economical investment university requires. This skews the question towards the idea of measuring worth by future economical gain that pays out the original investment. Therefore, to investigate if university is "worth-it", it makes sense to calculate the amount of time it takes to amortize total tuition cost in Canada, and factors that affect the amortization process.
 
-To answer this broad question with focus on amortization time, we consider three areas: a. A students immigration status, b. Degree specifications, c. Employability after graduation, Since tuition expenses show great variance depending on these factors.
+To answer this broad question with focus on amortization time, we consider three areas: a. A students immigration status, b. Degree specifications, c. Employability after graduation, Since we believe tuition expenses are affected by these factors.
 
 To analyse the affect of the above mentioned factors on amortization time, we ask the following questions.
 1. Is it worth it to get a Bachelor's degree as a Canadian domestic student compared to an international student?
@@ -183,7 +183,8 @@ leastWorthIt <- function(dat, yearsOfStudy){
 }
 ```
 
-## DATA ANAYLSIS
+
+## Data Analysis
 
 For our main analysis for question 1 and question 2 we will focus on the overall differences that student type and degree level has on amortization time for students in Ontario.
 
